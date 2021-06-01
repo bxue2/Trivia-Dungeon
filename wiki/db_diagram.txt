@@ -1,0 +1,57 @@
+//For creating the diagram of tables on dbdiagram.io
+// Creating tables
+Table users as U {
+  id int [pk, increment] // auto-increment
+  username varchar(30)
+  email varchar(256)
+  password string(binary)
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table categories {
+  id int [pk]
+  name varchar(100)
+  created_at timestamp
+  updated_at timestamp
+ }
+
+Table questions {
+  id int [pk]
+  question string [not null, unique]
+  answer string [not null]
+  incorrect_answers string[3]
+  user_id int
+  category_id int
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table sets {
+  id int [pk]
+  user_id int
+  name varchar(30) [unique, not null]
+}
+
+Table sets_questions{
+  id int [pk]
+  question_id int
+  set_id int
+}
+
+Table question_comments {
+  id int [pk]
+  user_id int
+  question_id int
+  comment string
+  rating int
+}
+
+
+Ref: questions.category_id > categories.id
+Ref: questions.user_id > U.id
+Ref: sets.user_id > U.id
+Ref: question_comments.user_id > U.id
+Ref: question_comments.question_id > questions.id
+Ref: sets_questions.question_id > questions.id
+Ref: sets_questions.set_id > sets.id
