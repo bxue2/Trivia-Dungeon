@@ -4,7 +4,7 @@ import LogoutButton from '../auth/LogoutButton';
 
 import './NavBar.css'
 
-const NavBar = ({ setAuthenticated }) => {
+const NavBar = () => {
   const history = useHistory();
   const goHome = () => {
     history.push('/')

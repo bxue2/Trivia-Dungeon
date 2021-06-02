@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
+import { useDispatch, useSelector } from 'react-redux';
 
-const LoginForm = ({ authenticated, setAuthenticated }) => {
+const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user);
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -23,7 +25,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     setPassword(e.target.value);
   };
 
-  if (authenticated) {
+  if (user) {
     return <Redirect to="/" />;
   }
 
