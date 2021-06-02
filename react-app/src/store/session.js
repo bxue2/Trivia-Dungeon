@@ -22,7 +22,7 @@ export const authenticate = () => async (dispatch) => {
     if(data.errors){
         return data;
     }
-    dispatch(setUser(data.user));
+    dispatch(setUser(data));
     return data;
   }
 
@@ -39,10 +39,10 @@ export const authenticate = () => async (dispatch) => {
     });
     const data = await response.json()
     if(data.errors){
-      console.log("Error login");
         return data;
     }
-    dispatch(setUser(data.user));
+    console.log(data);
+    dispatch(setUser(data));
     return data;
   }
 
@@ -78,7 +78,7 @@ export const authenticate = () => async (dispatch) => {
     if(data.errors){
         return data;
     }
-    dispatch(setUser(data.user));
+    dispatch(setUser(data));
 
     return data;
   }
