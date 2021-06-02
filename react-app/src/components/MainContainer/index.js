@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
+import SplashPage from '../SplashPage';
 
 import './MainContainer.css';
 
@@ -20,7 +21,7 @@ const MainContainer = () => {
                 <User />
                 </ProtectedRoute> */}
                 <Route path="/" exact={true} >
-                <h1>My Home Page</h1>
+                    <SplashPage />
                 </Route>
                 <Route>
                 <h1>404 Page not Found</h1>
