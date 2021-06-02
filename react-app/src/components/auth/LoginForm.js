@@ -37,17 +37,17 @@ const LoginForm = ({setShowModal}) => {
           <div>{error}</div>
         ))}
       </div>
-      <div>
+      <div className='login-form-field'>
         <label htmlFor="email">Email/Username</label>
         <input
           name="email"
           type="text"
-          placeholder="Email"
+          placeholder="Email/Username"
           value={email}
           onChange={updateEmail}
         />
       </div>
-      <div>
+      <div className='login-form-field'>
         <label htmlFor="password">Password</label>
         <input
           name="password"
@@ -56,8 +56,8 @@ const LoginForm = ({setShowModal}) => {
           value={password}
           onChange={updatePassword}
         />
-        <button className='login-submit' type="submit">Login</button>
       </div>
+      <button className='login-submit' type="submit">Login</button>
     </form>
   );
 };
