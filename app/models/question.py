@@ -19,7 +19,7 @@ class Question(db.Model):
     qcomment = db.relationship("QuestionComment", back_populates="question")
 
     sets = db.relationship("Set",
-                secondary="set_question",
+                secondary="set_questions",
                 back_populates="questions")
 
     def to_dict(self):
