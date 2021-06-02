@@ -29,7 +29,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path="/login" exact={true}>
+        {/* <Route path="/login" exact={true}>
           <LoginForm/>
         </Route>
         <Route path="/sign-up" exact={true}>
@@ -40,10 +40,10 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} >
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} >
+        </ProtectedRoute> */}
+        <Route path="/" exact={true} >
           <h1>My Home Page</h1>
-        </ProtectedRoute>
+        </Route>
         <Route>
           <h1>404 Page not Found</h1>
         </Route>
