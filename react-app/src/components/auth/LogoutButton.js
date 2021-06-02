@@ -6,7 +6,7 @@ const LogoutButton = () => {
   const dispatch = useDispatch();
 
   const onLogout = async (e) => {
-    await dispatch(logout());
+    dispatch(logout());
   };
 
   return <button onClick={onLogout}>Logout</button>;

@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
+    const data = dispatch(login(email, password));
     if (data.errors) {
       setErrors(data.errors);
     }

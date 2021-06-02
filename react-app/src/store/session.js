@@ -1,3 +1,5 @@
+import {useDispatch} from 'react-redux';
+
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 
@@ -12,7 +14,7 @@ const removeUser = () => ({
 
 const initialState = { user: null };
 
-export const authenticate = async() => {
+export const authenticate = () => async (dispatch) => {
     const response = await fetch('/api/auth/',{
       headers: {
         'Content-Type': 'application/json'
@@ -26,7 +28,7 @@ export const authenticate = async() => {
     return data;
   }
 
-  export const login = async (email, password) => {
+  export const login = (email, password) => async (dispatch) => {
     const response = await fetch('/api/auth/login', {
       method: 'POST',
       headers: {
@@ -45,7 +47,7 @@ export const authenticate = async() => {
     return data;
   }
 
-  export const logout = async () => {
+  export const logout = () => async (dispatch) => {
     const response = await fetch("/api/auth/logout", {
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +63,7 @@ export const authenticate = async() => {
   };
 
 
-  export const signUp = async (username, email, password) => {
+  export const signUp = (username, email, password) => async (dispatch) => {
     const response = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {

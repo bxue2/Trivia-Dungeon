@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import {useSelector, useDispatch} from 'react-redux';
 
 const SignUpForm = () => {
   const [username, setUsername] = useState("");
@@ -14,7 +15,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      await dispatch(signUp(firstName, lastName, email, password));
+      dispatch(signUp(username, email, password));
     }
   };
 
