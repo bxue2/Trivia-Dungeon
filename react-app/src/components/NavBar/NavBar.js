@@ -1,8 +1,11 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import { useDispatch } from 'react-redux';
 
 import './NavBar.css'
+import LoginModal from './LoginModal';
+import SignUpModal from './SignUpModal';
 
 const NavBar = () => {
   const history = useHistory();
@@ -11,13 +14,15 @@ const NavBar = () => {
   }
 
   const openLogin = () => {
-    
+
   }
 
   return (
     <nav>
       <div className='nav-logo' onClick={goHome}/>
-      <div className='login-button' onClick={openLogin} >Login</div>
+      <LoginModal />
+      <SignUpModal />
+      <LogoutButton />
     </nav>
   );
 }
