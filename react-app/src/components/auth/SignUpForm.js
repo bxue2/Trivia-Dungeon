@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { signUp } from '../../store/session';
 import {useDispatch} from 'react-redux';
 
+import './Forms.css'
+
 const SignUpForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");

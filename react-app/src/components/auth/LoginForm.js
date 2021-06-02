@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from 'react-redux';
 
+import './Forms.css'
+
 const LoginForm = ({setShowModal}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
@@ -29,7 +31,7 @@ const LoginForm = ({setShowModal}) => {
   };
 
   return (
-    <form onSubmit={onLogin}>
+    <form className='login-form' onSubmit={onLogin}>
       <div>
         {errors.map((error) => (
           <div>{error}</div>
@@ -54,7 +56,7 @@ const LoginForm = ({setShowModal}) => {
           value={password}
           onChange={updatePassword}
         />
-        <button type="submit">Login</button>
+        <button className='login-submit' type="submit">Login</button>
       </div>
     </form>
   );

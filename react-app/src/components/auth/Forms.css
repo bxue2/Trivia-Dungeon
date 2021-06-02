@@ -1,0 +1,18 @@
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-submit{
+    background-color: #3a3a3a;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.login-submit:hover{
+    box-shadow: 0 0 3px white;
+}
