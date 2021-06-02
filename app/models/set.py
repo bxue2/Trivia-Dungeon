@@ -9,6 +9,10 @@ class Set(db.Model):
 
     user = db.relationship("User", back_populates="set")
 
+    questions = db.relationship("Question",
+                    secondary="set_question",
+                    back_populates="sets")
+
     def to_dict(self):
         return {
             "id": self.id,

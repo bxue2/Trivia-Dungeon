@@ -17,6 +17,10 @@ class Question(db.Model):
     user = db.relationship("User", back_populates="question")
     category = db.relationship("Category", back_populates="question")
 
+    sets = db.relationship("Set",
+                secondary="set_question",
+                back_populates="questions")
+
     def to_dict(self):
         return {
             "id": self.id,
