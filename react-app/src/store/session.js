@@ -1,5 +1,3 @@
-import {useDispatch} from 'react-redux';
-
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 
@@ -41,6 +39,7 @@ export const authenticate = () => async (dispatch) => {
     });
     const data = await response.json()
     if(data.errors){
+      console.log("Error login");
         return data;
     }
     dispatch(setUser(data.user));

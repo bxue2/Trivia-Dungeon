@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 const SignUpForm = () => {
   const [username, setUsername] = useState("");
@@ -9,7 +8,6 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
-  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
@@ -34,10 +32,6 @@ const SignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
-
-  // if (user) {
-  //   return <Redirect to="/" />;
-  // }
 
   return (
     <form onSubmit={onSignUp}>

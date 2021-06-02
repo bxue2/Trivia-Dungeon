@@ -1,21 +1,22 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-const LoginForm = () => {
+const LoginForm = ({setShowModal}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user);
 
   const onLogin = async (e) => {
     e.preventDefault();
     const data = dispatch(login(email, password));
     if (data.errors) {
       setErrors(data.errors);
+    }
+    else{
+      setShowModal(false);
     }
   };
 
@@ -26,10 +27,6 @@ const LoginForm = () => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
-
-  // if (user) {
-  //   return <Redirect to="/" />;
-  // }
 
   return (
     <form onSubmit={onLogin}>
