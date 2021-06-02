@@ -10,10 +10,14 @@ const NavBar = () => {
     history.push('/')
   }
 
+  const openLogin = () => {
+
+  }
+
   return (
     <nav>
       <div className='nav-logo' onClick={goHome}/>
-
+      <div className='login-button' onClick={openLogin} >Login</div>
     </nav>
   );
 }
