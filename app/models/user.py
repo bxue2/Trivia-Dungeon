@@ -12,6 +12,7 @@ class User(db.Model, UserMixin):
 
   question = db.relationship("Question", back_populates="user")
   set = db.relationship("Set", back_populates="user")
+  qcomment = db.relationship("QuestionComment", back_populates="user")
 
   @property
   def password(self):

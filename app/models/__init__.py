@@ -4,3 +4,4 @@ from .question import Question
 from .category import Category
 from .set import Set
 from .set_question import SetQuestion
+from .question_comment import QuestionComment

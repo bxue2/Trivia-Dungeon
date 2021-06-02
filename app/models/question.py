@@ -16,6 +16,7 @@ class Question(db.Model):
 
     user = db.relationship("User", back_populates="question")
     category = db.relationship("Category", back_populates="question")
+    qcomment = db.relationship("QuestionComment", back_populates="question")
 
     sets = db.relationship("Set",
                 secondary="set_question",
