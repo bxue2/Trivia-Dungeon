@@ -14,12 +14,26 @@ const NavBar = () => {
     history.push('/')
   }
 
+  let authButtons = (
+    <>
+      <LoginModal />
+      <SignUpModal />
+    </>
+  )
+  if(user){
+    authButtons = (
+      <>
+        <LogoutButton />
+      </>
+    )
+  }
   return (
     <nav>
       <div className='nav-logo' onClick={goHome}/>
-      <LoginModal />
-      <SignUpModal />
-      <LogoutButton />
+      <div className='nav-filler'/>
+      <div className='nav-right-container'>
+        {authButtons}
+      </div>
     </nav>
   );
 }
