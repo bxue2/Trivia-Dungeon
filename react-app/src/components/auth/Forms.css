@@ -1,0 +1,39 @@
+.login-form, .signup-form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.login-form-field, .signup-form-field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.login-form-field input, .signup-form-field input{
+    height: 2em;
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-submit, .signup-submit{
+    margin-top: 10px;
+    background-color: #3a3a3a;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.login-submit:hover, .signup-submit:hover{
+    box-shadow: 0 0 10px rgb(199, 151, 120);
+}

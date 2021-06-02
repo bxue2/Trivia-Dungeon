@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 import App from './App';
 
 import configureStore from './store';
+import { ModalProvider } from './context/Modal';
 
 const store = configureStore();
 
@@ -15,7 +16,9 @@ if (process.env.NODE_ENV !== 'production') {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ModalProvider>
+        <App />
+      </ModalProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

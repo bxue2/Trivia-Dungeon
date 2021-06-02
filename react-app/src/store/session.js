@@ -1,5 +1,3 @@
-import {useDispatch} from 'react-redux';
-
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 
@@ -24,7 +22,7 @@ export const authenticate = () => async (dispatch) => {
     if(data.errors){
         return data;
     }
-    dispatch(setUser(data.user));
+    dispatch(setUser(data));
     return data;
   }
 
@@ -43,7 +41,8 @@ export const authenticate = () => async (dispatch) => {
     if(data.errors){
         return data;
     }
-    dispatch(setUser(data.user));
+    console.log(data);
+    dispatch(setUser(data));
     return data;
   }
 
@@ -79,7 +78,7 @@ export const authenticate = () => async (dispatch) => {
     if(data.errors){
         return data;
     }
-    dispatch(setUser(data.user));
+    dispatch(setUser(data));
 
     return data;
   }
