@@ -1,11 +1,14 @@
 import React from 'react'
+import QuestionList from './QuestionList'
+import AddQuestion from './AddQuestion'
 
 import './Questions.css'
 
 const Questions = () => {
     return (
-        <div>
-            <h1>Questions page</h1>
+        <div className='questions-container'>
+            <QuestionList />
+            <AddQuestion />
         </div>
     )
 }
