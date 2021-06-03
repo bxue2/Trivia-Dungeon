@@ -30,7 +30,7 @@ def get_qcomment(questionid):
     """
     Get all comment for a question by the question's id.
     """
-    qcomments = QuestionComment.query.filter(QuestionComment.question_id == questionid).all()
+    qcomments = QuestionComment.query.filter(QuestionComment.question_id == questionid).order_by(QuestionComment.updated_at).all()
     return {"qcomments": [qcomment.to_dict() for qcomment in qcomments]}
 
 # @comment_routes.route('/<id>', methods=['PUT'])
