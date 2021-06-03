@@ -24,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-        <MainContainer />
+      <MainContainer />
       <Footer />
     </BrowserRouter>
   );

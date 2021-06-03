@@ -1,0 +1,7 @@
+.sidebar-container{
+    background-color: #474747;
+    border-right: 3px solid black;
+    width: 200px;
+    height: 100%;
+    box-sizing: border-box;
+}
