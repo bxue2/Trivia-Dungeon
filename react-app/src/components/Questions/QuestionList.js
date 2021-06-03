@@ -2,7 +2,7 @@ import React from 'react';
 
 import QuestionListRow from './QuestionListRow';
 
-const QuestionList = ({questions, getQuestions}) => {
+const QuestionList = ({questions, getQuestions, setEditQuestion}) => {
 
 
     let questionRows =  (
@@ -18,7 +18,7 @@ const QuestionList = ({questions, getQuestions}) => {
             {questions.map((question, idx) => {
                     return (
                         // <div key={idx}> Hi </div>
-                        <QuestionListRow question={question} getQuestions={getQuestions} key={idx}/>
+                        <QuestionListRow question={question} getQuestions={getQuestions} setEditQuestion={setEditQuestion} key={idx}/>
                     )})
             }
 

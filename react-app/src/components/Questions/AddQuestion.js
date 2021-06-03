@@ -31,16 +31,21 @@ const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
 
     useEffect(() => {
         getCategories();
-        if(editQuestion){
-            setQuestion = editQuestion.question;
-            setAnswer = editQuestion.answer;
-            setIncorrect1 = editQuestion.incorrect_answer_1;
-            setIncorrect2 = editQuestion.incorrect_answer_2;
-            setIncorrect3 = editQuestion.incorrect_answer_3;
-            setDifficulty = editQuestion.difficulty;
-            setCategoryId = editQuestion.categoryId;
-        }
     }, [])
+
+    useEffect(()=> {
+        if(editQuestion){
+            console.log(editQuestion);
+            setQuestion(editQuestion.question);
+            setAnswer(editQuestion.answer);
+            setIncorrect1(editQuestion.incorrectAnswers[0]);
+            setIncorrect2(editQuestion.incorrectAnswers[1]);
+            setIncorrect3(editQuestion.incorrectAnswers[2]);
+            setDifficulty(editQuestion.difficulty);
+            setCategoryId(editQuestion.categoryId);
+            setShowForm(true);
+        }
+    }, [editQuestion])
 
     const checkErrors = () => {
         let newErrors = [];
@@ -62,10 +67,13 @@ const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
     const submitQuestion = async (e) => {
         e.preventDefault()
         checkErrors();
-        console.log(categoryId)
+        let fetchMethod = 'POST';
+        if(editQuestion){
+            fetchMethod = 'PUT';
+        }
         if(errors.length === 0){
             const response = await fetch('/api/questions/', {
-                method: 'POST',
+                method: fetchMethod,
                 headers: {
                     'Content-Type': 'application/json'
                 },

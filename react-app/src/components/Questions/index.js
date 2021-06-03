@@ -25,7 +25,7 @@ const Questions = () => {
 
     return (
         <div className='questions-container'>
-            <QuestionList questions={questions} getQuestions={getQuestions}/>
+            <QuestionList questions={questions} getQuestions={getQuestions} setEditQuestion={setEditQuestion}/>
             <AddQuestion editQuestion={editQuestion} setEditQuestion={setEditQuestion} getQuestions={getQuestions}/>
         </div>
     )

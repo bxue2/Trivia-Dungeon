@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuestionListRow = ({question, getQuestions}) => {
+const QuestionListRow = ({question, getQuestions, setEditQuestion}) => {
 
     const deleteQuestion = async () => {
         const response = await fetch(`/api/questions/${question.id}`, {
@@ -11,7 +11,7 @@ const QuestionListRow = ({question, getQuestions}) => {
     }
 
     const openEditForm = () => {
-
+        setEditQuestion(question);
     }
 
     return (
