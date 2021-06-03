@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import Sidebar from '../Sidebar'
 import SplashPage from '../SplashPage';
+import QuestionPage from '../QuestionPage';
 
 import ProtectedRoute from '../auth/ProtectedRoute'
 import Questions from '../Questions'
@@ -18,7 +19,7 @@ const MainContainer = () => {
                     <Questions />
                 </ProtectedRoute>
                 <Route path="/questions/:id" exact={true}>
-                    <h1>Question details</h1>
+                    <QuestionPage />
                 </Route>
                 <ProtectedRoute path="/sets" exact={true}>
                     <Sets />

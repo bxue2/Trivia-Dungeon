@@ -38,7 +38,7 @@ def get_question(id):
     question = Question.query.get(id)
     return question.to_dict()
 
-@question_routes.route('/user/<int:userid>/')
+@question_routes.route('/user/<int:userid>')
 def get_user_questions(userid):
     questions = Question.query.filter(Question.user_id == userid)
     return {"questions": [question.to_dict() for question in questions]}
