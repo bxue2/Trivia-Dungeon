@@ -7,7 +7,9 @@ class Question(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     question = db.Column(db.String(800), nullable = False, unique = True)
     answer = db.Column(db.String(255), nullable = False)
-    incorrect_answers = db.Column(db.ARRAY(db.String(255)), nullable = False)
+    incorrect_answer_1 = db.Column(db.String(255), nullable = False)
+    incorrect_answer_2 = db.Column(db.String(255), nullable = False)
+    incorrect_answer_3 = db.Column(db.String(255), nullable = False)
     difficulty = db.Column(db.Integer, nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable = False)
@@ -23,11 +25,12 @@ class Question(db.Model):
                 back_populates="questions")
 
     def to_dict(self):
+        incorrect_answers = [self.incorrect_answer_1, self.incorrect_answer_2, self.incorrect_answer_3]
         return {
             "id": self.id,
             "question": self.question,
             "answer": self.answer,
-            "incorrectAnswers": self.incorrect_answers,
+            "incorrectAnswers": incorrect_answers,
             "difficulty": self.difficulty,
             "userId": self.user_id,
             "categoryId": self.category_id,

@@ -13,15 +13,12 @@ def create_question():
     form = QuestionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        incorrect_answers_list = [form.data['incorrect_answer_1']]
-        if(form.data['incorrect_answer_2']):
-            incorrect_answers_list.append(form.data['incorrect_answer_2'])
-        if(form.data['incorrect_answer_3']):
-            incorrect_answers_list.append(form.data['incorrect_answer_3'])
         question = Question(
             question = form.data['question'],
             answer = form.data['answer'],
-            incorrect_answers = incorrect_answers_list,
+            incorrect_answer_1 = form.data.get('incorrect_answer_1'),
+            incorrect_answer_2 = form.data.get('incorrect_answer_2'),
+            incorrect_answer_3 = form.data.get('incorrect_answer_3'),
             difficulty = form.data['difficulty'],
             user_id = 1,  #for testing
             # user_id = current_user.to_dict()['id'],
@@ -56,16 +53,7 @@ def edit_question(id):
             print("key: " + key)
             value = form.data[key]
             print("value: " + value)
-            if key == 'incorrect_answer_1':
-                incorrect_answers[0] == value
-            elif key == 'incorrect_answer_2':
-                incorrect_answers[1] == value
-            elif key == 'incorrect_answer_3':
-                incorrect_answers[2] == value
-            else:
-                setattr(question, key, value)
-
-        setattr(question, 'incorrect_answers', incorrect_answers)
+            setattr(question, key, value)
         db.session.commit()
 
     return question.to_dict()

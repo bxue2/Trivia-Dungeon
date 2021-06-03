@@ -6,7 +6,9 @@ def seed_questions():
     question1 = Question(
                     question='What temperature does ice melt (in Celsius)?',
                     answer='0 degrees',
-                    incorrect_answers=['32 degrees', '100 degrees', '98 degrees'],
+                    incorrect_answer_1='32 degrees',
+                    incorrect_answer_2='100 degrees',
+                    incorrect_answer_3='98 degrees',
                     difficulty=1,
                     user_id=1,
                     category_id=1
@@ -14,7 +16,9 @@ def seed_questions():
     question2 = Question(
                     question='What is the 11th element in the periodic table?',
                     answer='Na (Sodium)',
-                    incorrect_answers=['Mg (Magnesium)', 'Fe (Iron)', 'Al (Aluminum)'],
+                    incorrect_answer_1='Mg (Magnesium)',
+                    incorrect_answer_2='Fe (Iron)',
+                    incorrect_answer_3='Al (Aluminum)',
                     difficulty=2,
                     user_id=1,
                     category_id=1
