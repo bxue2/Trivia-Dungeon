@@ -14,7 +14,7 @@ const AddQuestion = ({editQuestion, setShowForm, setEditQuestion, getQuestions})
     const [categories, setCategories] = useState([])
 
     const getCategories = async () => {
-        const response = await fetch('/api/categories');
+        const response = await fetch('/api/categories/');
         const categoryList = await response.json();
         setCategories(categoryList.categories);
     }
