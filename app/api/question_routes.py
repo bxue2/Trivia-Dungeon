@@ -37,7 +37,6 @@ def get_question(id):
     question = Question.query.get(id)
     return question.to_dict()
 
-#Unfinished
 @question_routes.route('/<id>', methods=['PUT'])
 def edit_question(id):
     """
