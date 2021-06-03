@@ -1,30 +1,34 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {useSelector} from 'react-redux';
-import {useHistory} from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import './Sidebar.css'
 
 const Sidebar = () => {
     const user = useSelector(state => state.session.user);
-    const history = useHistory();
 
     let sidebarLinks = (
-        <div className='sign-up-prompt'>
-            <div className='prompt-body'>
-                Please sign up/log in to unlock these functions
-            </div>
-        </div>
+        <>
+        </>
     )
 
     if(user){
         sidebarLinks = (
             <>
-                <div className='sidebar-link' onClick={() => history.push('/questions')}>
+                <NavLink className='sidebar-link' to='/questions'>
                     Questions
-                </div>
-                <div className='sidebar-link' onClick={() => history.push('/sets')}>
+                </NavLink>
+                <NavLink className='sidebar-link' to='/sets'>
                     Sets
-                </div>
+                </NavLink>
             </>
+        )
+    } else{
+        sidebarLinks = (
+            <div className='sign-up-prompt'>
+                <div className='prompt-body'>
+                    Please sign up/log in to unlock these functions
+                </div>
+            </div>
         )
     }
 
