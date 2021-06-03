@@ -11,3 +11,12 @@ class QuestionComment(db.Model):
 
     user = db.relationship("User", back_populates="qcomment")
     question = db.relationship("Question", back_populates="qcomment")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "comment": self.comment,
+            "rating": self.rating,
+            "userId": self.user_id,
+            "questionId": self.question_id
+        }

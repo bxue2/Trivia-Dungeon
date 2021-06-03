@@ -12,10 +12,10 @@ def create_qcomment():
     """
     pass
 
-@comment_routes.route('/<id>')
-def get_qcomment(id):
+@comment_routes.route('/<questionid>')
+def get_qcomment(questionid):
     """
-    Get a comment in db by id.
+    Get all comment for a question by the question's id.
     """
     qcomment = QuestionComment.query.get(id)
     return qcomment.to_dict()
@@ -32,4 +32,7 @@ def delete_qcomment(id):
     """
     Deletes a comment in db.
     """
-    pass
+    qcomment = QuestionComment.query.get(id)
+    db.session.delete(qcomment)
+    db.session.commit()
+    return qcomment.to_dict()

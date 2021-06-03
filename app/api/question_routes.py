@@ -37,6 +37,9 @@ def get_question(id):
     question = Question.query.get(id)
     return question.to_dict()
 
+# For testing on Postman
+# {"question": "test question", "answer": "answer", "incorrect_answer_1": "in1", "incorrect_answer_2": "in3", "incorrect_answer_3": "in3", "difficulty": 3, "user_id": 1, "category_id": 1}
+
 @question_routes.route('/<id>', methods=['PUT'])
 def edit_question(id):
     """
