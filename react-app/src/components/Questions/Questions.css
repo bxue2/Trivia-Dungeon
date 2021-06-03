@@ -69,6 +69,12 @@
     flex: 1;
 }
 
+.view-button{
+    background-color: #2a6449;
+    color: white;
+    margin-right: 10px;
+}
+
 .edit-button{
     background-color: #234f5c;
     color: white;
