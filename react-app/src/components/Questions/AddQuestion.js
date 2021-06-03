@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-const AddQuestion = ({origQuestion}) => {
+const AddQuestion = ({origQuestion=null, getQuestions}) => {
     const [errors, setErrors] = useState([]);
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
@@ -15,7 +15,16 @@ const AddQuestion = ({origQuestion}) => {
         const response = await fetch('/api/categories');
         const categoryList = await response.json();
         setCategories(categoryList.categories);
-        console.log(categoryList.categories)
+    }
+
+    const clearFields = () => {
+        setQuestion("");
+        setAnswer("");
+        setIncorrect1("");
+        setIncorrect2("");
+        setIncorrect3("");
+        setDifficulty(1);
+        setCategoryId(1);
     }
 
     useEffect(() => {
@@ -68,8 +77,10 @@ const AddQuestion = ({origQuestion}) => {
                     'category_id': categoryId
                 })
             })
-            const res_question = await response.json();
-            console.log(res_question)
+            // const res_question = await response.json();
+            getQuestions();
+            clearFields();
+            // console.log(res_question)
         }
     }
 
