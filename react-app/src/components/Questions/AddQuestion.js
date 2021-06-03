@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 const AddQuestion = ({origQuestion}) => {
     const [errors, setErrors] = useState([]);
@@ -7,7 +7,7 @@ const AddQuestion = ({origQuestion}) => {
     const [incorrect1, setIncorrect1] = useState("");
     const [incorrect2, setIncorrect2] = useState("");
     const [incorrect3, setIncorrect3] = useState("");
-    const [difficulty, setDifficulty] = useState(1);
+    const [difficulty, setDifficulty] = useState(0);
     const [category, setCategory] = useState(1);
 
     const checkErrors = () => {
@@ -20,6 +20,9 @@ const AddQuestion = ({origQuestion}) => {
         }
         if(incorrect1.length === 0){
             newErrors.push('Incorrect Answer 1 is required.')
+        }
+        if(difficulty === 0){
+            newErrors.push('Difficulty must be selected.')
         }
         setErrors(newErrors);
     }
@@ -104,6 +107,39 @@ const AddQuestion = ({origQuestion}) => {
                         value={incorrect3}
                         onChange={(e) => setIncorrect3(e.target.value)}
                     />
+                </div>
+                <div className='add_question_field-row'>
+                    <label htmlFor='difficulty'>Difficulty</label>
+                    <div>
+                        <input
+                            type='radio'
+                            id='easy'
+                            name='difficulty'
+                            value={difficulty}
+                            onChange={() => setDifficulty(1)}
+                        />
+                        <label htmlFor='easy'>Easy</label>
+                    </div>
+                    <div>
+                        <input
+                            type='radio'
+                            id='medium'
+                            name='difficulty'
+                            value={difficulty}
+                            onChange={() => setDifficulty(2)}
+                        />
+                        <label htmlFor='medium'>Medium</label>
+                    </div>
+                    <div>
+                        <input
+                            type='radio'
+                            id='hard'
+                            name='difficulty'
+                            value={difficulty}
+                            onChange={() => setDifficulty(3)}
+                        />
+                        <label htmlFor='hard'>Hard</label>
+                    </div>
                 </div>
                 <button type='submit' className='add-question-submit'>
                     {origQuestion ? 'Edit' : 'Submit'}
