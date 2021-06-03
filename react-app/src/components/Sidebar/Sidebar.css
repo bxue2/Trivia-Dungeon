@@ -4,4 +4,42 @@
     width: 200px;
     height: 100%;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sign-up-prompt{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prompt-body{
+    border: 2px dashed white;
+    color: white;
+    font-weight: 500;
+    height: 150px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link{
+    box-sizing: border-box;
+    border-top: 2px solid rgb(189, 189, 189);
+    border-bottom: 2px solid rgb(189, 189, 189);
+    width: 100%;
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.sidebar-link:hover, .sidebar-link.active{
+    box-shadow: inset 0 0 5px #aaaaaa;
 }
