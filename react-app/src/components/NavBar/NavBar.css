@@ -3,7 +3,7 @@ nav {
     width: 100vw;
     height: 80px;
     background-color: #474747;
-    grid-template-columns: 200px auto 250px;
+    grid-template-columns: 200px auto 400px;
     grid-template-rows: 1fr;
     box-sizing: border-box;
     border-bottom: 5px solid black;
@@ -34,6 +34,16 @@ nav {
 
 .signup-button{
     background-color: #234f5c;
+    color: white;
+    font-size: 16px;
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.demo-button{
+    background-color: #623083;
     color: white;
     font-size: 16px;
     width: 100px;

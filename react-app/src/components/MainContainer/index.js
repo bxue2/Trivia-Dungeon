@@ -3,6 +3,10 @@ import { Route, Switch } from "react-router-dom";
 import Sidebar from '../Sidebar'
 import SplashPage from '../SplashPage';
 
+import ProtectedRoute from '../auth/ProtectedRoute'
+import Questions from '../Questions'
+import Sets from '../Sets'
+
 import './MainContainer.css';
 
 const MainContainer = () => {
@@ -10,12 +14,16 @@ const MainContainer = () => {
         <div className='main-container'>
             <Sidebar />
             <Switch>
-                {/* <Route path="/login" exact={true}>
-                <LoginForm/>
+                <ProtectedRoute path="/questions" exact={true}>
+                    <Questions />
+                </ProtectedRoute>
+                <Route path="/questions/:id" exact={true}>
+                    <h1>Question details</h1>
                 </Route>
-                <Route path="/sign-up" exact={true}>
-                <SignUpForm />
-                </Route>
+                <ProtectedRoute path="/sets" exact={true}>
+                    <Sets />
+                </ProtectedRoute>
+                {/*
                 <ProtectedRoute path="/users" exact={true}>
                 <UsersList/>
                 </ProtectedRoute>
