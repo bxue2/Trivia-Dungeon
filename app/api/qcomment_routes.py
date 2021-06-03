@@ -25,7 +25,7 @@ def create_qcomment():
         return qcomment.to_dict()
     return {'errors': form.errors}, 401
 
-@comment_routes.route('/<questionid>')
+@comment_routes.route('/<int:questionid>')
 def get_qcomment(questionid):
     """
     Get all comment for a question by the question's id.
@@ -35,7 +35,7 @@ def get_qcomment(questionid):
 
 # {"comment": "test comment", "rating": 3, "question_id": 1}
 
-@comment_routes.route('/<id>', methods=['PUT'])
+@comment_routes.route('/<int:id>', methods=['PUT'])
 def update_qcomment(id):
     """
     Update a comment in db.
@@ -52,7 +52,7 @@ def update_qcomment(id):
         return qcomment.to_dict()
     return {'errors': form.errors}, 401
 
-@comment_routes.route('/<id>', methods=['DELETE'])
+@comment_routes.route('/<int:id>', methods=['DELETE'])
 def delete_qcomment(id):
     """
     Deletes a comment in db.
