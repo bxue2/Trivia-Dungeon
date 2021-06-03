@@ -3,4 +3,6 @@
     height: 100px;
     bottom: 0;
     background-color: #474747;
+    box-sizing: border-box;
+    border-top: 5px solid black;
 }

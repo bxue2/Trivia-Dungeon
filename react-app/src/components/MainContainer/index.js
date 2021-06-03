@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
+import Sidebar from '../Sidebar'
 import SplashPage from '../SplashPage';
 
 import './MainContainer.css';
@@ -7,6 +8,7 @@ import './MainContainer.css';
 const MainContainer = () => {
     return (
         <div className='main-container'>
+            <Sidebar />
             <Switch>
                 {/* <Route path="/login" exact={true}>
                 <LoginForm/>
@@ -24,7 +26,7 @@ const MainContainer = () => {
                     <SplashPage />
                 </Route>
                 <Route>
-                <h1>404 Page not Found</h1>
+                    <h1>404 Page not Found</h1>
                 </Route>
             </Switch>
         </div>
