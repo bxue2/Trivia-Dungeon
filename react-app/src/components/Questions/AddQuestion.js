@@ -27,6 +27,9 @@ const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
         setIncorrect3("");
         setDifficulty(1);
         setCategoryId(1);
+
+        setShowForm(false);
+        setEditQuestion(null);
     }
 
     useEffect(() => {
@@ -68,11 +71,13 @@ const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
         e.preventDefault()
         checkErrors();
         let fetchMethod = 'POST';
+        let putId = '';
         if(editQuestion){
             fetchMethod = 'PUT';
+            putId = editQuestion.id;
         }
         if(errors.length === 0){
-            const response = await fetch('/api/questions/', {
+            const response = await fetch(`/api/questions/${putId}`, {
                 method: fetchMethod,
                 headers: {
                     'Content-Type': 'application/json'
@@ -90,8 +95,6 @@ const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
             // const res_question = await response.json();
             getQuestions();
             clearFields();
-            setShowForm(false);
-            setEditQuestion(null);
             // console.log(res_question)
         }
     }
@@ -210,7 +213,7 @@ const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
                         <button type='submit' className='add-question-submit'>
                             {editQuestion ? 'Edit' : 'Submit'}
                         </button>
-                        <button className='add-question-cancel' onClick={() => setShowForm(false)}>
+                        <button className='add-question-cancel' onClick={() => clearFields()}>
                             Cancel
                         </button>
                     </div>
