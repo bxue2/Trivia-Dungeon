@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
+
 }
 
 .loading-questions{
@@ -19,4 +19,15 @@
     color: red;
     font-size: 24px;
     font-weight: 600;
+}
+
+.question-list-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    width: 90%;
+    height: 500px;
+    margin-top: 30px;
+    background-color: #969696;
 }

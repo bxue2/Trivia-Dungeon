@@ -1,14 +1,17 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
+
+import QuestionListRow from './QuestionListRow';
 
 const QuestionList = () => {
     const user = useSelector(state => state.session.user);
+    const [questions, setQuestions] = useState([])
 
-    let questionRows = (
+    let questionRows =  (
         <div className='loading-questions'>
-            Loading...
+            {/* Loading... */}
         </div>
-    )
+    );
 
     const getQuestions = async () => {
         const response = await fetch(`/api/questions/user/${user.id}`)
@@ -20,17 +23,7 @@ const QuestionList = () => {
                 </div>
             )
         } else{
-            console.log(data)
-            // questionRows = (
-            //     <>
-            //         {data.map((question, idx) => {
-            //             return (
-            //                 <QuestionListRow question={question} key={idx}/>
-            //             )
-            //         })
-            //         }
-            //     </>
-            // )
+            setQuestions(data.questions);
         }
     }
 
@@ -41,7 +34,14 @@ const QuestionList = () => {
     return (
         <div className='question-list-container'>
             <h1>Submitted Questions</h1>
-            {questionRows}
+            {questions.length == 0 && questionRows}
+            {questions.map((question, idx) => {
+                    return (
+                        // <div key={idx}> Hi </div>
+                        <QuestionListRow question={question} key={idx}/>
+                    )})
+            }
+
         </div>
     )
 }

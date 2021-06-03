@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 
 const QuestionListRow = ({question}) => {
     return (
         <div className='question-list-row'>
-            <h1>Questions</h1>
+            <p>{question.id}</p>
             <button className='edit-button'>Edit</button>
             <button className='delete-button'>Delete</button>
         </div>
