@@ -8,7 +8,28 @@ const AddQuestion = ({origQuestion}) => {
     const [incorrect2, setIncorrect2] = useState("");
     const [incorrect3, setIncorrect3] = useState("");
     const [difficulty, setDifficulty] = useState(0);
-    const [category, setCategory] = useState(1);
+    const [categoryId, setCategoryId] = useState(1);
+    const [categories, setCategories] = useState([])
+
+    const getCategories = async () => {
+        const response = await fetch('/api/categories');
+        const categoryList = await response.json();
+        setCategories(categoryList.categories);
+        console.log(categoryList.categories)
+    }
+
+    useEffect(() => {
+        getCategories();
+        if(origQuestion){
+            setQuestion = origQuestion.question;
+            setAnswer = origQuestion.answer;
+            setIncorrect1 = origQuestion.incorrect_answer_1;
+            setIncorrect2 = origQuestion.incorrect_answer_2;
+            setIncorrect3 = origQuestion.incorrect_answer_3;
+            setDifficulty = origQuestion.difficulty;
+            setCategoryId = origQuestion.categoryId;
+        }
+    }, [])
 
     const checkErrors = () => {
         let newErrors = [];
@@ -47,9 +68,10 @@ const AddQuestion = ({origQuestion}) => {
             const res_question = await response.json();
         }
     }
+
     return (
         <div className='add-question-container'>
-            <h1>Submit a Question</h1>
+            <h1>{origQuestion ? 'Edit Question' : 'Submit a Question'}</h1>
             <form className='add-question-form' onSubmit={(e) => submitQuestion(e)}>
                 <div className='error-list'>
                     {errors.map((error, idx) => (
@@ -140,6 +162,18 @@ const AddQuestion = ({origQuestion}) => {
                         />
                         <label htmlFor='hard'>Hard</label>
                     </div>
+                </div>
+                <div className='add_question_field-row'>
+                <label htmlFor='category-select'>Category</label>
+                    <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)} name='category-select'>
+                        {
+                            categories.map((category) => {
+                                return (
+                                    <option key={category.id} value={category.id}>{category.name}</option>
+                                )
+                            })
+                        }
+                    </select>
                 </div>
                 <button type='submit' className='add-question-submit'>
                     {origQuestion ? 'Edit' : 'Submit'}
