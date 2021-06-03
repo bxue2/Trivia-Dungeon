@@ -30,3 +30,30 @@ def create_question():
         db.session.commit()
         return question.to_dict()
     return {'errors': form.errors}, 401
+
+@question_routes.route('/<id>')
+def get_question(id):
+    """
+    Gets specified question with id.
+    """
+    question = Question.query.get(id)
+    return question.to_dict()
+
+#Unfinished
+@question_routes.route('/<id>', methods=['PUT'])
+def edit_question(id):
+    """
+    Edits specified question with id.
+    """
+    question = Question.query.get(id)
+    return question.to_dict()
+
+@question_routes.route('/<id>', methods=['DELETE'])
+def delete_question(id):
+    """
+    Deletes specified question with id.
+    """
+    question = Question.query.get(id)
+    db.session.delete(question)
+    db.session.commit()
+    return question.to_dict()
