@@ -8,6 +8,7 @@ import './Questions.css'
 const Questions = () => {
     const user = useSelector(state => state.session.user);
     const [questions, setQuestions] = useState([])
+    const [editQuestion, setEditQuestion] = useState(null)
 
     const getQuestions = async () => {
         const response = await fetch(`/api/questions/user/${user.id}`)
@@ -25,7 +26,7 @@ const Questions = () => {
     return (
         <div className='questions-container'>
             <QuestionList questions={questions} getQuestions={getQuestions}/>
-            <AddQuestion getQuestions={getQuestions}/>
+            <AddQuestion editQuestion={editQuestion} setEditQuestion={setEditQuestion} getQuestions={getQuestions}/>
         </div>
     )
 }

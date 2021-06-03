@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 
-const AddQuestion = ({origQuestion=null, getQuestions}) => {
+const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
+    const [showForm, setShowForm] = useState(false);
+
     const [errors, setErrors] = useState([]);
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
@@ -29,14 +31,14 @@ const AddQuestion = ({origQuestion=null, getQuestions}) => {
 
     useEffect(() => {
         getCategories();
-        if(origQuestion){
-            setQuestion = origQuestion.question;
-            setAnswer = origQuestion.answer;
-            setIncorrect1 = origQuestion.incorrect_answer_1;
-            setIncorrect2 = origQuestion.incorrect_answer_2;
-            setIncorrect3 = origQuestion.incorrect_answer_3;
-            setDifficulty = origQuestion.difficulty;
-            setCategoryId = origQuestion.categoryId;
+        if(editQuestion){
+            setQuestion = editQuestion.question;
+            setAnswer = editQuestion.answer;
+            setIncorrect1 = editQuestion.incorrect_answer_1;
+            setIncorrect2 = editQuestion.incorrect_answer_2;
+            setIncorrect3 = editQuestion.incorrect_answer_3;
+            setDifficulty = editQuestion.difficulty;
+            setCategoryId = editQuestion.categoryId;
         }
     }, [])
 
@@ -80,121 +82,134 @@ const AddQuestion = ({origQuestion=null, getQuestions}) => {
             // const res_question = await response.json();
             getQuestions();
             clearFields();
+            setShowForm(false);
+            setEditQuestion(null);
             // console.log(res_question)
         }
     }
 
     return (
-        <div className='add-question-container'>
-            <h1>{origQuestion ? 'Edit Question' : 'Submit a Question'}</h1>
-            <form className='add-question-form' onSubmit={(e) => submitQuestion(e)}>
-                <div className='error-list'>
-                    {errors.map((error, idx) => (
-                    <div className="error-div" key={idx}>
-                        {error}
+        <>
+            {!showForm && (
+                <button onClick={() => setShowForm(true)}>Add Question</button>
+            )}
+            {showForm && <div className='add-question-container'>
+                <h1>{editQuestion ? 'Edit Question' : 'Submit a Question'}</h1>
+                <form className='add-question-form' onSubmit={(e) => submitQuestion(e)}>
+                    <div className='error-list'>
+                        {errors.map((error, idx) => (
+                        <div className="error-div" key={idx}>
+                            {error}
+                        </div>
+                        ))}
                     </div>
-                    ))}
-                </div>
-                <div className='add_question_field-row'>
-                    <label htmlFor='question'>Question</label>
-                    <input
-                        type='text'
-                        name='question'
-                        placeholder='Question'
-                        value={question}
-                        onChange={(e) => setQuestion(e.target.value)}
-                    />
-                </div>
-                <div className='add_question_field-row'>
-                    <label htmlFor='answer'>Answer</label>
-                    <input
-                        type='text'
-                        name='answer'
-                        placeholder='Correct Answer'
-                        value={answer}
-                        onChange={(e) => setAnswer(e.target.value)}
-                    />
-                </div>
-                <div className='add_question_field-row'>
-                    <label htmlFor='incorrect1'>Incorrect Answer 1</label>
-                    <input
-                        type='text'
-                        name='incorrect1'
-                        placeholder='Incorrect Answer 1'
-                        value={incorrect1}
-                        onChange={(e) => setIncorrect1(e.target.value)}
-                    />
-                </div>
-                <div className='add_question_field-row'>
-                    <label htmlFor='incorrect2'>Incorrect Answer 2</label>
-                    <input
-                        type='text'
-                        name='incorrect2'
-                        placeholder='Incorrect Answer 2 (optional)'
-                        value={incorrect2}
-                        onChange={(e) => setIncorrect2(e.target.value)}
-                    />
-                </div>
-                <div className='add_question_field-row'>
-                    <label htmlFor='incorrect3'>Incorrect Answer 3</label>
-                    <input
-                        type='text'
-                        name='incorrect3'
-                        placeholder='Incorrect Answer 3 (optional)'
-                        value={incorrect3}
-                        onChange={(e) => setIncorrect3(e.target.value)}
-                    />
-                </div>
-                <div className='add_question_field-row'>
-                    <label htmlFor='difficulty'>Difficulty</label>
-                    <div>
+                    <div className='add_question_field-row'>
+                        <label htmlFor='question'>Question</label>
                         <input
-                            type='radio'
-                            id='easy'
-                            name='difficulty'
-                            defaultChecked={difficulty === 1}
-                            onClick={() => setDifficulty(1)}
+                            type='text'
+                            name='question'
+                            placeholder='Question'
+                            value={question}
+                            onChange={(e) => setQuestion(e.target.value)}
                         />
-                        <label htmlFor='easy'>Easy</label>
+                    </div>
+                    <div className='add_question_field-row'>
+                        <label htmlFor='answer'>Answer</label>
+                        <input
+                            type='text'
+                            name='answer'
+                            placeholder='Correct Answer'
+                            value={answer}
+                            onChange={(e) => setAnswer(e.target.value)}
+                        />
+                    </div>
+                    <div className='add_question_field-row'>
+                        <label htmlFor='incorrect1'>Incorrect Answer 1</label>
+                        <input
+                            type='text'
+                            name='incorrect1'
+                            placeholder='Incorrect Answer 1'
+                            value={incorrect1}
+                            onChange={(e) => setIncorrect1(e.target.value)}
+                        />
+                    </div>
+                    <div className='add_question_field-row'>
+                        <label htmlFor='incorrect2'>Incorrect Answer 2</label>
+                        <input
+                            type='text'
+                            name='incorrect2'
+                            placeholder='Incorrect Answer 2 (optional)'
+                            value={incorrect2}
+                            onChange={(e) => setIncorrect2(e.target.value)}
+                        />
+                    </div>
+                    <div className='add_question_field-row'>
+                        <label htmlFor='incorrect3'>Incorrect Answer 3</label>
+                        <input
+                            type='text'
+                            name='incorrect3'
+                            placeholder='Incorrect Answer 3 (optional)'
+                            value={incorrect3}
+                            onChange={(e) => setIncorrect3(e.target.value)}
+                        />
+                    </div>
+                    <div className='add_question_field-row'>
+                        <label htmlFor='difficulty'>Difficulty</label>
+                        <div>
+                            <input
+                                type='radio'
+                                id='easy'
+                                name='difficulty'
+                                defaultChecked={difficulty === 1}
+                                onClick={() => setDifficulty(1)}
+                            />
+                            <label htmlFor='easy'>Easy</label>
+                        </div>
+                        <div>
+                            <input
+                                type='radio'
+                                id='medium'
+                                name='difficulty'
+                                defaultChecked={difficulty === 2}
+                                onClick={() => setDifficulty(2)}
+                            />
+                            <label htmlFor='medium'>Medium</label>
+                        </div>
+                        <div>
+                            <input
+                                type='radio'
+                                id='hard'
+                                name='difficulty'
+                                defaultChecked={difficulty === 3}
+                                onClick={() => setDifficulty(3)}
+                            />
+                            <label htmlFor='hard'>Hard</label>
+                        </div>
+                    </div>
+                    <div className='add_question_field-row'>
+                    <label htmlFor='category-select'>Category</label>
+                        <select className='add-question_category-select' value={categoryId} onChange={(e) => setCategoryId(parseInt(e.target.value))} name='category-select'>
+                            {
+                                categories.map((category) => {
+                                    return (
+                                        <option key={category.id} value={category.id}>{category.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
                     <div>
-                        <input
-                            type='radio'
-                            id='medium'
-                            name='difficulty'
-                            defaultChecked={difficulty === 2}
-                            onClick={() => setDifficulty(2)}
-                        />
-                        <label htmlFor='medium'>Medium</label>
+                        <button type='submit' className='add-question-submit'>
+                            {editQuestion ? 'Edit' : 'Submit'}
+                        </button>
+                        <button className='add-question-cancel' onClick={() => setShowForm(false)}>
+                            Cancel
+                        </button>
                     </div>
-                    <div>
-                        <input
-                            type='radio'
-                            id='hard'
-                            name='difficulty'
-                            defaultChecked={difficulty === 3}
-                            onClick={() => setDifficulty(3)}
-                        />
-                        <label htmlFor='hard'>Hard</label>
-                    </div>
-                </div>
-                <div className='add_question_field-row'>
-                <label htmlFor='category-select'>Category</label>
-                    <select value={categoryId} onChange={(e) => setCategoryId(parseInt(e.target.value))} name='category-select'>
-                        {
-                            categories.map((category) => {
-                                return (
-                                    <option key={category.id} value={category.id}>{category.name}</option>
-                                )
-                            })
-                        }
-                    </select>
-                </div>
-                <button type='submit' className='add-question-submit'>
-                    {origQuestion ? 'Edit' : 'Submit'}
-                </button>
-            </form>
-        </div>
+
+                </form>
+            </div>}
+        </>
     )
 }
 

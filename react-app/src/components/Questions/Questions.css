@@ -102,3 +102,7 @@
 .add_question_field-row input{
     padding: 5px;
 }
+
+.add-question_category-select{
+    height: 30px;
+}
