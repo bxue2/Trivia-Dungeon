@@ -10,7 +10,7 @@ def create_question():
     """
     Creates a new question in db.
     """
-    form = QuestionForm
+    form = QuestionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         incorrect_answers_list = [form.data['incorrect_answer_1']]
@@ -23,6 +23,7 @@ def create_question():
             answer = form.data['answer'],
             incorrect_answers = incorrect_answers_list,
             difficulty = form.data['difficulty'],
+            # user_id = 1,  #for testing
             user_id = current_user.to_dict()['id'],
             category_id = form.data['category']
         )
