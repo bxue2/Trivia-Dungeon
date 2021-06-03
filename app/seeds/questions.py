@@ -3,6 +3,9 @@ from app.models import db, Question, Category
 def seed_questions():
 
     category1 = Category(name='Science')
+    category2 = Category(name='History')
+    db.session.add(category1)
+    db.session.add(category2)
     question1 = Question(
                     question='What temperature does ice melt (in Celsius)?',
                     answer='0 degrees',
@@ -20,13 +23,24 @@ def seed_questions():
                     incorrect_answer_2='Fe (Iron)',
                     incorrect_answer_3='Al (Aluminum)',
                     difficulty=2,
-                    user_id=1,
+                    user_id=2,
                     category_id=1
                 )
 
-    db.session.add(category1)
+    question3 = Question(
+                    question='What year did Germany invade Poland, starting WWII?',
+                    answer='1939',
+                    incorrect_answer_1='1935',
+                    incorrect_answer_2='1941',
+                    incorrect_answer_3='1932',
+                    difficulty=2,
+                    user_id=2,
+                    category_id=2
+    )
+
     db.session.add(question1)
     db.session.add(question2)
+    db.session.add(question3)
 
     db.session.commit()
 
