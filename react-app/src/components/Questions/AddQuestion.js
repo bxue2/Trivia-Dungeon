@@ -7,7 +7,7 @@ const AddQuestion = ({origQuestion}) => {
     const [incorrect1, setIncorrect1] = useState("");
     const [incorrect2, setIncorrect2] = useState("");
     const [incorrect3, setIncorrect3] = useState("");
-    const [difficulty, setDifficulty] = useState(0);
+    const [difficulty, setDifficulty] = useState(1);
     const [categoryId, setCategoryId] = useState(1);
     const [categories, setCategories] = useState([])
 
@@ -137,8 +137,8 @@ const AddQuestion = ({origQuestion}) => {
                             type='radio'
                             id='easy'
                             name='difficulty'
-                            value={difficulty}
-                            onChange={() => setDifficulty(1)}
+                            defaultChecked={difficulty === 1}
+                            onClick={() => setDifficulty(1)}
                         />
                         <label htmlFor='easy'>Easy</label>
                     </div>
@@ -147,8 +147,8 @@ const AddQuestion = ({origQuestion}) => {
                             type='radio'
                             id='medium'
                             name='difficulty'
-                            value={difficulty}
-                            onChange={() => setDifficulty(2)}
+                            defaultChecked={difficulty === 2}
+                            onClick={() => setDifficulty(2)}
                         />
                         <label htmlFor='medium'>Medium</label>
                     </div>
@@ -157,8 +157,8 @@ const AddQuestion = ({origQuestion}) => {
                             type='radio'
                             id='hard'
                             name='difficulty'
-                            value={difficulty}
-                            onChange={() => setDifficulty(3)}
+                            defaultChecked={difficulty === 3}
+                            onClick={() => setDifficulty(3)}
                         />
                         <label htmlFor='hard'>Hard</label>
                     </div>
