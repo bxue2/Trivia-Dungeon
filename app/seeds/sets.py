@@ -6,6 +6,9 @@ def seed_sets():
         name='Science Set',
         user_id=2
     )
+    db.session.add(set1)
+    db.session.commit()
+
     set_question_1 = SetQuestion(
         question_id=1,
         set_id=1
@@ -15,7 +18,6 @@ def seed_sets():
         set_id=1
     )
 
-    db.session.add(set1)
     db.session.add(set_question_1)
     db.session.add(set_question_2)
 

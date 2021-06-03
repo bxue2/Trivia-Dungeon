@@ -33,6 +33,8 @@ def get_qcomment(questionid):
     qcomments = QuestionComment.query.filter(QuestionComment.question_id == questionid).order_by(QuestionComment.updated_at).all()
     return {"qcomments": [qcomment.to_dict() for qcomment in qcomments]}
 
+# {"comment": "test comment", "rating": 3, "question_id": 1}
+
 @comment_routes.route('/<id>', methods=['PUT'])
 def update_qcomment(id):
     """
