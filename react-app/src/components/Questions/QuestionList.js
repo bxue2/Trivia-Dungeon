@@ -15,7 +15,7 @@ const QuestionList = ({questions, getQuestions, setEditQuestion}) => {
         <div className='question-list-container'>
             <h1>Submitted Questions</h1>
             <div className='question-list-rows-container'>
-                {questions.length == 0 && questionRows}
+                {questions.length === 0 && questionRows}
                 {questions.map((question, idx) => {
                         return (
                             // <div key={idx}> Hi </div>

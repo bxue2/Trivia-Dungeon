@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
-const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
-    const [showForm, setShowForm] = useState(false);
+const AddQuestion = ({editQuestion, setShowForm, setEditQuestion, getQuestions}) => {
+    // const [showForm, setShowForm] = useState(false);
 
     const [errors, setErrors] = useState([]);
     const [question, setQuestion] = useState("");
@@ -46,7 +46,6 @@ const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
             setIncorrect3(editQuestion.incorrectAnswers[2]);
             setDifficulty(editQuestion.difficulty);
             setCategoryId(editQuestion.categoryId);
-            setShowForm(true);
         }
     }, [editQuestion])
 
@@ -101,10 +100,10 @@ const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
 
     return (
         <>
-            {!showForm && (
-                <button onClick={() => setShowForm(true)}>Add Question</button>
-            )}
-            {showForm && <div className='add-question-container'>
+            {/* {!showForm && (
+
+            )} */}
+            <div className='add-question-container'>
                 <h1>{editQuestion ? 'Edit Question' : 'Submit a Question'}</h1>
                 <form className='add-question-form' onSubmit={(e) => submitQuestion(e)}>
                     <div className='error-list'>
@@ -219,7 +218,7 @@ const AddQuestion = ({editQuestion, setEditQuestion, getQuestions}) => {
                     </div>
 
                 </form>
-            </div>}
+            </div>
         </>
     )
 }

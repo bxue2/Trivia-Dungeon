@@ -11,6 +11,7 @@ const QuestionListRow = ({question, getQuestions, setEditQuestion}) => {
     }
 
     const openEditForm = () => {
+        console.log("Enter?")
         setEditQuestion(question);
     }
 
