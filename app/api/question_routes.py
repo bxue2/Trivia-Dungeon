@@ -23,9 +23,9 @@ def create_question():
             answer = form.data['answer'],
             incorrect_answers = incorrect_answers_list,
             difficulty = form.data['difficulty'],
-            # user_id = 1,  #for testing
-            user_id = current_user.to_dict()['id'],
-            category_id = form.data['category']
+            user_id = 1,  #for testing
+            # user_id = current_user.to_dict()['id'],
+            category_id = form.data['category_id']
         )
         db.session.add(question)
         db.session.commit()
@@ -46,7 +46,28 @@ def edit_question(id):
     """
     Edits specified question with id.
     """
-    question = Question.query.get(id)
+    form = QuestionForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        question = Question.query.get(id)
+        incorrect_answers = question.incorrect_answers
+        print(form.data)
+        for key in form.data:
+            print("key: " + key)
+            value = form.data[key]
+            print("value: " + value)
+            if key == 'incorrect_answer_1':
+                incorrect_answers[0] == value
+            elif key == 'incorrect_answer_2':
+                incorrect_answers[1] == value
+            elif key == 'incorrect_answer_3':
+                incorrect_answers[2] == value
+            else:
+                setattr(question, key, value)
+
+        setattr(question, 'incorrect_answers', incorrect_answers)
+        db.session.commit()
+
     return question.to_dict()
 
 @question_routes.route('/<id>', methods=['DELETE'])
