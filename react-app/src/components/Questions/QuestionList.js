@@ -14,13 +14,15 @@ const QuestionList = ({questions, getQuestions, setEditQuestion}) => {
     return (
         <div className='question-list-container'>
             <h1>Submitted Questions</h1>
-            {questions.length == 0 && questionRows}
-            {questions.map((question, idx) => {
-                    return (
-                        // <div key={idx}> Hi </div>
-                        <QuestionListRow question={question} getQuestions={getQuestions} setEditQuestion={setEditQuestion} key={idx}/>
-                    )})
-            }
+            <div className='question-list-rows-container'>
+                {questions.length == 0 && questionRows}
+                {questions.map((question, idx) => {
+                        return (
+                            // <div key={idx}> Hi </div>
+                            <QuestionListRow question={question} getQuestions={getQuestions} setEditQuestion={setEditQuestion} key={idx}/>
+                        )})
+                }
+            </div>
 
         </div>
     )
