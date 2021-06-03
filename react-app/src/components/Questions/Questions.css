@@ -63,6 +63,42 @@
 
 }
 
+.error-list{
+    color: #611d1d;
+}
+
+.add-question-container{
+    width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .add-question-form{
-    width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #969696;
+}
+
+.add_question_field-row{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.add_question_field-row label{
+    width: 100%;
+    margin: 5px;
+    font-weight: 600;
+}
+
+.add_question_field-row input{
+    padding: 5px;
 }
