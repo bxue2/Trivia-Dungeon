@@ -47,12 +47,9 @@ def edit_question(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         question = Question.query.get(id)
-        incorrect_answers = question.incorrect_answers
         print(form.data)
         for key in form.data:
-            print("key: " + key)
             value = form.data[key]
-            print("value: " + value)
             setattr(question, key, value)
         db.session.commit()
 
