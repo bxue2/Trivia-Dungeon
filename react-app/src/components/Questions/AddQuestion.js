@@ -64,18 +64,19 @@ const AddQuestion = ({editQuestion, setShowForm, setEditQuestion, getQuestions})
             newErrors.push('Difficulty must be selected.')
         }
         setErrors(newErrors);
+        return newErrors;
     }
 
     const submitQuestion = async (e) => {
         e.preventDefault()
-        checkErrors();
+        let newErrors = checkErrors();
         let fetchMethod = 'POST';
         let putId = '';
         if(editQuestion){
             fetchMethod = 'PUT';
             putId = editQuestion.id;
         }
-        if(errors.length === 0){
+        if(newErrors.length === 0){
             const response = await fetch(`/api/questions/${putId}`, {
                 method: fetchMethod,
                 headers: {

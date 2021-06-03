@@ -35,7 +35,7 @@ const Questions = () => {
     return (
         <div className='questions-container'>
             <QuestionList questions={questions} getQuestions={getQuestions} setEditQuestion={setEditQuestion}/>
-            <button onClick={() => setShowForm(true)}>Add Question</button>
+            <button className='add-question-button' onClick={() => setShowForm(true)}>Add Question</button>
             {showForm && (
                 <Modal onClose={() => setShowForm(false)}>
                     <AddQuestion setShowForm={setShowForm} editQuestion={editQuestion} setEditQuestion={setEditQuestion} getQuestions={getQuestions}/>

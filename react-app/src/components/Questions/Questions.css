@@ -78,7 +78,22 @@
 .delete-button{
     background-color: #611d1d;
     color: white;
+}
 
+.add-question-button{
+    background-color: #3d3d3d;
+    border: 2px solid white;
+    color: white;
+    height: 40px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-question-button:hover{
+    box-shadow: 0 0 5px white;
 }
 
 .error-list{
