@@ -22,7 +22,7 @@ nav {
     align-items: center;
 }
 
-.login-button{
+.login-button, .logout-button{
     background-color: #611d1d;
     color: white;
     font-size: 16px;

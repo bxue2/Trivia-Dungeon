@@ -38,7 +38,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* cursor: pointer; */
     text-decoration: none;
 }
 .sidebar-link:hover, .sidebar-link.active{
