@@ -20,8 +20,8 @@ def create_question():
             incorrect_answer_2 = form.data.get('incorrect_answer_2'),
             incorrect_answer_3 = form.data.get('incorrect_answer_3'),
             difficulty = form.data['difficulty'],
-            user_id = 1,  #for testing
-            # user_id = current_user.to_dict()['id'],
+            # user_id = 1,  #for testing
+            user_id = current_user.to_dict()['id'],
             category_id = form.data['category_id']
         )
         db.session.add(question)
@@ -54,8 +54,8 @@ def edit_question(id):
             value = form.data[key]
             setattr(question, key, value)
         db.session.commit()
-
-    return question.to_dict()
+        return question.to_dict()
+    return {'errors': form.errors}, 401
 
 @question_routes.route('/<id>', methods=['DELETE'])
 def delete_question(id):
