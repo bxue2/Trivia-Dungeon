@@ -12,7 +12,7 @@ def create_set():
     """
     pass
 
-@set_routes.route('/<id>')
+@set_routes.route('/<int:id>')
 def get_set(id):
     """
     Get a set in db by id.
@@ -20,14 +20,14 @@ def get_set(id):
     set = Set.query.get(id)
     return set.to_dict()
 
-@set_routes.route('/<id>', methods=['PUT'])
+@set_routes.route('/<int:id>', methods=['PUT'])
 def update_set(id):
     """
     Update a set in db.
     """
     pass
 
-@set_routes.route('/<id>', methods=['DELETE'])
+@set_routes.route('/<int:id>', methods=['DELETE'])
 def delete_set(id):
     """
     Deletes a set in db.

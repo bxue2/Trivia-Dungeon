@@ -12,6 +12,7 @@ def create_question():
     """
     form = QuestionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
         question = Question(
             question = form.data['question'],
@@ -29,7 +30,7 @@ def create_question():
         return question.to_dict()
     return {'errors': form.errors}, 401
 
-@question_routes.route('/<id>')
+@question_routes.route('/<int:id>')
 def get_question(id):
     """
     Gets specified question with id.
@@ -37,10 +38,15 @@ def get_question(id):
     question = Question.query.get(id)
     return question.to_dict()
 
+@question_routes.route('/user/<int:userid>/')
+def get_user_questions(userid):
+    questions = Question.query.filter(Question.user_id == userid)
+    return {"questions": [question.to_dict() for question in questions]}
+
 # For testing on Postman
 # {"question": "test question", "answer": "answer", "incorrect_answer_1": "in1", "incorrect_answer_2": "in3", "incorrect_answer_3": "in3", "difficulty": 3, "user_id": 1, "category_id": 1}
 
-@question_routes.route('/<id>', methods=['PUT'])
+@question_routes.route('/<int:id>', methods=['PUT'])
 def edit_question(id):
     """
     Edits specified question with id.
@@ -57,7 +63,7 @@ def edit_question(id):
         return question.to_dict()
     return {'errors': form.errors}, 401
 
-@question_routes.route('/<id>', methods=['DELETE'])
+@question_routes.route('/<int:id>', methods=['DELETE'])
 def delete_question(id):
     """
     Deletes specified question with id.

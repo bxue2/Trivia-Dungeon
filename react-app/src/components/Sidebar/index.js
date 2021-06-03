@@ -36,6 +36,9 @@ const Sidebar = () => {
     return (
         <div className='sidebar-container'>
             {/* <div className='sidebar-controller'></div> */}
+            <NavLink className='sidebar-link' to='/' exact={true}>
+                    Home
+            </NavLink>
             {sidebarLinks}
 
         </div>

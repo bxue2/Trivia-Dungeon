@@ -11,8 +11,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (() => {
-      dispatch(authenticate());
+    (async () => {
+      await dispatch(authenticate());   //Need this await or page briefly starts unauthenticated when logged in
       setLoaded(true);
     })();
   }, [dispatch]);

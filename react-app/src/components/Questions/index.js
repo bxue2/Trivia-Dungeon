@@ -1,9 +1,47 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import QuestionList from './QuestionList'
+import AddQuestion from './AddQuestion'
+import { useSelector } from 'react-redux';
+import { Modal } from '../../context/Modal';
+
+import './Questions.css'
 
 const Questions = () => {
+    const user = useSelector(state => state.session.user);
+    const [questions, setQuestions] = useState([])
+    const [editQuestion, setEditQuestion] = useState(null)
+
+    const [showForm, setShowForm] = useState(false);
+
+    const getQuestions = async () => {
+        const response = await fetch(`/api/questions/user/${user.id}`)
+        const data = await response.json()
+        // if(data.errors){
+        // } else{
+        setQuestions(data.questions);
+        // }
+    }
+
+    useEffect(() => {
+        getQuestions();
+    }, [])
+
+    useEffect(()=> {
+        if(editQuestion){
+            setShowForm(true);
+        }
+    }, [editQuestion])
+
     return (
-        <div>
-            <h1>Questions page</h1>
+        <div className='questions-container'>
+            <QuestionList questions={questions} getQuestions={getQuestions} setEditQuestion={setEditQuestion}/>
+            <button className='add-question-button' onClick={() => setShowForm(true)}>Add Question</button>
+            {showForm && (
+                <Modal onClose={() => setShowForm(false)}>
+                    <AddQuestion setShowForm={setShowForm} editQuestion={editQuestion} setEditQuestion={setEditQuestion} getQuestions={getQuestions}/>
+                </Modal>
+            )}
+
         </div>
     )
 }

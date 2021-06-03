@@ -9,4 +9,4 @@ class QuestionForm(FlaskForm):
     incorrect_answer_2 = StringField('incorrect_answer_2')
     incorrect_answer_3 = StringField('incorrect_answer_3')
     difficulty = IntegerField('difficulty', validators=[DataRequired()])
-    category_id = SelectField('category', coerce=int, choices=[(1, 'Science')])
+    category_id = IntegerField('category', validators=[DataRequired()])
