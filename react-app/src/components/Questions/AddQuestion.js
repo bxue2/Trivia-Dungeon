@@ -51,8 +51,9 @@ const AddQuestion = ({origQuestion}) => {
     const submitQuestion = async (e) => {
         e.preventDefault()
         checkErrors();
+        console.log(categoryId)
         if(errors.length === 0){
-            const response = await fetch('/api/questions', {
+            const response = await fetch('/api/questions/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -63,9 +64,12 @@ const AddQuestion = ({origQuestion}) => {
                     'incorrect_answer_1': incorrect1,
                     'incorrect_answer_2': incorrect2,
                     'incorrect_answer_3': incorrect3,
+                    'difficulty': difficulty,
+                    'category_id': categoryId
                 })
             })
             const res_question = await response.json();
+            console.log(res_question)
         }
     }
 
@@ -165,7 +169,7 @@ const AddQuestion = ({origQuestion}) => {
                 </div>
                 <div className='add_question_field-row'>
                 <label htmlFor='category-select'>Category</label>
-                    <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)} name='category-select'>
+                    <select value={categoryId} onChange={(e) => setCategoryId(parseInt(e.target.value))} name='category-select'>
                         {
                             categories.map((category) => {
                                 return (

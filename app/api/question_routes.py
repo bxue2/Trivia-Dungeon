@@ -12,6 +12,7 @@ def create_question():
     """
     form = QuestionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
         question = Question(
             question = form.data['question'],
