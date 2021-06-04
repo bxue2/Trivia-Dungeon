@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const CommentForm = ({question_id}) => {
+const CommentForm = ({questionId}) => {
     const [comment, setComment] = useState()
     const submitComment = async () => {
         const response = await fetch('/api/comments', {
@@ -11,7 +11,7 @@ const CommentForm = ({question_id}) => {
             body: JSON.stringify({
                 'comment': comment,
                 'rating': 5,
-                'question_id': question_id
+                'question_id': questionId
             })
         });
 

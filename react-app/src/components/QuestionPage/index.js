@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
 
+
 import CommentSection from './CommentSection';
 
 const QuestionPage = () => {
     const {id} = useParams();
 
     const [question, setQuestion] = useState({})
-    const [showForm, setShowForm] = useState(false);
 
     useEffect(async () => {
         const response = await fetch(`/api/questions/${id}`);
@@ -21,7 +21,6 @@ const QuestionPage = () => {
                 {question.question}
             </div>
             <CommentSection question={question}/>
-
         </div>
     )
 }
