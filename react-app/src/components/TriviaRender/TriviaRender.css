@@ -10,6 +10,14 @@
 
 .question-section{
     height: 60%;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #cfcfcf;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .answer-section{
