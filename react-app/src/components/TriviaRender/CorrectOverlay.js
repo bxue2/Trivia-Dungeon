@@ -1,14 +1,23 @@
 import React from 'react'
 import correct from '../../pictures/correct_icon_512px.png'
+import {useDispatch} from 'react-redux';
+import {goToNextQuestion} from '../../store/questions'
 
-const CorrectOverlay = ({setAnswered}) => {
+const CorrectOverlay = ({setAnswered, next}) => {
+    const dispatch = useDispatch();
     return (
         <div className='correct-overlay'>
             <img alt='Correct Answer' src={correct} className="incorrect-logo"/>
             <div>
                 Correct Answer!
             </div>
-            <button className='close-button' onClick={() => setAnswered(0)}>Close</button>
+            {!next &&<button className='close-button' onClick={() => setAnswered(0)}>Close</button>}
+            {next &&
+                <button className='next-button' onClick={() => {
+                    setAnswered(0)
+                    dispatch(goToNextQuestion())
+                }}>Next</button>
+            }
         </div>
     )
 }

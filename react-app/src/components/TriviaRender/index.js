@@ -5,7 +5,8 @@ import CorrectOverlay from './CorrectOverlay';
 import IncorrectOverlay from './IncorrectOverlay';
 import './TriviaRender.css'
 
-const TriviaRender = ({question}) => {
+//next controls if there's a next button or not (disabled if on the question page)
+const TriviaRender = ({question, next}) => {
     //0=not answered, 1=correct, 2=wrong
     const [answered, setAnswered] = useState(0);
     const [answerList, setAnswerList] = useState([]);
@@ -42,7 +43,7 @@ const TriviaRender = ({question}) => {
         <div className='trivia-render-container'>
             <>
                 {answered === 1 && (
-                    <CorrectOverlay setAnswered={setAnswered}/>
+                    <CorrectOverlay setAnswered={setAnswered} next={next}/>
                 )}
                 {answered === 2 && (
                     <IncorrectOverlay setAnswered={setAnswered}/>

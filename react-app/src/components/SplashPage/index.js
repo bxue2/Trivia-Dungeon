@@ -21,7 +21,7 @@ const SplashPage = () => {
             <div className='splash-page'>
                 <h1> Welcome to the Trivia Dungeon!!!</h1>
                 <h2>Play some random questions:</h2>
-                <TriviaRender question={questions[0]}/>
+                <TriviaRender question={questions[0]} next={true}/>
             </div>
         </>
     )
