@@ -13,7 +13,7 @@ const SplashPage = () => {
         if(questions.length === 0){
             dispatch(getRandomQuestions())
         }
-    }, [questions])
+    }, [questions, dispatch])
 
     console.log(questions[0]);
     return (
