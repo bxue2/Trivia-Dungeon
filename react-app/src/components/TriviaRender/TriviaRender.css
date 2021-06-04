@@ -69,3 +69,19 @@
     height: 100px;
     width: 100px;
 }
+
+.retry-button{
+    margin-top: 20px;
+    background-color: #2e4a64;
+    border: 2px solid white;
+    color: white;
+    height: 40px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.retry-button:hover{
+    box-shadow: 0 0 5px white;
+}

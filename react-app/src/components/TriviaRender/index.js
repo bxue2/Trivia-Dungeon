@@ -36,7 +36,7 @@ const TriviaRender = ({question}) => {
                 <CorrectOverlay />
             )}
             {answered === 2 && (
-                <IncorrectOverlay />
+                <IncorrectOverlay setAnswered={setAnswered}/>
             )}
             <div className='question-section'>
                 {question.question}

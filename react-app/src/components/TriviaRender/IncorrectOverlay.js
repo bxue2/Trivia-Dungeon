@@ -1,13 +1,14 @@
 import React from 'react'
 import incorrect from '../../pictures/incorrect_icon_512px.png'
 
-const IncorrectOverlay = () => {
+const IncorrectOverlay = ({setAnswered}) => {
     return (
         <div className='incorrect-overlay'>
             <img src={incorrect} className="incorrect-logo"/>
             <div>
-                Incorrect Answer!
+                Incorrect Answer...
             </div>
+            <button className='retry-button' onClick={() => setAnswered(0)}>Retry</button>
         </div>
     )
 }
