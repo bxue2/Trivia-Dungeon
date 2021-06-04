@@ -2,9 +2,10 @@ import React from 'react'
 import Rating from '@material-ui/lab/Rating';
 
 const CommentDiv = ({comment}) => {
+    console.log(comment)
     return (
         <div className='comment-div'>
-            <div>
+            <div className='comment-username'>
                 {comment.user.username}
             </div>
             <Rating
@@ -12,7 +13,7 @@ const CommentDiv = ({comment}) => {
                 value={comment.rating}
                 readOnly
             />
-            <div>
+            <div className='comment-comment'>
                 {comment.comment}
             </div>
 
