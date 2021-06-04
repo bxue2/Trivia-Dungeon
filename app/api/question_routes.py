@@ -38,8 +38,19 @@ def get_question(id):
     question = Question.query.get(id)
     return question.to_dict()
 
+@question_routes.route('/random')
+def get_random_question():
+    """
+    Gets up to 30 random questions.
+    """
+    questions = Question.query.limit(30).all()
+    return {"questions": [question.to_dict() for question in questions]}
+
 @question_routes.route('/user/<int:userid>')
 def get_user_questions(userid):
+    """
+    Gets all questions from specified user.
+    """
     questions = Question.query.filter(Question.user_id == userid)
     return {"questions": [question.to_dict() for question in questions]}
 

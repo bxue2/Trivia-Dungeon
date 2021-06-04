@@ -12,12 +12,24 @@ const nextQuestion = () => ({
 
 const initialState = { questions: []};
 
+//Gets all questions associated with setId
 export const getQuestionsFromSet = (setId) => async (dispatch) => {
 
 }
 
+//Gets 30 random questions based on selected categories
 export const getQuestionsFromCategories = (categories) => async (dispatch) => {
 
+}
+
+//Gets 30 random questions from entire dataset
+export const getRandomQuestions = () => async (dispatch) => {
+    const response = await fetch("/api/questions/random")
+    const data = await response.json();
+    if(!data.errors){
+        dispatch(getQuestions(data))
+    }
+    return data;
 }
 
 export const goToNextQuestion = () => (dispatch) => {
