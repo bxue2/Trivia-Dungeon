@@ -6,6 +6,7 @@
     align-items: center;
     border: 1px solid white;
     background-color: #777777;
+    position: relative;
 }
 
 .question-section{
@@ -46,4 +47,13 @@
 
 .answer-button:hover{
     background-color: #4f79a0;
+}
+
+.incorrect-overlay, .correct-overlay{
+    background-color: rgba(61, 61, 61, 0.6);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
 }

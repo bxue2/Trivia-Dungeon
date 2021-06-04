@@ -1,9 +1,14 @@
 import React, {useEffect, useState} from 'react'
 
 import AnswerButton from './AnswerButton';
+import CorrectOverlay from './CorrectOverlay';
+import IncorrectOverlay from './IncorrectOverlay';
 import './TriviaRender.css'
 
 const TriviaRender = ({question}) => {
+    //0=not answered, 1=correct, 2=wrong
+    const [answered, setAnswered] = useState(0);
+
     const randomizeAnswers = () => {
         let answers = [];
         if(question.incorrectAnswers){
@@ -27,12 +32,19 @@ const TriviaRender = ({question}) => {
 
     return (
         <div className='trivia-render-container'>
+            {answered === 1 && (
+                <CorrectOverlay />
+            )}
+            {answered === 2 && (
+                <IncorrectOverlay />
+            )}
             <div className='question-section'>
                 {question.question}
             </div>
             <div className='answer-section'>
                 {randomizeAnswers().map((answer, idx) => {
-                    return <AnswerButton answer={answer} key={idx}/>
+                    let correct = (answer === question.answer);
+                    return <AnswerButton correct={correct} setAnswered={setAnswered} answer={answer} key={idx}/>
                 })}
             </div>
         </div>
