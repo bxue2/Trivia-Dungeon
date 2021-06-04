@@ -1,9 +1,10 @@
 import React from 'react'
+import correct from '../../pictures/correct_icon_512px.png'
 
 const CorrectOverlay = () => {
     return (
         <div className='correct-overlay'>
-            <i className="fas fa-check-circle"></i>
+            <img src={correct} className="incorrect-logo"/>
             <div>
                 Correct Answer!
             </div>
