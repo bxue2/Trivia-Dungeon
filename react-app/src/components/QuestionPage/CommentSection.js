@@ -24,6 +24,14 @@ const CommentSection = ({question}) => {
         }
     }, [question, getComments])
 
+    useEffect(() => {
+        comments.forEach((comment) => {
+            if(user.id === comment.userId){
+                setShowAdd(false);
+            }
+        })
+    }, [comments, user.id])
+
     return (
         <>
             <h1>Comments</h1>

@@ -2,13 +2,8 @@ import React from 'react'
 import {useSelector} from 'react-redux';
 import Rating from '@material-ui/lab/Rating';
 
-const CommentDiv = ({comment, setShowAdd}) => {
+const CommentDiv = ({comment}) => {
     const user = useSelector(state => state.session.user)
-    console.log(comment)
-
-    if(user.id === comment.userId){
-        setShowAdd(false);
-    }
 
     return (
         <div className='comment-div'>
