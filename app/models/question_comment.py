@@ -21,5 +21,6 @@ class QuestionComment(db.Model):
             "rating": self.rating,
             "userId": self.user_id,
             "questionId": self.question_id,
-            "updatedAt": self.updated_at
+            "updatedAt": self.updated_at,
+            "user": self.user.to_dict()
         }

@@ -9,8 +9,20 @@ def seed_users():
     demo = User(username='Demo', email='demo@aa.io',
                 password='password')
 
+    user1 = User(username='CornedApple', email='corn@aa.io',
+                password='d0892nvs')
+
+    user2 = User(username='FlatulentBear', email='bear@aa.io',
+                password='df2erfgd4')
+
+    user3 = User(username='HelloWorld', email='world@aa.io',
+                password='v09i2kxff')
+
     db.session.add(admin)
     db.session.add(demo)
+    db.session.add(user1)
+    db.session.add(user2)
+    db.session.add(user3)
 
     db.session.commit()
 

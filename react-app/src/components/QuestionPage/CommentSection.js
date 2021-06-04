@@ -25,6 +25,7 @@ const CommentSection = ({question}) => {
 
     return (
         <>
+            <h1>Comments</h1>
             <div className='comment-list-container'>
                 {comments.map((comment, idx) => {
                     return (
