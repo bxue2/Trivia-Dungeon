@@ -4,19 +4,24 @@ import TriviaRender from '../TriviaRender';
 
 import {getRandomQuestions} from '../../store/questions'
 
+import './SplashPage.css'
+
 const SplashPage = () => {
     const questions = useSelector(state => state.questions.questions)
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getRandomQuestions())
-    }, [])
+        if(questions.length === 0){
+            dispatch(getRandomQuestions())
+        }
+    }, [questions])
+
     console.log(questions[0]);
     return (
         <>
             <div className='splash-page'>
                 <h1> Welcome to the Trivia Dungeon!!!</h1>
                 <h2>Play some random questions:</h2>
-                {questions[0] && <TriviaRender question={questions[0]}/>}
+                <TriviaRender question={questions[0]}/>
             </div>
         </>
     )

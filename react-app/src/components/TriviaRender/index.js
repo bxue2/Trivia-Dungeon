@@ -12,47 +12,51 @@ const TriviaRender = ({question}) => {
 
 
     useEffect(() => {
-        const randomizeAnswers = () => {
-            if(answered === 0){
-                let answers = [];
-                if(question.incorrectAnswers){
-                    //Setup answers array
-                    answers.push(question.answer);
-                    question.incorrectAnswers.forEach((incorrect) => {
-                        if(incorrect.length > 0){
-                            answers.push(incorrect);
-                        }
-                    })
+        if(question){
+            const randomizeAnswers = () => {
+                if(answered === 0){
+                    let answers = [];
+                    if(question.incorrectAnswers){
+                        //Setup answers array
+                        answers.push(question.answer);
+                        question.incorrectAnswers.forEach((incorrect) => {
+                            if(incorrect.length > 0){
+                                answers.push(incorrect);
+                            }
+                        })
 
-                    //Shuffle answers array
-                    for(let i = answers.length - 1; i > 0; i--){
-                        let randomIndex = Math.floor(Math.random() * (i + 1));
-                        [answers[i], answers[randomIndex]] = [answers[randomIndex], answers[i]];
+                        //Shuffle answers array
+                        for(let i = answers.length - 1; i > 0; i--){
+                            let randomIndex = Math.floor(Math.random() * (i + 1));
+                            [answers[i], answers[randomIndex]] = [answers[randomIndex], answers[i]];
+                        }
                     }
+                    setAnswerList(answers);
                 }
-                setAnswerList(answers);
             }
+            randomizeAnswers();
         }
-        randomizeAnswers();
     }, [answered, question])
 
     return (
         <div className='trivia-render-container'>
-            {answered === 1 && (
-                <CorrectOverlay setAnswered={setAnswered}/>
-            )}
-            {answered === 2 && (
-                <IncorrectOverlay setAnswered={setAnswered}/>
-            )}
-            <div className='question-section'>
-                {question.question}
-            </div>
-            <div className='answer-section'>
-                {answerList.map((answer, idx) => {
-                    let correct = (answer === question.answer);
-                    return <AnswerButton correct={correct} setAnswered={setAnswered} answer={answer} key={idx}/>
-                })}
-            </div>
+            <>
+                {answered === 1 && (
+                    <CorrectOverlay setAnswered={setAnswered}/>
+                )}
+                {answered === 2 && (
+                    <IncorrectOverlay setAnswered={setAnswered}/>
+                )}
+                <div className='question-section'>
+                    {question && question.question}
+                </div>
+                <div className='answer-section'>
+                    {answerList.map((answer, idx) => {
+                        let correct = (answer === question.answer);
+                        return <AnswerButton correct={correct} setAnswered={setAnswered} answer={answer} key={idx}/>
+                    })}
+                </div>
+            </>
         </div>
     )
 }
