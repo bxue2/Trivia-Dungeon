@@ -7,9 +7,10 @@ import CommentForm from './CommentForm'
 import { Modal } from '../../context/Modal';
 
 const CommentSection = ({question}) => {
+    const user = useSelector(state => state.session.user)
     const [comments, setComments] = useState([])
     const [showForm, setShowForm] = useState(false);
-    const user = useSelector(state => state.session.user)
+    const [showAdd, setShowAdd] = useState(question.userId !== user.id);
 
     const getComments = useCallback(async () => {
         const response = await fetch(`/api/comments/${question.id}`)
@@ -29,11 +30,11 @@ const CommentSection = ({question}) => {
             <div className='comment-list-container'>
                 {comments.map((comment, idx) => {
                     return (
-                        <CommentDiv key={idx} comment={comment}/>
+                        <CommentDiv key={idx} comment={comment} setShowAdd={setShowAdd}/>
                     )
                 })}
             </div>
-            {question.userId !== user.id && (
+            {showAdd && (
                 <button className='add-comment-button' onClick={() => setShowForm(true)}>Add Comment</button>
             )}
             {showForm && (
