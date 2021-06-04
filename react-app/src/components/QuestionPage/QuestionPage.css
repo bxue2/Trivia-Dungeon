@@ -26,3 +26,34 @@
 .add-comment-button:hover{
     box-shadow: 0 0 5px white;
 }
+
+.comment-form{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.comment-form-field_row{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.comment-form-field_row label{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.comment-form-field_row textarea{
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.rating-label{
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
