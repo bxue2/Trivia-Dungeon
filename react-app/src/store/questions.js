@@ -44,6 +44,7 @@ export const getRandomQuestions = () => async (dispatch) => {
 }
 
 export const goToNextQuestion = () => (dispatch) => {
+    
     dispatch(nextQuestion());
 }
 

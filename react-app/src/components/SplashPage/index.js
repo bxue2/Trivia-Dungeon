@@ -11,6 +11,7 @@ const SplashPage = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         if(questions.length === 0){
+            console.log("test")
             dispatch(getRandomQuestions())
         }
     }, [questions, dispatch])

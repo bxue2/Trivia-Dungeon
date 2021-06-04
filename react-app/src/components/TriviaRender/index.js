@@ -52,7 +52,7 @@ const TriviaRender = ({question, next}) => {
                     {question && question.question}
                 </div>
                 <div className='answer-section'>
-                    {answerList.map((answer, idx) => {
+                    {question && answerList.map((answer, idx) => {
                         let correct = (answer === question.answer);
                         return <AnswerButton correct={correct} setAnswered={setAnswered} answer={answer} key={idx}/>
                     })}
