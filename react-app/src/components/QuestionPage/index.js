@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {useParams} from 'react-router-dom';
 
-
+import TriviaRender from '../TriviaRender';
 import CommentSection from './CommentSection';
 
 const QuestionPage = () => {
@@ -20,10 +20,8 @@ const QuestionPage = () => {
     }, [getQuestions])
 
     return (
-        <div>
-            <div className='trivia-question-container'>
-                {question.question}
-            </div>
+        <div className='question-page'>
+            <TriviaRender question={question}/>
             <CommentSection question={question}/>
         </div>
     )
