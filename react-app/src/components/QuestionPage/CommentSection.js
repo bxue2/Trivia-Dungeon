@@ -38,7 +38,7 @@ const CommentSection = ({question}) => {
             )}
             {showForm && (
                 <Modal onClose={() => setShowForm(false)}>
-                    <CommentForm questionId={question.id}/>
+                    <CommentForm questionId={question.id} setShowForm={setShowForm}/>
                 </Modal>
             )}
         </>
