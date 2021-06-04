@@ -23,7 +23,7 @@ const QuestionPage = () => {
 
     return (
         <div className='question-page'>
-            <TriviaRender question={question}/>
+            <TriviaRender question={question} next={false}/>
             <CommentSection question={question}/>
         </div>
     )
