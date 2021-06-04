@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
 import {useSelector} from 'react-redux';
 
 import CommentDiv from './CommentDiv';
@@ -11,18 +11,17 @@ const CommentSection = ({question}) => {
     const [showForm, setShowForm] = useState(false);
     const user = useSelector(state => state.session.user)
 
-    const getComments = async () => {
+    const getComments = useCallback(async () => {
         const response = await fetch(`/api/comments/${question.id}`)
         const data = await response.json();
-        console.log(data)
         setComments(data.qcomments);
-    }
+    }, [question.id])
 
     useEffect(() => {
         if(question.id){
             getComments();
         }
-    }, [question])
+    }, [question, getComments])
 
     return (
         <>

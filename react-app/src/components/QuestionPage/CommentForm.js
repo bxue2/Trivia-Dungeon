@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 const CommentForm = ({questionId}) => {
     const [comment, setComment] = useState()
     const submitComment = async () => {
-        const response = await fetch('/api/comments', {
+        await fetch('/api/comments', {
             'method': 'POST',
             headers: {
                 'Content-Type': 'application/json'

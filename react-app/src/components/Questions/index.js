@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import QuestionList from './QuestionList'
 import AddQuestion from './AddQuestion'
 import { useSelector } from 'react-redux';
@@ -13,18 +13,18 @@ const Questions = () => {
 
     const [showForm, setShowForm] = useState(false);
 
-    const getQuestions = async () => {
+    const getQuestions = useCallback(async () => {
         const response = await fetch(`/api/questions/user/${user.id}`)
         const data = await response.json()
         // if(data.errors){
         // } else{
         setQuestions(data.questions);
         // }
-    }
+    }, [user.id])
 
     useEffect(() => {
         getQuestions();
-    }, [])
+    }, [getQuestions])
 
     useEffect(()=> {
         if(editQuestion){

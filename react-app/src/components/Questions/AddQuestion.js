@@ -38,7 +38,6 @@ const AddQuestion = ({editQuestion, setShowForm, setEditQuestion, getQuestions})
 
     useEffect(()=> {
         if(editQuestion){
-            console.log(editQuestion);
             setQuestion(editQuestion.question);
             setAnswer(editQuestion.answer);
             setIncorrect1(editQuestion.incorrectAnswers[0]);
@@ -77,7 +76,7 @@ const AddQuestion = ({editQuestion, setShowForm, setEditQuestion, getQuestions})
             putId = editQuestion.id;
         }
         if(newErrors.length === 0){
-            const response = await fetch(`/api/questions/${putId}`, {
+            await fetch(`/api/questions/${putId}`, {
                 method: fetchMethod,
                 headers: {
                     'Content-Type': 'application/json'
