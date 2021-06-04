@@ -5,7 +5,7 @@ const QuestionListRow = ({question, getQuestions, setEditQuestion}) => {
     const history = useHistory();
 
     const deleteQuestion = async () => {
-        const response = await fetch(`/api/questions/${question.id}`, {
+        await fetch(`/api/questions/${question.id}`, {
             method: 'DELETE'
         })
         // const deleted = await response.json();
