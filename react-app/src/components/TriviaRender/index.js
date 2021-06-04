@@ -8,27 +8,33 @@ import './TriviaRender.css'
 const TriviaRender = ({question}) => {
     //0=not answered, 1=correct, 2=wrong
     const [answered, setAnswered] = useState(0);
+    const [answerList, setAnswerList] = useState([]);
 
-    const randomizeAnswers = () => {
-        let answers = [];
-        if(question.incorrectAnswers){
-            //Setup answers array
-            answers.push(question.answer);
-            question.incorrectAnswers.forEach((incorrect) => {
-                if(incorrect.length > 0){
-                    answers.push(incorrect);
+
+    useEffect(() => {
+        const randomizeAnswers = () => {
+            if(answered === 0){
+                let answers = [];
+                if(question.incorrectAnswers){
+                    //Setup answers array
+                    answers.push(question.answer);
+                    question.incorrectAnswers.forEach((incorrect) => {
+                        if(incorrect.length > 0){
+                            answers.push(incorrect);
+                        }
+                    })
+
+                    //Shuffle answers array
+                    for(let i = answers.length - 1; i > 0; i--){
+                        let randomIndex = Math.floor(Math.random() * (i + 1));
+                        [answers[i], answers[randomIndex]] = [answers[randomIndex], answers[i]];
+                    }
                 }
-            })
-
-            //Shuffle answers array
-            for(let i = answers.length - 1; i > 0; i--){
-                let randomIndex = Math.floor(Math.random() * (i + 1));
-                [answers[i], answers[randomIndex]] = [answers[randomIndex], answers[i]];
+                setAnswerList(answers);
             }
         }
-
-        return answers;
-    }
+        randomizeAnswers();
+    }, [answered, question])
 
     return (
         <div className='trivia-render-container'>
@@ -42,7 +48,7 @@ const TriviaRender = ({question}) => {
                 {question.question}
             </div>
             <div className='answer-section'>
-                {randomizeAnswers().map((answer, idx) => {
+                {answerList.map((answer, idx) => {
                     let correct = (answer === question.answer);
                     return <AnswerButton correct={correct} setAnswered={setAnswered} answer={answer} key={idx}/>
                 })}

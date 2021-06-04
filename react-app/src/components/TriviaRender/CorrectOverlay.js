@@ -4,7 +4,7 @@ import correct from '../../pictures/correct_icon_512px.png'
 const CorrectOverlay = ({setAnswered}) => {
     return (
         <div className='correct-overlay'>
-            <img src={correct} className="incorrect-logo"/>
+            <img alt='Correct Answer' src={correct} className="incorrect-logo"/>
             <div>
                 Correct Answer!
             </div>
