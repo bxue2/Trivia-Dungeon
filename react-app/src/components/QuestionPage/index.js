@@ -5,13 +5,13 @@ import CommentSection from './CommentSection';
 
 const QuestionPage = () => {
     const {id} = useParams();
+
     const [question, setQuestion] = useState({})
     const [showForm, setShowForm] = useState(false);
 
     useEffect(async () => {
         const response = await fetch(`/api/questions/${id}`);
         const questionInfo = await response.json();
-        console.log(questionInfo);
         setQuestion(questionInfo);
     }, [])
 
@@ -20,10 +20,8 @@ const QuestionPage = () => {
             <div className='trivia-question-container'>
                 {question.question}
             </div>
-            <CommentSection id={id}/>
-            {question.user_id === 1 && (
-                <button >Add Comment</button>
-            )}
+            <CommentSection question={question}/>
+
         </div>
     )
 }
