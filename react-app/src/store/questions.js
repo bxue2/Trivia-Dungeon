@@ -39,10 +39,10 @@ export const goToNextQuestion = () => (dispatch) => {
 export default function reducer(state=initialState, action) {
     switch (action.type){
         case GET_QUESTIONS:
-            return {questions: action.payload}
+            return action.payload
         case NEXT_QUESTION:
             let newQuestions = state.questions.slice(1);
-            return {questions: newQuestions}
+            return newQuestions
         default:
             return state;
     }

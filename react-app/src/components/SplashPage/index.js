@@ -1,16 +1,22 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import TriviaRender from '../TriviaRender';
 
+import {getRandomQuestions} from '../../store/questions'
 
 const SplashPage = () => {
     const questions = useSelector(state => state.questions.questions)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getRandomQuestions())
+    }, [])
+    console.log(questions[0]);
     return (
         <>
             <div className='splash-page'>
                 <h1> Welcome to the Trivia Dungeon!!!</h1>
                 <h2>Play some random questions:</h2>
-                {/* <TriviaRender /> */}
+                {questions[0] && <TriviaRender question={questions[0]}/>}
             </div>
         </>
     )
