@@ -9,6 +9,15 @@
 .comment-list-container{
     display: flex;
     flex-direction: column;
+    width: 1000px;
+    border: 1px solid white;
+}
+
+.comment-div{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    box-sizing: border-box;
 }
 
 .add-comment-button{
