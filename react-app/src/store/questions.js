@@ -17,8 +17,8 @@ export const getQuestionsFromSet = (setId) => async (dispatch) => {
 
 }
 
-//Gets 30 random questions based on selected categories
-export const getQuestionsFromCategories = (categories) => async (dispatch) => {
+//Gets <num> random questions based on selected categories
+export const getQuestionsFromCategories = (categories, num) => async (dispatch) => {
 
 }
 
