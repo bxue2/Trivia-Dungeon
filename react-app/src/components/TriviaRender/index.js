@@ -33,7 +33,7 @@ const TriviaRender = ({question}) => {
     return (
         <div className='trivia-render-container'>
             {answered === 1 && (
-                <CorrectOverlay />
+                <CorrectOverlay setAnswered={setAnswered}/>
             )}
             {answered === 2 && (
                 <IncorrectOverlay setAnswered={setAnswered}/>
