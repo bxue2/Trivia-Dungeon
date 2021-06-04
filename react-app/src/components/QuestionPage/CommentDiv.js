@@ -4,6 +4,9 @@ import Rating from '@material-ui/lab/Rating';
 const CommentDiv = ({comment}) => {
     return (
         <div className='comment-div'>
+            <div>
+                {comment.user.username}
+            </div>
             <Rating
                 name="rating-buttons"
                 value={comment.rating}
