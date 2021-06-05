@@ -7,9 +7,11 @@ import CommentForm from './CommentForm'
 import { Modal } from '../../context/Modal';
 
 const CommentSection = ({question}) => {
+    const user = useSelector(state => state.session.user)
     const [comments, setComments] = useState([])
     const [showForm, setShowForm] = useState(false);
-    const user = useSelector(state => state.session.user)
+    const [editComment, setEditComment] = useState(null)
+    const [showAdd, setShowAdd] = useState(question.userId !== user.id);
 
     const getComments = useCallback(async () => {
         const response = await fetch(`/api/comments/${question.id}`)
@@ -23,22 +25,30 @@ const CommentSection = ({question}) => {
         }
     }, [question, getComments])
 
+    useEffect(() => {
+        comments.forEach((comment) => {
+            if(user.id === comment.userId){
+                setShowAdd(false);
+            }
+        })
+    }, [comments, user.id])
+
     return (
         <>
             <h1>Comments</h1>
             <div className='comment-list-container'>
                 {comments.map((comment, idx) => {
                     return (
-                        <CommentDiv key={idx} comment={comment}/>
+                        <CommentDiv setShowForm={setShowForm} setEditComment={setEditComment} key={idx} comment={comment} getComments={getComments}/>
                     )
                 })}
             </div>
-            {question.userId !== user.id && (
+            {showAdd && (
                 <button className='add-comment-button' onClick={() => setShowForm(true)}>Add Comment</button>
             )}
             {showForm && (
                 <Modal onClose={() => setShowForm(false)}>
-                    <CommentForm questionId={question.id}/>
+                    <CommentForm editComment={editComment} questionId={question.id} getComments={getComments} setShowForm={setShowForm}/>
                 </Modal>
             )}
         </>

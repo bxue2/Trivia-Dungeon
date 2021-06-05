@@ -36,6 +36,8 @@ def get_question(id):
     Gets specified question with id.
     """
     question = Question.query.get(id)
+    if not question:
+        return {'errors': "Question not found"}, 401
     return question.to_dict()
 
 @question_routes.route('/random')
