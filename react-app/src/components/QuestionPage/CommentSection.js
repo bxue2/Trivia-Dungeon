@@ -10,6 +10,7 @@ const CommentSection = ({question}) => {
     const user = useSelector(state => state.session.user)
     const [comments, setComments] = useState([])
     const [showForm, setShowForm] = useState(false);
+    const [editComment, setEditComment] = useState(null)
     const [showAdd, setShowAdd] = useState(question.userId !== user.id);
 
     const getComments = useCallback(async () => {
@@ -47,7 +48,7 @@ const CommentSection = ({question}) => {
             )}
             {showForm && (
                 <Modal onClose={() => setShowForm(false)}>
-                    <CommentForm questionId={question.id} getComments={getComments} setShowForm={setShowForm}/>
+                    <CommentForm editComment={editComment} questionId={question.id} getComments={getComments} setShowForm={setShowForm}/>
                 </Modal>
             )}
         </>

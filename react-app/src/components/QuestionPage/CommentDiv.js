@@ -5,6 +5,10 @@ import Rating from '@material-ui/lab/Rating';
 const CommentDiv = ({comment, getComments}) => {
     const user = useSelector(state => state.session.user)
 
+    const openEditForm = async () => {
+        //fill out
+    }
+
     const deleteComment = async () => {
         await fetch(`/api/comments/${comment.id}`, {
             method: 'DELETE'
@@ -26,7 +30,7 @@ const CommentDiv = ({comment, getComments}) => {
             </div>
             {user.id === comment.userId && (
                 <div className='comment-action-group'>
-                    <button>Edit</button>
+                    <button onClick={openEditForm}>Edit</button>
                     <button onClick={deleteComment}>Delete</button>
                 </div>
             )}

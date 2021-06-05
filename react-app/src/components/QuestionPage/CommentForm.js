@@ -1,10 +1,17 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Rating from '@material-ui/lab/Rating';
 
-const CommentForm = ({questionId, setShowForm, getComments}) => {
+const CommentForm = ({editComment, questionId, setShowForm, getComments}) => {
     const [comment, setComment] = useState("");
     const [rating, setRating] = useState(0);
     const [errors, setErrors] = useState([]);
+
+    useEffect(() => {
+        if(editComment.comment){
+            setComment(editComment.comment);
+            setRating(editComment.rating);
+        }
+    }, [])
 
     const checkErrors = () => {
         let newErrors = [];
