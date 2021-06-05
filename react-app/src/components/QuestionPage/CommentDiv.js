@@ -2,11 +2,12 @@ import React from 'react'
 import {useSelector} from 'react-redux';
 import Rating from '@material-ui/lab/Rating';
 
-const CommentDiv = ({comment, getComments}) => {
+const CommentDiv = ({setShowForm, setEditComment, comment, getComments}) => {
     const user = useSelector(state => state.session.user)
 
-    const openEditForm = async () => {
-        //fill out
+    const openEditForm =  () => {
+        setEditComment(comment);
+        setShowForm(true);
     }
 
     const deleteComment = async () => {

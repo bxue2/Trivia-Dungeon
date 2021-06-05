@@ -39,7 +39,7 @@ const CommentSection = ({question}) => {
             <div className='comment-list-container'>
                 {comments.map((comment, idx) => {
                     return (
-                        <CommentDiv key={idx} comment={comment} getComments={getComments}/>
+                        <CommentDiv setShowForm={setShowForm} setEditComment={setEditComment} key={idx} comment={comment} getComments={getComments}/>
                     )
                 })}
             </div>

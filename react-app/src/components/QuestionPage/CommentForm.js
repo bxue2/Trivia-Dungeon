@@ -7,11 +7,11 @@ const CommentForm = ({editComment, questionId, setShowForm, getComments}) => {
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
-        if(editComment.comment){
+        if(editComment){
             setComment(editComment.comment);
             setRating(editComment.rating);
         }
-    }, [])
+    }, [editComment])
 
     const checkErrors = () => {
         let newErrors = [];
