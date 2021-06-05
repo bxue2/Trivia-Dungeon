@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Rating from '@material-ui/lab/Rating';
 
-const CommentForm = ({questionId, setShowForm}) => {
+const CommentForm = ({questionId, setShowForm, getComments}) => {
     const [comment, setComment] = useState("");
     const [rating, setRating] = useState(0);
     const [errors, setErrors] = useState([]);
@@ -40,6 +40,7 @@ const CommentForm = ({questionId, setShowForm}) => {
             }
             else{
                 setShowForm(false);
+                getComments()
             }
 
         }
