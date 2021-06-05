@@ -21,7 +21,7 @@ const QuestionPage = () => {
         else{
             setQuestion(questionInfo);
         }
-    }, [id]);
+    }, [id, history]);
 
     useEffect(() => {
         getQuestions();
