@@ -60,4 +60,4 @@ def delete_qcomment(id):
     qcomment = QuestionComment.query.get(id)
     db.session.delete(qcomment)
     db.session.commit()
-    return qcomment.to_dict()
+    return {"id": qcomment.id}

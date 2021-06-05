@@ -2,9 +2,15 @@ import React from 'react'
 import {useSelector} from 'react-redux';
 import Rating from '@material-ui/lab/Rating';
 
-const CommentDiv = ({comment}) => {
+const CommentDiv = ({comment, getComments}) => {
     const user = useSelector(state => state.session.user)
 
+    const deleteComment = async () => {
+        await fetch(`/api/comments/${comment.id}`, {
+            method: 'DELETE'
+        })
+        getComments();
+    }
     return (
         <div className='comment-div'>
             <div className='comment-username'>
@@ -20,7 +26,8 @@ const CommentDiv = ({comment}) => {
             </div>
             {user.id === comment.userId && (
                 <div className='comment-action-group'>
-                    <button>Test</button>
+                    <button>Edit</button>
+                    <button onClick={deleteComment}>Delete</button>
                 </div>
             )}
         </div>
