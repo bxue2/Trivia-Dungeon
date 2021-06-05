@@ -29,9 +29,15 @@ const CommentForm = ({editComment, questionId, setShowForm, getComments}) => {
     const submitComment = async (e) => {
         e.preventDefault();
         let newErrors = checkErrors();
+        let fetchMethod = 'POST';
+        let putId = '';
+        if(editComment){
+            fetchMethod = 'PUT';
+            putId = editComment.id;
+        }
         if(newErrors.length === 0){
-            const response = await fetch('/api/comments/', {
-                'method': 'POST',
+            const response = await fetch(`/api/comments/${putId}`, {
+                'method': fetchMethod,
                 headers: {
                     'Content-Type': 'application/json'
                 },
