@@ -11,7 +11,7 @@ const CommentSection = ({question}) => {
     const [comments, setComments] = useState([])
     const [showForm, setShowForm] = useState(false);
     const [editComment, setEditComment] = useState(null)
-    const [showAdd, setShowAdd] = useState(question.userId !== user.id);
+    const [showAdd, setShowAdd] = useState(true);
 
     const getComments = useCallback(async () => {
         const response = await fetch(`/api/comments/${question.id}`)
@@ -26,12 +26,19 @@ const CommentSection = ({question}) => {
     }, [question, getComments])
 
     useEffect(() => {
+
+        let foundMatch = false;
         comments.forEach((comment) => {
             if(user.id === comment.userId){
-                setShowAdd(false);
+                foundMatch = true;
             }
         })
-    }, [comments, user.id])
+        setShowAdd(!foundMatch);
+
+        if(question.userId === user.id){
+            setShowAdd(false)
+        }
+    }, [comments, user.id, question.userId])
 
     return (
         <>

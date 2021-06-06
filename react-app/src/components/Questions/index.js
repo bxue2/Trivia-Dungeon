@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react'
-import QuestionList from './QuestionList'
+// import QuestionList from './QuestionList'
 import AddQuestion from './AddQuestion'
 import { useSelector } from 'react-redux';
 import { Modal } from '../../context/Modal';
