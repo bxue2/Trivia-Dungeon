@@ -60,7 +60,7 @@ const TriviaRender = ({question, next}) => {
                 </div>
                 <div className='trivia-info'>
                     <div>
-                        Category: {question && question.category.name}
+                        Category: {question && question.category && question.category.name}
                     </div>
                     <div>
                         Difficulty: {question && difficultyMap[question.difficulty-1]}
