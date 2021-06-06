@@ -57,6 +57,9 @@ const TriviaRender = ({question, next}) => {
                         return <AnswerButton correct={correct} setAnswered={setAnswered} answer={answer} key={idx}/>
                     })}
                 </div>
+                <div className='trivia-info'>
+                    Category: {question && question.categoryId}
+                </div>
             </>
         </div>
     )
