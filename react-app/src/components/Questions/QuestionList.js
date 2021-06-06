@@ -2,6 +2,7 @@ import React from 'react';
 
 import QuestionListRow from './QuestionListRow';
 
+//Temporarily (?) deprecated, use ListComponent and pass in questions.map as child
 const QuestionList = ({questions, getQuestions, setEditQuestion}) => {
 
     let questionRows =  (
