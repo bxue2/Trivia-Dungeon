@@ -3,7 +3,6 @@
 # Put generated question-list.txt in seeds folder so opentdb.py can seed it into the db
 
 import requests
-import ast
 
 response = requests.get("https://opentdb.com/api.php?amount=10")
 data = response.json()
