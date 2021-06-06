@@ -2,6 +2,7 @@ from flask import Blueprint, request
 from app.models import Question, db
 from app.forms import QuestionForm
 from flask_login import current_user
+from sqlalchemy.sql.expression import func
 
 question_routes = Blueprint('questions', __name__)
 
@@ -45,7 +46,7 @@ def get_random_question():
     """
     Gets up to 30 random questions.
     """
-    questions = Question.query.limit(30).all()
+    questions = Question.query.order_by(func.random()).limit(30).all()
     return {"questions": [question.to_dict() for question in questions]}
 
 @question_routes.route('/user/<int:userid>')
