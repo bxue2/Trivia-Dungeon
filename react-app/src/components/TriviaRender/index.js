@@ -58,7 +58,7 @@ const TriviaRender = ({question, next}) => {
                     })}
                 </div>
                 <div className='trivia-info'>
-                    Category: {question && question.categoryId}
+                    Category: {question && question.category.name}
                 </div>
             </>
         </div>
