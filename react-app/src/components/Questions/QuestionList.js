@@ -4,7 +4,6 @@ import QuestionListRow from './QuestionListRow';
 
 const QuestionList = ({questions, getQuestions, setEditQuestion}) => {
 
-
     let questionRows =  (
         <div className='loading-questions'>
             {/* Loading... */}
@@ -18,7 +17,6 @@ const QuestionList = ({questions, getQuestions, setEditQuestion}) => {
                 {questions.length === 0 && questionRows}
                 {questions.map((question, idx) => {
                         return (
-                            // <div key={idx}> Hi </div>
                             <QuestionListRow question={question} getQuestions={getQuestions} setEditQuestion={setEditQuestion} key={idx}/>
                         )})
                 }
