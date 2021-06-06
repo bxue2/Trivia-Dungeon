@@ -15,7 +15,7 @@ const TriviaRender = ({question, next}) => {
     useEffect(() => {
         if(question){
             const randomizeAnswers = () => {
-                if(answered === 0){
+                // if(answered === 0){
                     let answers = [];
                     if(question.incorrectAnswers){
                         //Setup answers array
@@ -33,11 +33,11 @@ const TriviaRender = ({question, next}) => {
                         }
                     }
                     setAnswerList(answers);
-                }
+                // }
             }
             randomizeAnswers();
         }
-    }, [answered, question])
+    }, [question])  //Add answered back in to randomize on incorrect
 
     return (
         <div className='trivia-render-container'>
