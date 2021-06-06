@@ -7,7 +7,7 @@ import requests
 response = requests.get("https://opentdb.com/api.php?amount=10")
 data = response.json()
 
-print(data.get('results'))
+print(data)
 
 for question in data.get('results'):
     f = open('question-list.txt', 'a')
