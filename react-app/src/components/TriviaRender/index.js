@@ -11,6 +11,7 @@ const TriviaRender = ({question, next}) => {
     const [answered, setAnswered] = useState(0);
     const [answerList, setAnswerList] = useState([]);
 
+    const difficultyMap = ["Easy", "Medium", "Hard"]
 
     useEffect(() => {
         if(question){
@@ -58,7 +59,12 @@ const TriviaRender = ({question, next}) => {
                     })}
                 </div>
                 <div className='trivia-info'>
-                    Category: {question && question.category.name}
+                    <div>
+                        Category: {question && question.category.name}
+                    </div>
+                    <div>
+                        Difficulty: {question && difficultyMap[question.difficulty-1]}
+                    </div>
                 </div>
             </>
         </div>
