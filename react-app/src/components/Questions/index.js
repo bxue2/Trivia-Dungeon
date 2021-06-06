@@ -1,8 +1,10 @@
 import React, {useState, useEffect, useCallback} from 'react'
-import QuestionList from './QuestionList'
+// import QuestionList from './QuestionList'
 import AddQuestion from './AddQuestion'
 import { useSelector } from 'react-redux';
 import { Modal } from '../../context/Modal';
+import ListComponent from '../ListComponent';
+import QuestionListRow from './QuestionListRow';
 
 import './Questions.css'
 
@@ -34,7 +36,14 @@ const Questions = () => {
 
     return (
         <div className='questions-container'>
-            <QuestionList questions={questions} getQuestions={getQuestions} setEditQuestion={setEditQuestion}/>
+            {/* <QuestionList questions={questions} getQuestions={getQuestions} setEditQuestion={setEditQuestion}/> */}
+            <ListComponent title={"Submitted Questions"}>
+                {questions.map((question, idx) => {
+                        return (
+                            <QuestionListRow question={question} getQuestions={getQuestions} setEditQuestion={setEditQuestion} key={idx}/>
+                        )})
+                }
+            </ListComponent>
             <button className='add-question-button' onClick={() => setShowForm(true)}>Add Question</button>
             {showForm && (
                 <Modal onClose={() => setShowForm(false)}>

@@ -34,4 +34,5 @@ class Question(db.Model):
             "difficulty": self.difficulty,
             "userId": self.user_id,
             "categoryId": self.category_id,
+            "category": self.category.to_dict()
         }

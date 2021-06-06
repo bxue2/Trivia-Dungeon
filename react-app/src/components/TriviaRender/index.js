@@ -11,11 +11,12 @@ const TriviaRender = ({question, next}) => {
     const [answered, setAnswered] = useState(0);
     const [answerList, setAnswerList] = useState([]);
 
+    const difficultyMap = ["Easy", "Medium", "Hard"]
 
     useEffect(() => {
         if(question){
             const randomizeAnswers = () => {
-                if(answered === 0){
+                // if(answered === 0){
                     let answers = [];
                     if(question.incorrectAnswers){
                         //Setup answers array
@@ -33,11 +34,11 @@ const TriviaRender = ({question, next}) => {
                         }
                     }
                     setAnswerList(answers);
-                }
+                // }
             }
             randomizeAnswers();
         }
-    }, [answered, question])
+    }, [question])  //Add answered back in to randomize on incorrect
 
     return (
         <div className='trivia-render-container'>
@@ -56,6 +57,14 @@ const TriviaRender = ({question, next}) => {
                         let correct = (answer === question.answer);
                         return <AnswerButton correct={correct} setAnswered={setAnswered} answer={answer} key={idx}/>
                     })}
+                </div>
+                <div className='trivia-info'>
+                    <div>
+                        Category: {question && question.category && question.category.name}
+                    </div>
+                    <div>
+                        Difficulty: {question && difficultyMap[question.difficulty-1]}
+                    </div>
                 </div>
             </>
         </div>

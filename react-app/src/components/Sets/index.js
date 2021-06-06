@@ -4,8 +4,11 @@ import './Sets.css'
 
 const Sets = () => {
     return (
-        <div>
+        <div className="sets-container">
             <h1>Sets page</h1>
+            <div>
+
+            </div>
         </div>
     )
 }

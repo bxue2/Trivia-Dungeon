@@ -2,8 +2,8 @@ import React from 'react';
 
 import QuestionListRow from './QuestionListRow';
 
+//Temporarily (?) deprecated, use ListComponent and pass in questions.map as child
 const QuestionList = ({questions, getQuestions, setEditQuestion}) => {
-
 
     let questionRows =  (
         <div className='loading-questions'>
@@ -18,7 +18,6 @@ const QuestionList = ({questions, getQuestions, setEditQuestion}) => {
                 {questions.length === 0 && questionRows}
                 {questions.map((question, idx) => {
                         return (
-                            // <div key={idx}> Hi </div>
                             <QuestionListRow question={question} getQuestions={getQuestions} setEditQuestion={setEditQuestion} key={idx}/>
                         )})
                 }
