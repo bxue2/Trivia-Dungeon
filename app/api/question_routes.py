@@ -1,8 +1,9 @@
 from flask import Blueprint, request
-from app.models import Question, db
+from app.models import Question, db, Set
 from app.forms import QuestionForm
 from flask_login import current_user
 from sqlalchemy.sql.expression import func
+from sqlalchemy.orm import joinedload
 
 question_routes = Blueprint('questions', __name__)
 
@@ -55,6 +56,14 @@ def get_user_questions(userid):
     Gets all questions from specified user.
     """
     questions = Question.query.filter(Question.user_id == userid)
+    return {"questions": [question.to_dict() for question in questions]}
+
+@question_routes.route('/set/<int:setid>')
+def get_set_questions(setid):
+    """
+    Gets all questions from specified set.
+    """
+    questions = Question.query.join(Set, Question.sets).filter(Set.id == setid)
     return {"questions": [question.to_dict() for question in questions]}
 
 # For testing on Postman

@@ -1,4 +1,5 @@
 from .db import db
+from .set_questions import set_questions
 
 class Set(db.Model):
     __tablename__ = 'sets'
@@ -10,12 +11,13 @@ class Set(db.Model):
     user = db.relationship("User", back_populates="set")
 
     questions = db.relationship("Question",
-                    secondary="set_questions",
+                    secondary=set_questions,
                     back_populates="sets")
 
     def to_dict(self):
         return {
             "id": self.id,
             "name": self.name,
-            "userId": self.user_id
+            "userId": self.user_id,
+            "username": self.user.username
         }

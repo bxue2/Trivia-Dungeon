@@ -6,6 +6,7 @@ const AddSet = ({setShowForm, editSet, setEditSet, getSets}) => {
 
     const clearFields = () => {
         setName("");
+        setEditSet("");
         setShowForm(false);
         setEditSet(null);
     }

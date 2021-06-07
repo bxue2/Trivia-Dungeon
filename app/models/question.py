@@ -1,5 +1,6 @@
 from .db import db
 from datetime import datetime
+from .set_questions import set_questions
 
 class Question(db.Model):
     __tablename__ = 'questions'
@@ -21,7 +22,7 @@ class Question(db.Model):
     qcomment = db.relationship("QuestionComment", back_populates="question")
 
     sets = db.relationship("Set",
-                secondary="set_questions",
+                secondary=set_questions,
                 back_populates="questions")
 
     def to_dict(self):

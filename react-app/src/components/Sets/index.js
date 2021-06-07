@@ -26,6 +26,12 @@ const Sets = () => {
         getSets();
     }, [getSets])
 
+    useEffect(() => {
+        if(editSet){
+            setShowForm(true)
+        }
+    }, [editSet])
+
     return (
         <div className="sets-container">
             <h1>Sets page</h1>

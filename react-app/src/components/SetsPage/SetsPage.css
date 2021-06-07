@@ -1,0 +1,15 @@
+.sets-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.sets-page h1{
+    margin: 0;
+}
+
+.sets-page h3{
+    margin: 0;
+}

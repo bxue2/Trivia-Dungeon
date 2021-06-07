@@ -1,4 +1,4 @@
-from app.models import db, Question, Category
+from app.models import db, Question, Category, Set
 
 def seed_categories():
     category1 = Category(name='General Knowledge')

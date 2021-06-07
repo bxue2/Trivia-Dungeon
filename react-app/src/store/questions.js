@@ -24,7 +24,13 @@ const shuffleArray = (arr) => {
 
 //Gets all questions associated with setId
 export const getQuestionsFromSet = (setId) => async (dispatch) => {
-
+    const response = await fetch(`/api/questions/set/${setId}`)
+    let data = await response.json();
+    let newData = shuffleArray(data.questions);
+    if(!data.errors){
+        dispatch(getQuestions(newData))
+    }
+    return newData;
 }
 
 //Gets <num> random questions based on selected categories
@@ -44,7 +50,6 @@ export const getRandomQuestions = () => async (dispatch) => {
 }
 
 export const goToNextQuestion = () => (dispatch) => {
-    
     dispatch(nextQuestion());
 }
 
