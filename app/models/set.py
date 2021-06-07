@@ -18,5 +18,6 @@ class Set(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "userId": self.user_id
+            "userId": self.user_id,
+            "username": self.user.username
         }
