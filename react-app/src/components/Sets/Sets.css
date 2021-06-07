@@ -1,0 +1,35 @@
+.add-set-container{
+    width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-set-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #969696;
+}
+
+.add_set_field-row{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.add_set_field-row label{
+    width: 100%;
+    margin: 5px;
+    font-weight: 600;
+}
+
+.add_set_field-row input{
+    padding: 5px;
+}
