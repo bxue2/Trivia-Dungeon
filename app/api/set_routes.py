@@ -31,13 +31,13 @@ def get_set(id):
     set = Set.query.get(id)
     return set.to_dict()
 
-@set_routes.route('/users/<int:userid>')
+@set_routes.route('/user/<int:userid>')
 def get_set_by_user(userid):
     """
     Get a set in db by id.
     """
     sets = Set.query.filter(Set.user_id == userid)
-    return {"questions": [set.to_dict() for set in sets]}
+    return {"sets": [set.to_dict() for set in sets]}
 
 @set_routes.route('/<int:id>', methods=['PUT'])
 def update_set(id):
