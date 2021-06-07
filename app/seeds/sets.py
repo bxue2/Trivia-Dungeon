@@ -1,4 +1,4 @@
-from app.models import db, Set, SetQuestion
+from app.models import db, Set
 
 def seed_sets():
 
@@ -9,17 +9,17 @@ def seed_sets():
     db.session.add(set1)
     db.session.commit()
 
-    set_question_1 = SetQuestion(
-        question_id=1,
-        set_id=1
-    )
-    set_question_2 = SetQuestion(
-        question_id=2,
-        set_id=1
-    )
+    # set_question_1 = SetQuestion(
+    #     question_id=1,
+    #     set_id=1
+    # )
+    # set_question_2 = SetQuestion(
+    #     question_id=2,
+    #     set_id=1
+    # )
 
-    db.session.add(set_question_1)
-    db.session.add(set_question_2)
+    # db.session.add(set_question_1)
+    # db.session.add(set_question_2)
 
     db.session.commit()
 
