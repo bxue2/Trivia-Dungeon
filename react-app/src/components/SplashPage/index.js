@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import TriviaRender from '../TriviaRender';
 
-import {getRandomQuestions} from '../../store/questions'
+import {getQuestionsFromQueries} from '../../store/questions'
 
 import './SplashPage.css'
 
@@ -11,7 +11,7 @@ const SplashPage = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         if(questions.length === 0){
-            dispatch(getRandomQuestions())
+            dispatch(getQuestionsFromQueries())
         }
     }, [questions, dispatch])
 

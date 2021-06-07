@@ -47,7 +47,10 @@ def get_random_question():
     """
     Gets up to 30 random questions.
     """
-    questions = Question.query.order_by(func.random()).limit(30).all()
+    args = request.args
+    print("Test{0}".format(args.get('categories')))
+    num = int(args.get('num')) if args.get('num') else 30
+    questions = Question.query.order_by(func.random()).limit(num).all()
     return {"questions": [question.to_dict() for question in questions]}
 
 @question_routes.route('/user/<int:userid>')
