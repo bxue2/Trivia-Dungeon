@@ -30,6 +30,7 @@ const SplashPage = () => {
         dispatch(getQuestionsFromQueries(queries, 30))
     }
 
+    //Or else useEffect warns about dependency that causes infinite loop
     let getNewQRef = useRef(getNewQuestions);
 
     useEffect(() => {
@@ -54,7 +55,7 @@ const SplashPage = () => {
                 <h2>Play some random questions:</h2>
                 <TriviaRender question={questions[0]} next={true}/>
                 <div className='config-section'>
-                    <label htmlFor='category-select'>Category</label>
+                    <label htmlFor='category-select'>Category: </label>
                     <select className='select-category-1'
                         value={category1}
                         onChange={(e) => setCategory1(parseInt(e.target.value))}
@@ -67,6 +68,16 @@ const SplashPage = () => {
                                 )
                             })
                         }
+                    </select>
+                    <label htmlFor='difficulty-select'>Difficulty</label>
+                    <select className='select-difficulty'
+                        value={difficulty}
+                        onChange={(e) => setDifficulty(parseInt(e.target.value))}
+                        name='difficulty-select'>
+                        <option value={0}>All</option>
+                        <option value={1}>Easy</option>
+                        <option value={2}>Medium</option>
+                        <option value={3}>Hard</option>
                     </select>
                 </div>
 
