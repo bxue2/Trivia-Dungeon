@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import TriviaRender from '../TriviaRender';
 
@@ -19,11 +19,7 @@ const SplashPage = () => {
         setCategories(categoryList.categories);
     }
 
-    useEffect(() => {
-        getCategories();
-    }, [])
-
-    useEffect(() => {
+    const getNewQuestions = () => {
         let queries = {}
         if(category1 > 0){
             queries['category1'] = category1;
@@ -31,10 +27,24 @@ const SplashPage = () => {
         if(difficulty > 0){
             queries['difficulty'] = difficulty;
         }
+        dispatch(getQuestionsFromQueries(queries, 30))
+    }
+
+    let getNewQRef = useRef(getNewQuestions);
+
+    useEffect(() => {
+        getCategories();
+    }, [])
+
+    useEffect(() => {
         if(questions.length === 0){
-            dispatch(getQuestionsFromQueries(queries, 30))
+            getNewQRef.current();
         }
-    }, [questions, dispatch, category1, difficulty])
+    }, [questions])
+
+    useEffect(() => {
+        getNewQRef.current()
+    }, [dispatch, category1, difficulty])
 
     console.log(questions[0]);
     return (
