@@ -1,5 +1,5 @@
 from .db import db
-from .set_question import set_questions
+from .set_questions import set_questions
 
 class Set(db.Model):
     __tablename__ = 'sets'

@@ -6,8 +6,6 @@ set_questions = db.Table('set_questions',
     db.Column("question_id", db.Integer, db.ForeignKey('questions.id'), primary_key=True)
 )
 
-
-
 # from .db import db
 
 # class SetQuestion(db.Model):
