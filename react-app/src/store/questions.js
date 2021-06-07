@@ -38,7 +38,7 @@ export const getQuestionsFromSet = (setId) => async (dispatch) => {
 export const getQuestionsFromQueries = (queries={}, num=30) => async (dispatch) => {
     let queryString = `?num=${num}&`
     for(let key in queries){
-        queryString = queryString + queries[key] + "&";
+        queryString = `${queryString}${key}=${queries[key]}&;`;
     }
     const response = await fetch(`/api/questions/random${queryString.slice(0, -1)}`)
     let data = await response.json();
