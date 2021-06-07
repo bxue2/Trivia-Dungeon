@@ -52,7 +52,8 @@ def get_random_question():
     queries = []
     if args.get('category1'):
         queries.append(Question.category_id == args.get('category1'))
-
+    if args.get('difficulty'):
+        queries.append(Question.difficulty== args.get('difficulty'))
     questions = Question.query.filter(*queries).order_by(func.random()).limit(num).all()
     return {"questions": [question.to_dict() for question in questions]}
 
