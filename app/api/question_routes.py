@@ -63,7 +63,7 @@ def get_set_questions(setid):
     """
     Gets all questions from specified set.
     """
-    questions = db.session.query(Question).options(joinedload(Question.sets)).join(Set).filter(Question.set_id == setid)
+    questions = Question.query.join(Set, Question.sets).filter(Set.id == setid)
     return {"questions": [question.to_dict() for question in questions]}
 
 # For testing on Postman

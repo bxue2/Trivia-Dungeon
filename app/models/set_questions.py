@@ -2,8 +2,9 @@ from .db import db
 
 set_questions = db.Table('set_questions',
     db.Model.metadata,
-    db.Column("set_id", db.Integer, db.ForeignKey('sets.id'), primary_key=True),
-    db.Column("question_id", db.Integer, db.ForeignKey('questions.id'), primary_key=True)
+    db.Column("set_id", db.Integer, db.ForeignKey('sets.id'), nullable=False),
+    db.Column("question_id", db.Integer, db.ForeignKey('questions.id'), nullable=False),
+    db.PrimaryKeyConstraint('set_id', 'question_id')
 )
 
 # from .db import db
