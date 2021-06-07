@@ -40,6 +40,7 @@ export const getQuestionsFromQueries = (queries={}, num=30) => async (dispatch) 
     for(let key in queries){
         queryString = `${queryString}${key}=${queries[key]}&;`;
     }
+    console.log("queryString: ", queries)
     const response = await fetch(`/api/questions/random${queryString.slice(0, -1)}`)
     let data = await response.json();
     let newData = shuffleArray(data.questions);
