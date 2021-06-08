@@ -1,10 +1,14 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import ListComponent from '../ListComponent';
 import { useLocation } from "react-router-dom";
+import QuestionListRow from '../Questions/QuestionListRow'
 import queryString from 'query-string';
 
+import './SearchResults.css'
+
 const SearchResults = (props) => {
-    const [questions, setQuestions] = useState();
+    const [questions, setQuestions] = useState([]);
+    const [loaded, setLoaded] = useState(false)
     const query = useLocation()
 
     const getSearch = useCallback(async (queryStr) => {
@@ -14,6 +18,7 @@ const SearchResults = (props) => {
         // } else{
             console.log(data.questions)
             setQuestions(data.questions);
+            setLoaded(true);
         // }
     }, [setQuestions])
 
@@ -25,9 +30,17 @@ const SearchResults = (props) => {
 
     }, [query, getSearch])
     return (
-        <div>
-            <ListComponent>
-
+        <div className='search-results-container'>
+            <ListComponent title='Search Results'>
+            {questions && questions.map((question, idx) => {
+                        return (
+                            <QuestionListRow question={question} key={idx}/>
+                        )})
+            }
+            {(questions.length === 0 && loaded) &&
+            <div className='no-results-screen'>
+                No results found.
+            </div>}
             </ListComponent>
         </div>
     )

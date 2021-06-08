@@ -22,7 +22,6 @@ const AddToSet = ({qid}) => {
     return (
         <ListComponent title='Add Question to Set'>
             {setsContain && setsContain.map((setContain, idx) => {
-                console.log(setContain)
                 return <AddToSetRow setContain={setContain} qid={qid} key={idx}/>
             })}
         </ListComponent>
