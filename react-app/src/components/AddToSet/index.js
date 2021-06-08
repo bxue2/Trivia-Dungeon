@@ -20,6 +20,7 @@ const AddToSet = ({qid}) => {
     return (
         <ListComponent >
             {setsContain && setsContain.map((setContain, idx) => {
+                console.log(setContain)
                 return <AddToSetRow setContain={setContain} qid={qid} key={idx}/>
             })}
         </ListComponent>

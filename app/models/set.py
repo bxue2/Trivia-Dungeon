@@ -23,7 +23,8 @@ class Set(db.Model):
         }
 
     def to_dict_qid(self, qid):
-        found = set_questions.query.filter(set_questions.setId == self.id, set_questions.question_id == qid)
+        checkQuery = self.query.filter(set_questions.c.set_id == self.id, set_questions.c.question_id == qid).first()
+        found = checkQuery is None
         return {
             "id": self.id,
             "name": self.name,
