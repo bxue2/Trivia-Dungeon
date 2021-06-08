@@ -34,7 +34,7 @@ def get_set(id):
 @set_routes.route('/user/<int:userid>')
 def get_set_by_user(userid):
     """
-    Get a set in db by id.
+    Get a set in db by id. Optional query to check for question
     """
     sets = Set.query.filter(Set.user_id == userid)
     return {"sets": [set.to_dict() for set in sets]}

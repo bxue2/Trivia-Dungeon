@@ -21,3 +21,13 @@ class Set(db.Model):
             "userId": self.user_id,
             "username": self.user.username
         }
+
+    def to_dict_qid(self, qid):
+        found = set_questions.query.filter(set_questions.setId == self.id, set_questions.question_id == qid)
+        return {
+            "id": self.id,
+            "name": self.name,
+            "userId": self.user_id,
+            "username": self.user.username,
+            "contain": found
+        }
