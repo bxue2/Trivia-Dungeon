@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Set, db
+from app.models import Set, db, set_questions, Question
 from app.forms import SetForm
 from flask_login import current_user
 
@@ -66,38 +66,23 @@ def delete_set(id):
     db.session.commit()
     return set.to_dict()
 
-@set_routes.route('/question/<int:qid>', methods=['POST'])
-def add_q_to_set(qid):
+@set_routes.route('/<int:sid>/question/<int:qid>', methods=['POST'])
+def add_q_to_set(sid, qid):
     """
     Adds a question to the set
     """
-    form = SetForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+    addsq = set_questions.insert().values(set_id=sid, question_id=qid)
+    db.session.execute(addsq)
+    db.session.commit()
+    return set.to_dict()
 
-    if form.validate_on_submit():
-        set = Set(
-            name = form.data['name'],
-            user_id = current_user.to_dict()['id']
-        )
-        db.session.add(set)
-        db.session.commit()
-        return set.to_dict()
-    return {'errors': form.errors}, 401
-
-@set_routes.route('/question/<int:qid>', methods=['DELETE'])
-def remove_q_from_set(qid):
+@set_routes.route('/<int:sid>/question/<int:qid>', methods=['DELETE'])
+def remove_q_from_set(sid, qid):
     """
-    Adds a question to the set
+    Removes a question from the set
     """
-    form = SetForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-
-    if form.validate_on_submit():
-        set = Set(
-            name = form.data['name'],
-            user_id = current_user.to_dict()['id']
-        )
-        db.session.add(set)
-        db.session.commit()
-        return set.to_dict()
-    return {'errors': form.errors}, 401
+    currset = Set.query.get(sid)
+    currq = Question.query.get(qid)
+    currset.questions.remove(currq)
+    db.session.commit()
+    return currset.to_dict()
