@@ -13,7 +13,7 @@ const AddToSet = ({qid}) => {
         const response = await fetch(`/api/sets/user/${user.id}?qid=${qid}`)
         const data = await response.json()
         setSetsContain(data.sets);
-    }, [user.id])
+    }, [user.id, qid])
 
     useEffect(() => {
         getSets();
