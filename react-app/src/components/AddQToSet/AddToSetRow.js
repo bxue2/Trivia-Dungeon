@@ -1,8 +1,15 @@
 import React from 'react'
 
-const AddToSetRow = ({set}) => {
+const AddToSetRow = ({qid, set}) => {
     const addToSet = () => {
-        const response = await fetch('/api/sets/')
+        const response = await fetch(`/api/sets/${set.id}/question/${qid}`, {
+            method: 'POST'
+        })
+    }
+    const removeFromSet = () => {
+        const response = await fetch(`/api/sets/${set.id}/question/${qid}`, {
+            method: 'DELETE'
+        })
     }
     return (
         <div className='add-to-set-row'>
@@ -10,6 +17,7 @@ const AddToSetRow = ({set}) => {
                 {set.name}
             </div>
             <button className='add-to-set-button' onClick={addToSet}>+</button>
+            <button className='remove-from-set-button' onClick={removeFromSet}>-</button>
         </div>
     )
 }
