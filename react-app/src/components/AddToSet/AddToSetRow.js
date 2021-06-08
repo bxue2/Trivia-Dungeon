@@ -1,12 +1,12 @@
 import React from 'react'
 
 const AddToSetRow = ({qid, setContain}) => {
-    const addToSet = () => {
+    const addToSet = async () => {
         const response = await fetch(`/api/sets/${setContain.id}/question/${qid}`, {
             method: 'POST'
         })
     }
-    const removeFromSet = () => {
+    const removeFromSet = async () => {
         const response = await fetch(`/api/sets/${setContain.id}/question/${qid}`, {
             method: 'DELETE'
         })
