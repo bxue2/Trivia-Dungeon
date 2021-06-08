@@ -102,3 +102,13 @@ def delete_question(id):
     db.session.delete(question)
     db.session.commit()
     return question.to_dict()
+
+@question_routes.route('/search')
+def get_search_questions():
+    """
+    Gets all questions from search results
+    """
+    args = request.args
+    query = args.get('query')
+    questions = Question.query.filter(Question.question.ilike("%{0}%".format(query)))
+    return {"questions": [question.to_dict() for question in questions]}
