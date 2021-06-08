@@ -75,7 +75,7 @@ def add_q_to_set(sid, qid):
     addsq = set_questions.insert().values(set_id=sid, question_id=qid)
     db.session.execute(addsq)
     db.session.commit()
-    return set.to_dict()
+    return {'success': True}, 200
 
 @set_routes.route('/<int:sid>/question/<int:qid>', methods=['DELETE'])
 def remove_q_from_set(sid, qid):
@@ -86,4 +86,4 @@ def remove_q_from_set(sid, qid):
     currq = Question.query.get(qid)
     currset.questions.remove(currq)
     db.session.commit()
-    return currset.to_dict()
+    return {'success': True}, 200

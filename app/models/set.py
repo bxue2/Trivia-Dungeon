@@ -24,7 +24,7 @@ class Set(db.Model):
 
     def to_dict_qid(self, qid):
         checkQuery = self.query.filter(set_questions.c.set_id == self.id, set_questions.c.question_id == qid).first()
-        found = checkQuery is None
+        found = checkQuery is not None
         return {
             "id": self.id,
             "name": self.name,
