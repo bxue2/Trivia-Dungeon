@@ -1,0 +1,12 @@
+.search-results-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-results-screen{
+    font-size: 20px;
+    margin-top: 20px;
+}

@@ -3,7 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import Sidebar from '../Sidebar'
 import SplashPage from '../SplashPage';
 import QuestionPage from '../QuestionPage';
-import SetsPage from '../SetsPage'
+import SetsPage from '../SetsPage';
+import SearchResults from '../SearchResults';
 
 import ProtectedRoute from '../auth/ProtectedRoute'
 import Questions from '../Questions'
@@ -27,6 +28,9 @@ const MainContainer = () => {
                 </ProtectedRoute>
                 <Route path="/sets/:id" exact={true}>
                     <SetsPage />
+                </Route>
+                <Route path="/search">
+                    <SearchResults />
                 </Route>
                 {/*
                 <ProtectedRoute path="/users" exact={true}>

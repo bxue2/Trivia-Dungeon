@@ -13,7 +13,7 @@ const AddToSet = ({qid}) => {
         const response = await fetch(`/api/sets/user/${user.id}?qid=${qid}`)
         const data = await response.json()
         setSetsContain(data.sets);
-    }, [user.id])
+    }, [user.id, qid])
 
     useEffect(() => {
         getSets();
@@ -22,7 +22,6 @@ const AddToSet = ({qid}) => {
     return (
         <ListComponent title='Add Question to Set'>
             {setsContain && setsContain.map((setContain, idx) => {
-                console.log(setContain)
                 return <AddToSetRow setContain={setContain} qid={qid} key={idx}/>
             })}
         </ListComponent>

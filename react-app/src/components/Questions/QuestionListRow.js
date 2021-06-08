@@ -25,8 +25,8 @@ const QuestionListRow = ({question, getQuestions, setEditQuestion}) => {
             <p className='question-display'>Question: {question.question}</p>
             <div className='question-row_button-container'>
                 <button className='view-button' onClick={viewQuestion}>View</button>
-                <button className='edit-button' onClick={openEditForm}>Edit</button>
-                <button className='delete-button' onClick={deleteQuestion} >Delete</button>
+                {setEditQuestion && <button className='edit-button' onClick={openEditForm}>Edit</button>}
+                {getQuestions && <button className='delete-button' onClick={deleteQuestion} >Delete</button>}
             </div>
         </div>
     )
