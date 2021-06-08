@@ -30,6 +30,9 @@ export const getQuestionsFromSet = (setId) => async (dispatch) => {
     if(!data.errors){
         dispatch(getQuestions(newData))
     }
+    else{
+        dispatch(getQuestions({}))
+    }
     return newData;
 }
 
@@ -46,6 +49,9 @@ export const getQuestionsFromQueries = (queries={}, num=30) => async (dispatch) 
     let newData = shuffleArray(data.questions);
     if(!data.errors){
         dispatch(getQuestions(newData))
+    }
+    else{
+        dispatch(getQuestions({}))
     }
     return newData;
 }
