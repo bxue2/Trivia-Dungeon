@@ -4,7 +4,6 @@ const AddToSetRow = ({qid, setContain}) => {
     const [addToggle, setAddToggle] = useState(true)
 
     useEffect(() => {
-        console.log("Contains", setContain)
         setAddToggle(!setContain.contain)
     }, [setContain, qid])
 

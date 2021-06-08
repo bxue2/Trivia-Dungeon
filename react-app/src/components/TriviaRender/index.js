@@ -52,7 +52,7 @@ const TriviaRender = ({question, next}) => {
                 </Modal>
             )}
             <div className='trivia-render-container'>
-                {user && <button className='open-add-set' onClick={() => setShowModal(true)}>Add to Set</button>}
+                {user && <button className='open-add-set' onClick={() => setShowModal(true)}>Add to/Remove from Sets</button>}
                 {answered === 1 && (
                     <CorrectOverlay setAnswered={setAnswered} next={next}/>
                 )}
