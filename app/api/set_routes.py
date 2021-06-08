@@ -65,3 +65,39 @@ def delete_set(id):
     db.session.delete(set)
     db.session.commit()
     return set.to_dict()
+
+@set_routes.route('/question/<int:qid>', methods=['POST'])
+def add_q_to_set(qid):
+    """
+    Adds a question to the set
+    """
+    form = SetForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        set = Set(
+            name = form.data['name'],
+            user_id = current_user.to_dict()['id']
+        )
+        db.session.add(set)
+        db.session.commit()
+        return set.to_dict()
+    return {'errors': form.errors}, 401
+
+@set_routes.route('/question/<int:qid>', methods=['DELETE'])
+def remove_q_from_set(qid):
+    """
+    Adds a question to the set
+    """
+    form = SetForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        set = Set(
+            name = form.data['name'],
+            user_id = current_user.to_dict()['id']
+        )
+        db.session.add(set)
+        db.session.commit()
+        return set.to_dict()
+    return {'errors': form.errors}, 401
