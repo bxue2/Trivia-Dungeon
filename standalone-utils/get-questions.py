@@ -23,4 +23,12 @@ for category in category_order:
         if(data.get('response_code')) == 0:
             for question in data.get('results'):
                 f.write(str(question) + '\n')
+        # Some categories don't have enough and return diff response code
+        else:
+            response = requests.get("https://opentdb.com/api.php?amount=20&token={0}&category={1}".format(token, category))
+            data = response.json()
+            print("Reach 1")
+            if(data.get('response_code')) == 0:
+                for question in data.get('results'):
+                    f.write(str(question) + '\n')
 f.close()

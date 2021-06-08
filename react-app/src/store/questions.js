@@ -33,14 +33,15 @@ export const getQuestionsFromSet = (setId) => async (dispatch) => {
     return newData;
 }
 
-//Gets <num> random questions based on selected categories
-export const getQuestionsFromCategories = (categories, num) => async (dispatch) => {
-
-}
-
-//Gets 30 random questions from entire dataset
-export const getRandomQuestions = () => async (dispatch) => {
-    const response = await fetch("/api/questions/random")
+//Gets <num> random questions based on query
+// Possible queries: category, difficulty
+export const getQuestionsFromQueries = (queries={}, num=30) => async (dispatch) => {
+    let queryString = `?num=${num}&`
+    for(let key in queries){
+        queryString = `${queryString}${key}=${queries[key]}&`;
+    }
+    console.log("queryString: ", queryString)
+    const response = await fetch(`/api/questions/random${queryString.slice(0, -1)}`)
     let data = await response.json();
     let newData = shuffleArray(data.questions);
     if(!data.errors){

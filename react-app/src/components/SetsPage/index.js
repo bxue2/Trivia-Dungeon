@@ -15,7 +15,7 @@ const SetsPage = () => {
 
     useEffect(() => {
         dispatch(getQuestionsFromSet(id))
-    }, [])
+    }, [dispatch, id])
 
     // useEffect(() => {
     //     if(questions.length === 0){
