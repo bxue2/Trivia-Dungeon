@@ -46,7 +46,10 @@ const Sets = () => {
             <div>
                 <button className='add-set-button' onClick={() => setShowForm(true)}>Add Set</button>
                 {showForm && (
-                    <Modal onClose={() => setShowForm(false)}>
+                    <Modal onClose={() => {
+                        setShowForm(false)
+                        setEditSet(false)
+                    }}>
                         <AddSet setShowForm={setShowForm} editSet={editSet} setEditSet={setEditSet} getSets={getSets}/>
                     </Modal>
                 )}
