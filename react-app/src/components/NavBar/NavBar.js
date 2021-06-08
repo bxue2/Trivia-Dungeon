@@ -21,6 +21,11 @@ const NavBar = () => {
     dispatch(login('demo@aa.io', 'password'))
   }
 
+  const submitSearch = (e) => {
+    e.preventDefault();
+    history.push(`/search?query=${search}`)
+  }
+
   let authButtons = (
     <>
       <button className='demo-button' onClick={demoLogin}>
@@ -40,12 +45,14 @@ const NavBar = () => {
   return (
     <nav>
       <div className='nav-logo' onClick={goHome}/>
-      <div className='search-div'>
+      <form className='search-div' onSubmit={(e) => submitSearch(e)}>
         <input className='search-bar'
           placeholder='Search questions'
-        />
-        <button className='search-button'>Search</button>
-      </div>
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          />
+        <button type='submit' className='search-button'>Search</button>
+      </form>
       <div className='nav-filler'/>
       <div className='nav-right-container'>
         {authButtons}
