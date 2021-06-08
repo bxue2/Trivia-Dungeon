@@ -4,12 +4,12 @@ import AddToSetRow from './AddToSetRow';
 
 const AddToSet = ({qid}) => {
     const user = useSelector(state => state.session.user);
-    const [sets, setSets] = useState([])
+    const [setsContain, setSetsContain] = useState([])
 
     const getSets = useCallback(async () => {
-        const response = await fetch(`/api/sets/user/${user.id}`)
+        const response = await fetch(`/api/sets/user/${user.id}?qid=${qid}`)
         const data = await response.json()
-            setSets(data.sets);
+        setSetsContain(data.sets);
     }, [user.id])
 
     useEffect(() => {
@@ -18,8 +18,8 @@ const AddToSet = ({qid}) => {
 
     return (
         <ListComponent >
-            {sets && sets.map((set, idx) => {
-                return <AddToSetRow set={set} qid={qid} key={idx}/>
+            {setsContain && setsContain.map((setContain, idx) => {
+                return <AddToSetRow setContain={setContain} qid={qid} key={idx}/>
             })}
         </ListComponent>
     )

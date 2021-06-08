@@ -36,8 +36,9 @@ def get_set_by_user(userid):
     """
     Get a set in db by id. Optional query to check for question
     """
+    args = request.args
     sets = Set.query.filter(Set.user_id == userid)
-    return {"sets": [set.to_dict() for set in sets]}
+    return {"sets": [ set.to_dict_qid(args.get('qid')) if args.get('qid') else set.to_dict() for set in sets]}
 
 @set_routes.route('/<int:id>', methods=['PUT'])
 def update_set(id):
