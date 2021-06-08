@@ -53,36 +53,40 @@ const SplashPage = () => {
                 <h2>Play some random questions:</h2>
                 <TriviaRender question={questions[0]} next={true}/>
                 <div className='config-section'>
-                    <label htmlFor='category-select'>Category: </label>
-                    <select className='select-category-1'
-                        value={category1}
-                        onChange={(e) => {
-                            setCategory1(parseInt(e.target.value))
-                            setOptionChange(true)
-                        }}
-                        name='category-select'>
-                        <option value={0}>All</option>
-                        {
-                            categories.map((category) => {
-                                return (
-                                    <option key={category.id} value={category.id}>{category.name}</option>
-                                )
-                            })
-                        }
-                    </select>
-                    <label htmlFor='difficulty-select'>Difficulty</label>
-                    <select className='select-difficulty'
-                        value={difficulty}
-                        onChange={(e) => {
-                            setDifficulty(parseInt(e.target.value))
-                            setOptionChange(true)
-                        }}
-                        name='difficulty-select'>
-                        <option value={0}>All</option>
-                        <option value={1}>Easy</option>
-                        <option value={2}>Medium</option>
-                        <option value={3}>Hard</option>
-                    </select>
+                    <div>
+                        <label htmlFor='category-select'>Category: </label>
+                        <select className='select-category-1'
+                            value={category1}
+                            onChange={(e) => {
+                                setCategory1(parseInt(e.target.value))
+                                setOptionChange(true)
+                            }}
+                            name='category-select'>
+                            <option value={0}>All</option>
+                            {
+                                categories.map((category) => {
+                                    return (
+                                        <option key={category.id} value={category.id}>{category.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor='difficulty-select'>Difficulty: </label>
+                        <select className='select-difficulty'
+                            value={difficulty}
+                            onChange={(e) => {
+                                setDifficulty(parseInt(e.target.value))
+                                setOptionChange(true)
+                            }}
+                            name='difficulty-select'>
+                            <option value={0}>All</option>
+                            <option value={1}>Easy</option>
+                            <option value={2}>Medium</option>
+                            <option value={3}>Hard</option>
+                        </select>
+                    </div>
                 </div>
 
             </div>

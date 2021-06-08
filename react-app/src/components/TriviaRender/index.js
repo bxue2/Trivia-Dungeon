@@ -1,17 +1,21 @@
 import React, {useEffect, useState} from 'react'
-
+import {useSelector} from 'react-redux';
 import AnswerButton from './AnswerButton';
 import CorrectOverlay from './CorrectOverlay';
 import IncorrectOverlay from './IncorrectOverlay';
+import QuestionInfo from './QuestionInfo';
+import AddToSet from '../AddToSet';
+import { Modal } from '../../context/Modal';
 import './TriviaRender.css'
 
 //next controls if there's a next button or not (disabled if on the question page)
 const TriviaRender = ({question, next}) => {
+    const user = useSelector(state => state.session.user);
     //0=not answered, 1=correct, 2=wrong
     const [answered, setAnswered] = useState(0);
     const [answerList, setAnswerList] = useState([]);
 
-    const difficultyMap = ["Easy", "Medium", "Hard"]
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         if(question){
@@ -41,8 +45,14 @@ const TriviaRender = ({question, next}) => {
     }, [question])  //Add answered back in to randomize on incorrect
 
     return (
-        <div className='trivia-render-container'>
-            <>
+        <>
+            {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    <AddToSet qid={question.id}/>
+                </Modal>
+            )}
+            <div className='trivia-render-container'>
+                {user && <button className='open-add-set' onClick={() => setShowModal(true)}>Add to/Remove from Sets</button>}
                 {answered === 1 && (
                     <CorrectOverlay setAnswered={setAnswered} next={next}/>
                 )}
@@ -58,16 +68,9 @@ const TriviaRender = ({question, next}) => {
                         return <AnswerButton correct={correct} setAnswered={setAnswered} answer={answer} key={idx}/>
                     })}
                 </div>
-                <div className='trivia-info'>
-                    <div>
-                        Category: {question && question.category && question.category.name}
-                    </div>
-                    <div>
-                        Difficulty: {question && difficultyMap[question.difficulty-1]}
-                    </div>
-                </div>
-            </>
-        </div>
+                <QuestionInfo question={question}/>
+            </div>
+        </>
     )
 }
 

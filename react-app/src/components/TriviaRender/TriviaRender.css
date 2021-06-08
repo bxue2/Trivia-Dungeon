@@ -98,3 +98,18 @@
     font-size: 20px;
     background-color: #cecece;
 }
+
+.open-add-set{
+    position: absolute;
+    top: -2px;
+    border: 1px solid #6ec8d8;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #6ec8d8;
+    font-size: 16px;
+}
+
+.open-add-set:hover{
+    box-shadow: 0 0 3px #6ec8d8;
+    border: 1px solid white;
+}

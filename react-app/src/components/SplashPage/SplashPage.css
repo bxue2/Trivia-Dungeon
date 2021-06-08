@@ -6,3 +6,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.config-section{
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
