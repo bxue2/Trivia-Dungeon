@@ -36,6 +36,8 @@ const Questions = () => {
 
     return (
         <div className='questions-container'>
+            <h1 className='page-header'>Questions</h1>
+            <p className='page-subheader'>Submit your own questions to add them to the database!</p>
             {/* <QuestionList questions={questions} getQuestions={getQuestions} setEditQuestion={setEditQuestion}/> */}
             <ListComponent title={"Submitted Questions"}>
                 {questions.map((question, idx) => {
