@@ -34,7 +34,7 @@ const Sets = () => {
 
     return (
         <div className="sets-container">
-            <h1 className='page-header'>Personal Sets</h1>
+            <h1 className='page-header'>User Sets</h1>
             <p className='page-subheader'>Create personalized sets of questions. To add/remove questions, find a question and click the Add to Set button.</p>
             <ListComponent title={"Created Sets"}>
                 {sets.map((set, idx) => {
