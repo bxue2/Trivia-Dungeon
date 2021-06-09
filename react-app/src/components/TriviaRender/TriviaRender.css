@@ -72,7 +72,7 @@
     width: 100px;
 }
 
-.retry-button, .close-button, .next-button{
+.retry-button, .close-button, .next-button, .skip-button{
     margin-top: 20px;
     background-color: #2e4a64;
     border: 2px solid white;
@@ -84,7 +84,7 @@
     align-items: center;
 }
 
-.retry-button:hover, .close-button:hover, .next-button:hover{
+.retry-button:hover, .close-button:hover, .next-button:hover, .skip-button:hover{
     box-shadow: 0 0 5px white;
 }
 

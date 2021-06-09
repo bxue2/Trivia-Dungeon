@@ -57,7 +57,7 @@ const TriviaRender = ({question, next}) => {
                     <CorrectOverlay setAnswered={setAnswered} next={next}/>
                 )}
                 {answered === 2 && (
-                    <IncorrectOverlay setAnswered={setAnswered}/>
+                    <IncorrectOverlay setAnswered={setAnswered} next={next}/>
                 )}
                 <div className='question-section'>
                     {question && question.question}
