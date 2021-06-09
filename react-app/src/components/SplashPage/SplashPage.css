@@ -2,7 +2,20 @@
     height: 100%;
     width: 100%;
     background-color: black;
-    display: grid;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.splash-info{
+    flex: 1;
+    margin-left: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .attribute-link{
@@ -10,12 +23,12 @@
 }
 
 .dungeon-door-bg{
+    margin-left: 120px;
     height: 500px;
     width: 700px;
 }
 
 .trivia-header{
-    color: white;
     font-size: 40px;
     font-family: 'Source Sans Pro', sans-serif;
 }
