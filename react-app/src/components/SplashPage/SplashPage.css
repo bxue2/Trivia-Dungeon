@@ -29,6 +29,10 @@
 }
 
 .trivia-header{
-    font-size: 40px;
+    font-size: 60px;
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+.trivia-subheader{
+    font-size: 30px;
 }
