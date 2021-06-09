@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 body{
     margin: 0;
+
 }
 
 #root{
@@ -8,4 +9,8 @@ body{
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+}
+
+*{
+    font-family: 'Source Sans Pro', sans-serif;
 }
