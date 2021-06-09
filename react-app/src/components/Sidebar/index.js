@@ -39,6 +39,9 @@ const Sidebar = () => {
             <NavLink className='sidebar-link' to='/' exact={true}>
                     Home
             </NavLink>
+            <NavLink className='sidebar-link' to='/random'>
+                    Random
+            </NavLink>
             {sidebarLinks}
 
         </div>
