@@ -36,3 +36,29 @@
 .trivia-subheader{
     font-size: 30px;
 }
+
+.trivia-options{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.splash-button{
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: #664739;
+    border: 2px solid white;
+    color: white;
+    height: 60px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+}
+
+.splash-button:hover{
+    box-shadow: 0 0 20px rgb(231, 188, 68);
+}
