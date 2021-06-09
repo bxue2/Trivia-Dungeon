@@ -1,6 +1,7 @@
 .main-container{
     flex: 1;
-    background-color: #838383;
+    background-color: rgb(36, 36, 36);
+    /* background-color: #838383; */
     display: flex;
     /* grid-template-columns: 400px 1fr;
     grid-template-rows: 1fr; */

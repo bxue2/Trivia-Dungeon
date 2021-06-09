@@ -153,9 +153,11 @@
     margin-bottom: 0;
     font-size: 40px;
     padding: 10px;
+    color: white;
 }
 .page-subheader{
     margin: 0;
     margin-bottom: 16px;
     font-size: 20px;
+    color: white;
 }

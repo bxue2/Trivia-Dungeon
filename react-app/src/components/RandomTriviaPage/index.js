@@ -55,8 +55,9 @@ const SplashPage = () => {
     return (
         <>
             <div className='splash-page'>
-                <h1> Welcome to the Trivia Dungeon!!!</h1>
-                <h2>Play some random questions:</h2>
+                <h1 className='page-header'>Random Trivia</h1>
+                <p className='page-subheader'>Play some random questions from the database</p>
+                <p className='page-subheader'>Or select a category/difficulty</p>
                  <TriviaRender loaded={loaded} question={questions[0]} next={true}/>
                 <div className='config-section'>
                     <div>
