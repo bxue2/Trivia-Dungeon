@@ -1,0 +1,29 @@
+.splash-page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.config-section{
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.page-header{
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 40px;
+    padding: 10px;
+    color: white;
+}
+.page-subheader{
+    margin: 0;
+    font-size: 20px;
+    color: white;
+}

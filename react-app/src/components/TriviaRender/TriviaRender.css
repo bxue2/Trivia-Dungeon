@@ -51,7 +51,7 @@
     background-color: #4f79a0;
 }
 
-.incorrect-overlay, .correct-overlay{
+.result-overlay{
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     left: 0;
@@ -72,7 +72,7 @@
     width: 100px;
 }
 
-.retry-button, .close-button, .next-button{
+.action-button{
     margin-top: 20px;
     background-color: #2e4a64;
     border: 2px solid white;
@@ -84,7 +84,7 @@
     align-items: center;
 }
 
-.retry-button:hover, .close-button:hover, .next-button:hover{
+.action-button:hover{
     box-shadow: 0 0 5px white;
 }
 

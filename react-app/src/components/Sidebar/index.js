@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useSelector} from 'react-redux';
 import { NavLink} from 'react-router-dom';
 import './Sidebar.css'
 
 const Sidebar = () => {
     const user = useSelector(state => state.session.user);
-
+    // const [questionMenu, setQuestionMenu] = useState([])
     let sidebarLinks = (
         <>
         </>
@@ -38,6 +38,9 @@ const Sidebar = () => {
             {/* <div className='sidebar-controller'></div> */}
             <NavLink className='sidebar-link' to='/' exact={true}>
                     Home
+            </NavLink>
+            <NavLink className='sidebar-link' to='/random'>
+                    Random
             </NavLink>
             {sidebarLinks}
 

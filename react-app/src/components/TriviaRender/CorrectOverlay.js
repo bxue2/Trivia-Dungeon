@@ -6,14 +6,14 @@ import {goToNextQuestion} from '../../store/questions'
 const CorrectOverlay = ({setAnswered, next}) => {
     const dispatch = useDispatch();
     return (
-        <div className='correct-overlay'>
+        <div className='result-overlay'>
             <img alt='Correct Answer' src={correct} className="incorrect-logo"/>
             <div>
                 Correct Answer!
             </div>
-            {!next &&<button className='close-button' onClick={() => setAnswered(0)}>Close</button>}
+            {!next &&<button className='action-button' onClick={() => setAnswered(0)}>Close</button>}
             {next &&
-                <button className='next-button' onClick={() => {
+                <button className='action-button' onClick={() => {
                     setAnswered(0)
                     dispatch(goToNextQuestion())
                 }}>Next</button>

@@ -6,11 +6,13 @@ import IncorrectOverlay from './IncorrectOverlay';
 import QuestionInfo from './QuestionInfo';
 import AddToSet from '../AddToSet';
 import { Modal } from '../../context/Modal';
+import EndScreen from './EndScreen';
 import './TriviaRender.css'
 
 //next controls if there's a next button or not (disabled if on the question page)
-const TriviaRender = ({question, next}) => {
+const TriviaRender = ({setReplay=null, loaded=true, question, next}) => {
     const user = useSelector(state => state.session.user);
+    const questions = useSelector(state => state.questions.questions)
     //0=not answered, 1=correct, 2=wrong
     const [answered, setAnswered] = useState(0);
     const [answerList, setAnswerList] = useState([]);
@@ -57,7 +59,7 @@ const TriviaRender = ({question, next}) => {
                     <CorrectOverlay setAnswered={setAnswered} next={next}/>
                 )}
                 {answered === 2 && (
-                    <IncorrectOverlay setAnswered={setAnswered}/>
+                    <IncorrectOverlay setAnswered={setAnswered} next={next}/>
                 )}
                 <div className='question-section'>
                     {question && question.question}
@@ -68,6 +70,7 @@ const TriviaRender = ({question, next}) => {
                         return <AnswerButton correct={correct} setAnswered={setAnswered} answer={answer} key={idx}/>
                     })}
                 </div>
+                {questions.length === 0 && loaded && (<EndScreen setReplay={setReplay}/>)}
                 <QuestionInfo question={question}/>
             </div>
         </>
