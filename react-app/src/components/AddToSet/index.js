@@ -8,6 +8,7 @@ import './AddToSet.css'
 const AddToSet = ({qid}) => {
     const user = useSelector(state => state.session.user);
     const [setsContain, setSetsContain] = useState([])
+    // const [page, setPage] = useState(1);
 
     const getSets = useCallback(async () => {
         const response = await fetch(`/api/sets/user/${user.id}?qid=${qid}`)
