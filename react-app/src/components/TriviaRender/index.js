@@ -70,7 +70,7 @@ const TriviaRender = ({setReplay=null, loaded=true, question, next}) => {
                         return <AnswerButton correct={correct} setAnswered={setAnswered} answer={answer} key={idx}/>
                     })}
                 </div>
-                {questions.length === 0 && loaded && (<EndScreen setReplay={setReplay}/>)}
+                {questions.length === 0 && !question && loaded && (<EndScreen setReplay={setReplay}/>)}
                 <QuestionInfo question={question}/>
             </div>
         </>

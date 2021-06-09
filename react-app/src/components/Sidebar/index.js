@@ -15,10 +15,10 @@ const Sidebar = () => {
         sidebarLinks = (
             <>
                 <NavLink className='sidebar-link' to='/questions'>
-                    Questions
+                    User Questions
                 </NavLink>
                 <NavLink className='sidebar-link' to='/sets'>
-                    Sets
+                    User Sets
                 </NavLink>
             </>
         )

@@ -21,6 +21,8 @@
     padding: 10px;
     border: 1px solid black;
     box-sizing: border-box;
+    background-color: #b4b4b4;
+    color: black;
 }
 
 .add-comment-button{
@@ -68,4 +70,12 @@
     font-weight: 600;
     margin-bottom: 5px;
     font-size: 20px;
+}
+
+.comment-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }

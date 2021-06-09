@@ -26,22 +26,24 @@ const CommentSection = ({question}) => {
     }, [question, getComments])
 
     useEffect(() => {
+        if(user){
+            let foundMatch = false;
+            comments.forEach((comment) => {
+                if(user.id === comment.userId){
+                    foundMatch = true;
+                }
+            })
+            setShowAdd(!foundMatch);
 
-        let foundMatch = false;
-        comments.forEach((comment) => {
-            if(user.id === comment.userId){
-                foundMatch = true;
+            if(question.userId === user.id){
+                setShowAdd(false)
             }
-        })
-        setShowAdd(!foundMatch);
-
-        if(question.userId === user.id){
-            setShowAdd(false)
         }
-    }, [comments, user.id, question.userId])
+
+    }, [comments, user, question.userId])
 
     return (
-        <>
+        <div className='comment-section'>
             <h1>Comments</h1>
             <div className='comment-list-container'>
                 {comments.map((comment, idx) => {
@@ -58,7 +60,7 @@ const CommentSection = ({question}) => {
                     <CommentForm editComment={editComment} questionId={question.id} getComments={getComments} setShowForm={setShowForm}/>
                 </Modal>
             )}
-        </>
+        </div>
     )
 }
 
