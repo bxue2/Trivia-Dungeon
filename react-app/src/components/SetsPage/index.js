@@ -27,14 +27,6 @@ const SetsPage = () => {
         }
     }, [questions, setLoaded])
 
-    // useEffect(() => {
-    //     if(questions.length === 0){
-    //         dispatch(getQuestionsFromSet(id))
-    //     }
-    // }, [questions, dispatch, id])
-
-
-
     const getSets = useCallback(async () => {
         const response = await fetch(`/api/sets/${id}`);
         const setInfo = await response.json();

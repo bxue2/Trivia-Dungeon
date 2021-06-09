@@ -11,9 +11,9 @@ const CorrectOverlay = ({setAnswered, next}) => {
             <div>
                 Correct Answer!
             </div>
-            {!next &&<button className='close-button' onClick={() => setAnswered(0)}>Close</button>}
+            {!next &&<button className='action-button' onClick={() => setAnswered(0)}>Close</button>}
             {next &&
-                <button className='next-button' onClick={() => {
+                <button className='action-button' onClick={() => {
                     setAnswered(0)
                     dispatch(goToNextQuestion())
                 }}>Next</button>

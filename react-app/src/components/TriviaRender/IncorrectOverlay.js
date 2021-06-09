@@ -11,8 +11,8 @@ const IncorrectOverlay = ({setAnswered, next}) => {
             <div>
                 Incorrect Answer...
             </div>
-            <button className='retry-button' onClick={() => setAnswered(0)}>Retry</button>
-            {next && <button className='skip-button' onClick={() => {
+            <button className='action-button' onClick={() => setAnswered(0)}>Retry</button>
+            {next && <button className='action-button' onClick={() => {
                 setAnswered(0)
                 dispatch(goToNextQuestion())
             }}>Skip</button>}

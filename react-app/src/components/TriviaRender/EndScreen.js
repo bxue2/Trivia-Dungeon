@@ -4,7 +4,7 @@ const EndScreen = ({setReplay=null, newSet=false}) => {
     return (
         <div className='result-overlay'>
             <h1>Set Completed</h1>
-            {setReplay && <button onClick={() => setReplay(true)}>Replay</button>}
+            {setReplay && <button className='action-button' onClick={() => setReplay(true)}>Replay</button>}
             {newSet && <button>Start New Set</button>}
         </div>
     )
