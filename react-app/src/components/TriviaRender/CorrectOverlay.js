@@ -6,7 +6,7 @@ import {goToNextQuestion} from '../../store/questions'
 const CorrectOverlay = ({setAnswered, next}) => {
     const dispatch = useDispatch();
     return (
-        <div className='correct-overlay'>
+        <div className='result-overlay'>
             <img alt='Correct Answer' src={correct} className="incorrect-logo"/>
             <div>
                 Correct Answer!
