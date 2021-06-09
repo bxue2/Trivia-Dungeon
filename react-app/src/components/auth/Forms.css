@@ -37,3 +37,15 @@
 .login-submit:hover, .signup-submit:hover{
     box-shadow: 0 0 10px rgb(199, 151, 120);
 }
+
+.modal-title{
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

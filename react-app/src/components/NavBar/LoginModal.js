@@ -6,6 +6,7 @@ const LoginModal = () => {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
+
             <button className='login-button' onClick={() => setShowModal(true)}>
                 Log In
             </button>
