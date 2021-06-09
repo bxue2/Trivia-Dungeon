@@ -13,6 +13,7 @@ const SplashPage = () => {
     const [difficulty, setDifficulty] = useState(0);
     const [categories, setCategories] = useState([])
     const [optionChange, setOptionChange] = useState(false);
+    const [loaded, setLoaded] = useState(false)
 
     const getCategories = async () => {
         const response = await fetch('/api/categories/');
@@ -45,13 +46,18 @@ const SplashPage = () => {
         }
     }, [questions, optionChange, difficulty, category1, dispatch])
 
-    console.log(questions[0]);
+    useEffect(() => {
+        if(questions.length !== 0){
+            setLoaded(true)
+        }
+    }, [questions])
+
     return (
         <>
             <div className='splash-page'>
                 <h1> Welcome to the Trivia Dungeon!!!</h1>
                 <h2>Play some random questions:</h2>
-                <TriviaRender question={questions[0]} next={true}/>
+                 <TriviaRender loaded={loaded} question={questions[0]} next={true}/>
                 <div className='config-section'>
                     <div>
                         <label htmlFor='category-select'>Category: </label>
