@@ -13,6 +13,12 @@
     justify-content: space-around;
     margin-bottom: 20px;
     color: white;
+    font-size: 26px;
+}
+
+.config-section select{
+    font-size: 20px;
+    padding: 10px;
 }
 
 .page-header{

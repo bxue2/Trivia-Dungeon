@@ -19,7 +19,10 @@ const SplashPage = () => {
             <div className='trivia-header'>Welcome to the Trivia Dungeon</div>
             <div className='trivia-subheader'>Sign up to submit your own questions and create question sets.</div>
             <div className='trivia-options'>
-                <button className='splash-button' onClick={() => history.push('/random')}>Try some random questions</button>
+                <button className='splash-button' onClick={() => history.push('/random')}>
+                    {!user && 'Try some random questions'}
+                    {user && 'Enter the dungeon...'}
+                </button>
                 {!user && <button className='splash-button' onClick={() => {document.querySelector('.signup-button').click()}}>Sign up for an account</button>}
             </div>
         </div>
