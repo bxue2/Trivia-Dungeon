@@ -10,18 +10,30 @@ const SetsPage = () => {
     const history = useHistory();
     const questions = useSelector(state => state.questions.questions)
     const dispatch = useDispatch();
-
+    const [replay, setReplay] = useState(true)
+    const [loaded, setLoaded] = useState(false)
     const [set, setSet] = useState({})
 
     useEffect(() => {
-        dispatch(getQuestionsFromSet(id))
-    }, [dispatch, id])
+        if(replay){
+            dispatch(getQuestionsFromSet(id))
+            setReplay(false)
+        }
+    }, [dispatch, id, replay])
+
+    useEffect(() => {
+        if(questions.length !== 0){
+            setLoaded(true)
+        }
+    }, [questions, setLoaded])
 
     // useEffect(() => {
     //     if(questions.length === 0){
     //         dispatch(getQuestionsFromSet(id))
     //     }
     // }, [questions, dispatch, id])
+
+
 
     const getSets = useCallback(async () => {
         const response = await fetch(`/api/sets/${id}`);
@@ -42,7 +54,7 @@ const SetsPage = () => {
     <div className='sets-page'>
         <h1>{set.name}</h1>
         <h3>Created By: {set.username}</h3>
-        <TriviaRender question={questions[0]} next={true}/>
+        <TriviaRender setReplay={setReplay} loaded={loaded} question={questions[0]} next={true}/>
     </div>)
 }
 
