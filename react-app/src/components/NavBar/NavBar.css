@@ -3,7 +3,7 @@ nav {
     width: 100vw;
     height: 80px;
     background-color: #474747;
-    grid-template-columns: 200px 600px auto 400px;
+    grid-template-columns: 200px 2fr 2fr 400px;
     grid-template-rows: 1fr;
     box-sizing: border-box;
     border-bottom: 5px solid black;
@@ -20,6 +20,7 @@ nav {
     display: flex;
     align-items: center;
     margin-left: 20px;
+    flex: 1;
 }
 
 .search-type{
@@ -32,7 +33,8 @@ nav {
 
 .search-row{
     display: flex;
-    width: 500px;
+    flex: 1;
+    /* width: 800px; */
 }
 
 .search-div_divider{
@@ -48,6 +50,13 @@ nav {
     flex: 1;
     font-size: 18px;
     border: none;
+}
+
+.search-bar_select-category{
+    width: 100px;
+    padding-left: 10px;
+    font-size: 18px;
+    border-left: 1px solid #797979;
 }
 
 .search-button{

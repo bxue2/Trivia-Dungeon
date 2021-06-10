@@ -58,6 +58,10 @@ const NavBar = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             />
+          {searchType === 'questions' &&
+            <select className='search-bar_select-category'>
+              <option value='all'>All</option>
+            </select>}
           <button type='submit' className='search-button'>
             <i className="fas fa-search"></i>
           </button>
