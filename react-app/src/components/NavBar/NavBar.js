@@ -11,7 +11,7 @@ import SignUpModal from './SignUpModal';
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
   const [search, setSearch] = useState("");
-  const [searchType, setSearchType] = ("Question");
+  const [searchType, setSearchType] = useState("question");
   const dispatch = useDispatch();
   const history = useHistory();
   const goHome = () => {
@@ -24,7 +24,7 @@ const NavBar = () => {
 
   const submitSearch = (e) => {
     e.preventDefault();
-    history.push(`/search?query=${search}`)
+    history.push(`/search?query=${search}&${searchType}`)
   }
 
   let authButtons = (
@@ -47,12 +47,12 @@ const NavBar = () => {
     <nav>
       <div className='nav-logo' onClick={goHome}/>
       <form className='search-div' onSubmit={(e) => submitSearch(e)}>
-        <select className='search-type'>
-          <option>Questions</option>
-          <option>Sets</option>
+        <select className='search-type' value={searchType} onChange={(e) => setSearchType(e.target.value)}>
+          <option value='question'>Questions</option>
+          <option value='set'>Sets</option>
         </select>
         <input className='search-bar'
-          placeholder='Search questions'
+          placeholder={searchType === 'question' ? 'Search questions' : 'Search sets'}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           />
