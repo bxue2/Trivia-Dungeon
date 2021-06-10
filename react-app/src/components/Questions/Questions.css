@@ -75,6 +75,12 @@
     margin-right: 10px;
 }
 
+.question-row_add-set-button{
+    background-color: #966549;
+    color: white;
+    margin-right: 10px;
+}
+
 .edit-button{
     background-color: #234f5c;
     color: white;
