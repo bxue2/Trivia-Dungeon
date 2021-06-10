@@ -49,3 +49,7 @@
     flex-direction: column;
     align-items: center;
 }
+
+.auth-form_error-list{
+    color:rgb(255, 191, 191)
+}

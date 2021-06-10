@@ -13,7 +13,7 @@ const LoginForm = ({setShowModal}) => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = dispatch(login(email, password));
+    const data = await dispatch(login(email, password));
     if (data.errors) {
       setErrors(data.errors);
     }
@@ -35,8 +35,8 @@ const LoginForm = ({setShowModal}) => {
       <h1 className='modal-title'>Log In</h1>
       <form className='login-form' onSubmit={onLogin}>
         <div>
-          {errors.map((error) => (
-            <div>{error}</div>
+          {errors.map((error, idx) => (
+            <div className='auth-form_error-list' key={idx}>{error[0].toUpperCase() + error.slice(1)}</div>
           ))}
         </div>
         <div className='login-form-field'>
