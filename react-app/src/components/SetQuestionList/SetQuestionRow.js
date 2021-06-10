@@ -1,5 +1,5 @@
 import React from 'react'
-import useHistory from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 const SetQuestionRow = ({set, question, getQuestions}) => {
     const history = useHistory();
 
@@ -7,7 +7,7 @@ const SetQuestionRow = ({set, question, getQuestions}) => {
         history.push(`/questions/${question.id}`)
     }
 
-    const removeQuestion = () => {
+    const removeQuestion = async () => {
         await fetch(`/api/sets/${set.id}/question/${question.id}`, {
             method: 'DELETE'
         })
@@ -15,10 +15,10 @@ const SetQuestionRow = ({set, question, getQuestions}) => {
     }
     return (
         <div className='set-question-row'>
-            <p className='set-question-display'>Question: {question.question}</p>
+            <div className='set-question-display'>Question: {question.question}</div>
             <div className='set-question-row_button-container'>
                 <button className='view-button question-row_action-button' onClick={viewQuestion}>View</button>
-                <button className='delete-button question-row_action-button' onClick={removeQuestion} >Remove From Set</button>
+                <button className='delete-button question-row_action-button' onClick={removeQuestion} >Remove</button>
 
             </div>
         </div>

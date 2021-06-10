@@ -1,17 +1,19 @@
-import React, {useState, useCallback} from 'react'
-
+import React, {useEffect, useState, useCallback} from 'react'
+import SetQuestionRow from './SetQuestionRow';
 import ListComponent from '../ListComponent';
+
+import "./SetQuestionList.css"
 
 const SetQuestionList = ({set}) => {
     const [questions, setQuestions] = useState([])
     const [loaded, setLoaded] = useState(false)
 
     const getQuestions = useCallback(async () => {
-        const response = await fetch(`/api/questions/sets/${set.id}`)
+        const response = await fetch(`/api/questions/set/${set.id}`)
         const data = await response.json()
-        // if(data.errors){
-        // } else{
+        console.log(data)
         setQuestions(data.questions);
+
     }, [setQuestions])
 
     useEffect(() => {
@@ -31,7 +33,7 @@ const SetQuestionList = ({set}) => {
                     <SetQuestionRow set={set} question={question} getQuestions={getQuestions} key={idx}/>
                 )})
             }
-            {(questions.length === 0 && sets.length === 0 && loaded) &&
+            {(questions.length === 0 && loaded) &&
             <div className='no-results-screen'>
                 No questions found.
             </div>}
