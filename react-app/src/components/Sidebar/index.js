@@ -43,6 +43,9 @@ const Sidebar = () => {
                     Random
             </NavLink>
             {sidebarLinks}
+            {/* <NavLink className='room-link' to='/room'>
+                Prototype: Room
+            </NavLink> */}
 
         </div>
     )

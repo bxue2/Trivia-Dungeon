@@ -70,6 +70,7 @@ def get_set_questions(setid):
     """
     Gets all questions from specified set.
     """
+    print("Reaches here")
     questions = Question.query.join(Set, Question.sets).filter(Set.id == setid)
     return {"questions": [question.to_dict() for question in questions]}
 

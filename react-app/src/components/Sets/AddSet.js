@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import SetQuestionList from '../SetQuestionList';
 
 const AddSet = ({setShowForm, editSet, setEditSet, getSets}) => {
     const [name, setName] = useState("");
@@ -73,6 +74,9 @@ const AddSet = ({setShowForm, editSet, setEditSet, getSets}) => {
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
+                {editSet && (
+                    <SetQuestionList set={editSet} />
+                )}
                 <div>
                     <button type='submit' className='add-set-submit'>
                         {editSet ? 'Edit' : 'Create'}
@@ -82,6 +86,7 @@ const AddSet = ({setShowForm, editSet, setEditSet, getSets}) => {
                     </button>
                 </div>
             </form>
+
         </div>
     )
 }
