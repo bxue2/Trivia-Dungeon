@@ -4,18 +4,28 @@ import {useDispatch} from 'react-redux';
 
 import './Forms.css'
 
-const SignUpForm = () => {
+const SignUpForm = ({setShowModal}) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password));
+      if (data.errors) {
+        setErrors(data.errors);
+      }
+      else{
+        setShowModal(false);
+      }
+    }
+    else{
+      setErrors(["Password fields must match."])
     }
   };
 
@@ -39,6 +49,11 @@ const SignUpForm = () => {
     <div className='form-container'>
       <h1 className='modal-title'>Sign up</h1>
       <form className='signup-form' onSubmit={onSignUp}>
+        <div>
+          {errors.map((error, idx) => (
+            <div className='auth-form_error-list' key={idx}>{error[0].toUpperCase() + error.slice(1)}</div>
+          ))}
+        </div>
         <div className='signup-form-field'>
           <label>User Name</label>
           <input
