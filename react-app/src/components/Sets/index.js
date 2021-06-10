@@ -48,7 +48,7 @@ const Sets = () => {
                 {showForm && (
                     <Modal onClose={() => {
                         setShowForm(false)
-                        setEditSet(false)
+                        setEditSet(null)
                     }}>
                         <AddSet setShowForm={setShowForm} editSet={editSet} setEditSet={setEditSet} getSets={getSets}/>
                     </Modal>

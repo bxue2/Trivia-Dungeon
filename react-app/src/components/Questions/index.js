@@ -48,7 +48,10 @@ const Questions = () => {
             </ListComponent>
             <button className='add-question-button' onClick={() => setShowForm(true)}>Add Question</button>
             {showForm && (
-                <Modal onClose={() => setShowForm(false)}>
+                <Modal onClose={() => {
+                    setShowForm(false);
+                    setEditQuestion(null);
+                }}>
                     <AddQuestion setShowForm={setShowForm} editQuestion={editQuestion} setEditQuestion={setEditQuestion} getQuestions={getQuestions}/>
                 </Modal>
             )}

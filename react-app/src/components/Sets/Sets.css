@@ -41,24 +41,12 @@
     width: 100%;
     margin: 5px;
     font-weight: 600;
+    font-size: 20px;
 }
 
 .add_set_field-row input{
     padding: 5px;
-}
-
-.set-list-row{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    height: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    font-size: 18px;
 }
 
 .set-list-rows-container{
@@ -68,27 +56,6 @@
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-}
-
-.set-display{
-    flex: 1;
-}
-
-.view-sets_button{
-    background-color: #2a6449;
-    color: white;
-    margin-right: 10px;
-}
-
-.edit-sets_button{
-    background-color: #234f5c;
-    color: white;
-    margin-right: 10px;
-}
-
-.delete-sets_button{
-    background-color: #611d1d;
-    color: white;
 }
 
 .add-set-button{
@@ -121,4 +88,13 @@
     margin-bottom: 16px;
     font-size: 20px;
     color: white;
+}
+
+.add-set-submit{
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.add-set-cancel{
+    font-size: 16px;
 }

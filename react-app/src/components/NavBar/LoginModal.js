@@ -7,7 +7,7 @@ const LoginModal = () => {
     return (
         <>
 
-            <button className='login-button' onClick={() => setShowModal(true)}>
+            <button className='login-button auth_action-button' onClick={() => setShowModal(true)}>
                 Log In
             </button>
             {showModal && (

@@ -1,7 +1,7 @@
 /* TODO Add site wide styles */
 body{
     margin: 0;
-
+    font-size: 16px;
 }
 
 #root{
@@ -13,4 +13,6 @@ body{
 
 *{
     font-family: 'Source Sans Pro', sans-serif;
+    border: none;
+    outline: none;
 }

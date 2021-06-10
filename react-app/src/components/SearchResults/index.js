@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import ListComponent from '../ListComponent';
 import { useLocation } from "react-router-dom";
 import QuestionListRow from '../Questions/QuestionListRow'
+import SetListRow from '../Sets/SetListRow'
 import queryString from 'query-string';
 
 import './SearchResults.css'
@@ -9,35 +10,46 @@ import './SearchResults.css'
 const SearchResults = (props) => {
     const [questions, setQuestions] = useState([]);
     const [loaded, setLoaded] = useState(false)
+    const [sets, setSets] = useState([])
     const query = useLocation()
+    const values = queryString.parse(query.search)
 
-    const getSearch = useCallback(async (queryStr) => {
-        const response = await fetch(`/api/questions/search?query=${queryStr}`)
-        const data = await response.json()
+    const getSearch = useCallback(async (queryStr, queryType) => {
+        const response = await fetch(`/api/${queryType}/search?query=${queryStr}`)
+        const searchData = await response.json()
         // if(data.errors){
         // } else{
-            console.log(data.questions)
-            setQuestions(data.questions);
-            setLoaded(true);
+        if(queryType === 'questions'){
+            setQuestions(searchData.questions);
+        } else{
+            console.log(searchData)
+            setSets(searchData.sets);
+        }
+        setLoaded(true);
+
         // }
     }, [setQuestions])
 
     useEffect(() => {
-        const values = queryString.parse(query.search)
         if(values.query){
-            getSearch(values.query);
+            getSearch(values.query, values.type);
         }
 
     }, [query, getSearch])
     return (
         <div className='search-results-container'>
             <ListComponent title='Search Results'>
-            {questions && questions.map((question, idx) => {
+            {values.type === 'questions' && questions && questions.map((question, idx) => {
                         return (
                             <QuestionListRow question={question} key={idx}/>
                         )})
             }
-            {(questions.length === 0 && loaded) &&
+            {values.type === 'sets' && sets && sets.map((set, idx) => {
+                        return (
+                            <SetListRow set={set} key={idx}/>
+                        )})
+            }
+            {(questions.length === 0 && sets.length === 0 && loaded) &&
             <div className='no-results-screen'>
                 No results found.
             </div>}

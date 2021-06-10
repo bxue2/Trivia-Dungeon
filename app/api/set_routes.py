@@ -87,3 +87,13 @@ def remove_q_from_set(sid, qid):
     currset.questions.remove(currq)
     db.session.commit()
     return {'success': True}, 200
+
+@set_routes.route('/search')
+def get_search_sets():
+    """
+    Gets all sets from search results
+    """
+    args = request.args
+    query = args.get('query')
+    sets = Set.query.filter(Set.name.ilike("%{0}%".format(query)))
+    return {"sets": [set.to_dict() for set in sets]}
