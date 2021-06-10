@@ -36,7 +36,7 @@ const NavBar = () => {
 
   const submitSearch = (e) => {
     e.preventDefault();
-    history.push(`/search?query=${search}&type=${searchType}${category1 != 0 ? '&category1=' + category1 : ''}`)
+    history.push(`/search?query=${search}&type=${searchType}${(category1 != 0 && searchType === 'questions')? '&category1=' + category1 : ''}`)
   }
 
   let authButtons = (
@@ -60,7 +60,12 @@ const NavBar = () => {
       <div className='nav-logo' onClick={goHome}/>
       <form className='search-div' onSubmit={(e) => submitSearch(e)}>
         <div className='search-row'>
-          <select className='search-type' value={searchType} onChange={(e) => setSearchType(e.target.value)}>
+          <select className='search-type' value={searchType} onChange={(e) => {
+            setSearchType(e.target.value)
+            if(e.target.value === 'sets'){
+              setCategory1(0);
+            }
+          }}>
             <option value='questions'>Questions</option>
             <option value='sets'>Sets</option>
           </select>
