@@ -11,6 +11,7 @@ import SignUpModal from './SignUpModal';
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
   const [search, setSearch] = useState("");
+  const [searchType, setSearchType] = ("Question");
   const dispatch = useDispatch();
   const history = useHistory();
   const goHome = () => {
@@ -46,6 +47,10 @@ const NavBar = () => {
     <nav>
       <div className='nav-logo' onClick={goHome}/>
       <form className='search-div' onSubmit={(e) => submitSearch(e)}>
+        <select className='search-type'>
+          <option>Questions</option>
+          <option>Sets</option>
+        </select>
         <input className='search-bar'
           placeholder='Search questions'
           value={search}
