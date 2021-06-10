@@ -52,6 +52,7 @@ const NavBar = () => {
             <option value='questions'>Questions</option>
             <option value='sets'>Sets</option>
           </select>
+          <div className='search-div_divider'></div>
           <input className='search-bar'
             placeholder={searchType === 'questions' ? 'Search questions' : 'Search sets'}
             value={search}

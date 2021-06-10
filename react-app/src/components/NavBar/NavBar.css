@@ -35,6 +35,11 @@ nav {
     width: 500px;
 }
 
+.search-div_divider{
+    width: 1px;
+    background-color: #797979;
+}
+
 .search-bar{
     margin: 0;
     height: 30px;
