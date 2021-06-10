@@ -96,4 +96,4 @@ def get_search_sets():
     args = request.args
     query = args.get('query')
     sets = Set.query.filter(Set.name.ilike("%{0}%".format(query)))
-    return {"questions": [set.to_dict() for set in sets]}
+    return {"sets": [set.to_dict() for set in sets]}
