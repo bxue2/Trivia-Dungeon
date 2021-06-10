@@ -1,0 +1,50 @@
+.set-row_action-button{
+    color: white;
+    margin-right: 10px;
+    font-size: 16px;
+    padding: 3px 10px;
+    border: 1px solid black;
+}
+
+.view-sets_button{
+    background-color: #2a6449;
+}
+
+.view-sets_button:hover{
+    background-color: #3c7a5d;
+}
+
+.edit-sets_button{
+    background-color: #234f5c;
+}
+
+.edit-sets_button:hover{
+    background-color: #2e5d6b;
+}
+
+.delete-sets_button{
+    background-color: #611d1d;
+}
+
+.delete-sets_button:hover{
+    background-color: #772a2a;
+}
+
+.set-list-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.set-display{
+    flex: 1;
+    font-size: 18px;
+}

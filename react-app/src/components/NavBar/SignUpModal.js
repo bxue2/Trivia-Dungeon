@@ -6,7 +6,7 @@ const SignUpModal = () => {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <button className='signup-button' onClick={() => setShowModal(true)}>
+            <button className='signup-button auth_action-button' onClick={() => setShowModal(true)}>
                 Sign Up
             </button>
             {showModal && (

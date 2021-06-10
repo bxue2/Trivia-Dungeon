@@ -2,6 +2,8 @@ import React from 'react'
 import {useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
+import './SetListRow.css'
+
 const SetListRow = ({set, getSets=null, setEditSet=null}) => {
     const user = useSelector(state => state.session.user);
     const history = useHistory();
@@ -26,9 +28,9 @@ const SetListRow = ({set, getSets=null, setEditSet=null}) => {
         <div className='set-list-row'>
             <p className='set-display'>Set: {set.name}</p>
             <div className='set-row_button-container'>
-                <button className='view-sets_button' onClick={viewSet}>View</button>
-                {setEditSet && <button className='edit-sets_button' onClick={openEditForm}>Edit</button>}
-                {getSets && <button className='delete-sets_button' onClick={deleteSet} >Delete</button>}
+                <button className='view-sets_button set-row_action-button' onClick={viewSet}>View</button>
+                {setEditSet && <button className='edit-sets_button set-row_action-button' onClick={openEditForm}>Edit</button>}
+                {getSets && <button className='delete-sets_button set-row_action-button' onClick={deleteSet} >Delete</button>}
             </div>
         </div>
     )

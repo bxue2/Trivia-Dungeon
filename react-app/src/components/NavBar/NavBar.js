@@ -29,7 +29,7 @@ const NavBar = () => {
 
   let authButtons = (
     <>
-      <button className='demo-button' onClick={demoLogin}>
+      <button className='demo-button auth_action-button' onClick={demoLogin}>
         Demo
       </button>
       <LoginModal />

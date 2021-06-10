@@ -27,7 +27,7 @@ const LogoutButton = () => {
     dispatch(logout());
   };
 
-  return <button className='logout-button' onClick={onLogout}>Logout</button>;
+  return <button className='logout-button auth_action-button' onClick={onLogout}>Logout</button>;
   // return <Button classes={{root: useStyles().root}} variant='contained' onClick={onLogout}>Logout</Button>;
 };
 

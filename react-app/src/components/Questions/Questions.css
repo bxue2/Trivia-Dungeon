@@ -42,60 +42,7 @@
     box-sizing: border-box;
 }
 
-.question-list-row{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    height: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
 
-.question-list-rows-container{
-    flex: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-}
-
-.question-display{
-    font-size: 18px;
-    flex: 1;
-}
-
-.view-button{
-    background-color: #2a6449;
-    color: white;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-.question-row_add-set-button{
-    background-color: #966549;
-    color: white;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-.edit-button{
-    background-color: #234f5c;
-    color: white;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-.delete-button{
-    background-color: #611d1d;
-    color: white;
-    font-size: 16px;
-}
 
 .add-question-button{
     background-color: #3d3d3d;

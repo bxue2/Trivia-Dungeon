@@ -3,6 +3,8 @@ import {useHistory} from 'react-router-dom';
 import AddToSet from '../AddToSet'
 import { Modal } from '../../context/Modal';
 
+import './QuestionListRow.css'
+
 const QuestionListRow = ({question, getQuestions, setEditQuestion}) => {
     const history = useHistory();
     const [showModal, setShowModal] = useState(false);
@@ -34,10 +36,10 @@ const QuestionListRow = ({question, getQuestions, setEditQuestion}) => {
         <div className='question-list-row'>
             <p className='question-display'>Question: {question.question}</p>
             <div className='question-row_button-container'>
-                <button className='view-button' onClick={viewQuestion}>View</button>
-                <button className='question-row_add-set-button' onClick={() => setShowModal(true)}>Add to Set</button>
-                {setEditQuestion && <button className='edit-button' onClick={openEditForm}>Edit</button>}
-                {getQuestions && <button className='delete-button' onClick={deleteQuestion} >Delete</button>}
+                <button className='view-button question-row_action-button' onClick={viewQuestion}>View</button>
+                <button className='question-row_add-set-button question-row_action-button' onClick={() => setShowModal(true)}>Add to Set</button>
+                {setEditQuestion && <button className='edit-button question-row_action-button' onClick={openEditForm}>Edit</button>}
+                {getQuestions && <button className='delete-button question-row_action-button' onClick={deleteQuestion} >Delete</button>}
 
             </div>
         </div>
