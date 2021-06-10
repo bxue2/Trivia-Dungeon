@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import door from '../../pictures/dungeon_door_tp.png'
@@ -26,7 +26,7 @@ const SplashPage = () => {
                 {!user && <button className='splash-button' onClick={() => {document.querySelector('.signup-button').click()}}>Sign up for an account</button>}
             </div>
         </div>
-        <img className='dungeon-door-bg' src={door}/>
+        <img alt='dungeon door' className='dungeon-door-bg' src={door}/>
     </div>)
 }
 

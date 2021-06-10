@@ -30,7 +30,7 @@ const SetQuestionList = ({set}) => {
         <ListComponent title='Question List'>
             {questions && questions.map((question, idx) => {
                 return (
-                    <SetQuestionRow set={set} question={question} getQuestions={getQuestions} key={idx}/>
+                    <SetQuestionRow set={set} question={question} setLoaded={setLoaded} key={idx}/>
                 )})
             }
             {(questions.length === 0 && loaded) &&

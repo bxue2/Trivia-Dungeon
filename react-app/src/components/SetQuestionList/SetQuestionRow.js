@@ -1,6 +1,6 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom';
-const SetQuestionRow = ({set, question, getQuestions}) => {
+const SetQuestionRow = ({set, question, setLoaded}) => {
     const history = useHistory();
 
     const viewQuestion = () => {
@@ -11,7 +11,7 @@ const SetQuestionRow = ({set, question, getQuestions}) => {
         await fetch(`/api/sets/${set.id}/question/${question.id}`, {
             method: 'DELETE'
         })
-        getQuestions();
+        setLoaded(false);
     }
     return (
         <div className='set-question-row'>
