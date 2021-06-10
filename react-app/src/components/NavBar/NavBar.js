@@ -36,7 +36,7 @@ const NavBar = () => {
 
   const submitSearch = (e) => {
     e.preventDefault();
-    history.push(`/search?query=${search}&type=${searchType}${(category1 != 0 && searchType === 'questions')? '&category1=' + category1 : ''}`)
+    history.push(`/search?query=${search}&type=${searchType}${((category1 !== 0) && (searchType === 'questions'))? '&category1=' + category1 : ''}`)
   }
 
   let authButtons = (
