@@ -110,5 +110,8 @@ def get_search_questions():
     """
     args = request.args
     query = args.get('query')
-    questions = Question.query.filter(Question.question.ilike("%{0}%".format(query)))
+    queries = []
+    if args.get('category1'):
+        queries.append(Question.category_id == args.get('category1'))
+    questions = Question.query.filter(*queries).filter(Question.question.ilike("%{0}%".format(query)))
     return {"questions": [question.to_dict() for question in questions]}

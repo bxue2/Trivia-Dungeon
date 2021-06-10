@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import LogoutButton from './LogoutButton';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,11 +12,23 @@ const NavBar = () => {
   const user = useSelector(state => state.session.user);
   const [search, setSearch] = useState("");
   const [searchType, setSearchType] = useState("questions");
+  const [category1, setCategory1] = useState(0);
+  const [categories, setCategories] = useState([])
   const dispatch = useDispatch();
   const history = useHistory();
   const goHome = () => {
     history.push('/')
   }
+
+  const getCategories = async () => {
+    const response = await fetch('/api/categories/');
+    const categoryList = await response.json();
+    setCategories(categoryList.categories);
+}
+
+  useEffect(() => {
+      getCategories();
+  }, [])
 
   const demoLogin = () => {
     dispatch(login('demo@aa.io', 'password'))
@@ -24,7 +36,7 @@ const NavBar = () => {
 
   const submitSearch = (e) => {
     e.preventDefault();
-    history.push(`/search?query=${search}&type=${searchType}`)
+    history.push(`/search?query=${search}&type=${searchType}${category1 != 0 ? '&category1=' + category1 : ''}`)
   }
 
   let authButtons = (
@@ -59,8 +71,19 @@ const NavBar = () => {
             onChange={(e) => setSearch(e.target.value)}
             />
           {searchType === 'questions' &&
-            <select className='search-bar_select-category'>
-              <option value='all'>All</option>
+            <select className='search-bar_select-category'
+            value={category1}
+            onChange={(e) => {
+              setCategory1(e.target.value)
+            }}>
+              <option value={0}>All</option>
+              {
+                  categories.map((category) => {
+                      return (
+                          <option key={category.id} value={category.id}>{category.name}</option>
+                      )
+                  })
+              }
             </select>}
           <button type='submit' className='search-button'>
             <i className="fas fa-search"></i>

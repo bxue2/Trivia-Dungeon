@@ -15,7 +15,7 @@ const SearchResults = (props) => {
     const values = queryString.parse(query.search)
 
     const getSearch = useCallback(async (queryStr, queryType) => {
-        const response = await fetch(`/api/${queryType}/search?query=${queryStr}`)
+        const response = await fetch(`/api/${queryType}/search?query=${queryStr}${values.category1 ? '&category1=' + values.category1 : ''}`)
         const searchData = await response.json()
         // if(data.errors){
         // } else{
