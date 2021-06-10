@@ -11,12 +11,11 @@ const SearchResults = (props) => {
     const [loaded, setLoaded] = useState(false)
     const query = useLocation()
 
-    const getSearch = useCallback(async (queryStr) => {
-        const response = await fetch(`/api/questions/search?query=${queryStr}`)
+    const getSearch = useCallback(async (queryStr, queryType) => {
+        const response = await fetch(`/api/${queryType}/search?query=${queryStr}`)
         const data = await response.json()
         // if(data.errors){
         // } else{
-            console.log(data.questions)
             setQuestions(data.questions);
             setLoaded(true);
         // }
@@ -25,7 +24,7 @@ const SearchResults = (props) => {
     useEffect(() => {
         const values = queryString.parse(query.search)
         if(values.query){
-            getSearch(values.query);
+            getSearch(values.query, values.type);
         }
 
     }, [query, getSearch])
