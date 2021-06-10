@@ -14,7 +14,7 @@ const SetQuestionList = ({set}) => {
         console.log(data)
         setQuestions(data.questions);
 
-    }, [setQuestions])
+    }, [setQuestions, set.id])
 
     useEffect(() => {
         getQuestions();

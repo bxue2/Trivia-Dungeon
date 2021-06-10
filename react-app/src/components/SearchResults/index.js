@@ -28,11 +28,11 @@ const SearchResults = (props) => {
         setLoaded(true);
 
         // }
-    }, [setQuestions, query])
+    }, [setQuestions, values.category1])
 
     useEffect(() => {
         getSearch(values.query, values.type);
-    }, [query, getSearch])
+    }, [query, getSearch, values.query, values.type])
     return (
         <div className='search-results-container'>
             <ListComponent title='Search Results'>
