@@ -7,7 +7,7 @@ const SetQuestionList = ({set}) => {
     const [loaded, setLoaded] = useState(false)
 
     const getQuestions = useCallback(async () => {
-        const response = await fetch(`/api/sets/${set.id}`)
+        const response = await fetch(`/api/questions/sets/${set.id}`)
         const data = await response.json()
         // if(data.errors){
         // } else{
@@ -26,9 +26,9 @@ const SetQuestionList = ({set}) => {
 
     return (
         <ListComponent title='Question List'>
-            {questions && questions.map((set, idx) => {
+            {questions && questions.map((question, idx) => {
                 return (
-                    <SetQuestionRow question={question} key={idx}/>
+                    <SetQuestionRow set={set} question={question} getQuestions={getQuestions} key={idx}/>
                 )})
             }
             {(questions.length === 0 && sets.length === 0 && loaded) &&
