@@ -66,30 +66,35 @@
 }
 
 .question-display{
+    font-size: 18px;
     flex: 1;
 }
 
 .view-button{
     background-color: #2a6449;
     color: white;
+    font-size: 16px;
     margin-right: 10px;
 }
 
 .question-row_add-set-button{
     background-color: #966549;
     color: white;
+    font-size: 16px;
     margin-right: 10px;
 }
 
 .edit-button{
     background-color: #234f5c;
     color: white;
+    font-size: 16px;
     margin-right: 10px;
 }
 
 .delete-button{
     background-color: #611d1d;
     color: white;
+    font-size: 16px;
 }
 
 .add-question-button{
@@ -144,10 +149,16 @@
     width: 100%;
     margin: 5px;
     font-weight: 600;
+    font-size: 20px;
 }
 
 .add_question_field-row input{
     padding: 5px;
+    font-size: 16px;
+}
+
+.add_question_field-row .radio-label{
+    font-size: 16px;
 }
 
 .add-question_category-select{
@@ -166,4 +177,13 @@
     margin-bottom: 16px;
     font-size: 20px;
     color: white;
+}
+
+.add-question-submit{
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.add-question-cancel{
+    font-size: 16px;
 }

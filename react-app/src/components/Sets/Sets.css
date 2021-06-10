@@ -41,10 +41,12 @@
     width: 100%;
     margin: 5px;
     font-weight: 600;
+    font-size: 20px;
 }
 
 .add_set_field-row input{
     padding: 5px;
+    font-size: 18px;
 }
 
 .set-list-row{
@@ -72,23 +74,27 @@
 
 .set-display{
     flex: 1;
+    font-size: 18px;
 }
 
 .view-sets_button{
     background-color: #2a6449;
     color: white;
     margin-right: 10px;
+    font-size: 16px;
 }
 
 .edit-sets_button{
     background-color: #234f5c;
     color: white;
     margin-right: 10px;
+    font-size: 16px;
 }
 
 .delete-sets_button{
     background-color: #611d1d;
     color: white;
+    font-size: 16px;
 }
 
 .add-set-button{
@@ -121,4 +127,13 @@
     margin-bottom: 16px;
     font-size: 20px;
     color: white;
+}
+
+.add-set-submit{
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.add-set-cancel{
+    font-size: 16px;
 }

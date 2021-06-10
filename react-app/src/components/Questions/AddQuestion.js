@@ -173,7 +173,7 @@ const AddQuestion = ({editQuestion, setShowForm, setEditQuestion, getQuestions})
                                 defaultChecked={difficulty === 1}
                                 onClick={() => setDifficulty(1)}
                             />
-                            <label htmlFor='easy'>Easy</label>
+                            <label className='radio-label' htmlFor='easy'>Easy</label>
                         </div>
                         <div>
                             <input
@@ -183,7 +183,7 @@ const AddQuestion = ({editQuestion, setShowForm, setEditQuestion, getQuestions})
                                 defaultChecked={difficulty === 2}
                                 onClick={() => setDifficulty(2)}
                             />
-                            <label htmlFor='medium'>Medium</label>
+                            <label className='radio-label' htmlFor='medium'>Medium</label>
                         </div>
                         <div>
                             <input
@@ -193,7 +193,7 @@ const AddQuestion = ({editQuestion, setShowForm, setEditQuestion, getQuestions})
                                 defaultChecked={difficulty === 3}
                                 onClick={() => setDifficulty(3)}
                             />
-                            <label htmlFor='hard'>Hard</label>
+                            <label className='radio-label' htmlFor='hard'>Hard</label>
                         </div>
                     </div>
                     <div className='add_question_field-row'>
