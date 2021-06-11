@@ -10,7 +10,6 @@
 
 .splash-info{
     flex: 1;
-    margin-left: 50px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -23,9 +22,13 @@
 }
 
 .dungeon-door-bg{
-    margin-left: 120px;
+    /* margin-left: 120px;
     height: 500px;
-    width: 700px;
+    width: 700px; */
+    margin-right: 5vh;
+    margin-left: 5vh;
+    height: 60vh;
+    width: 80vh;
 }
 
 .trivia-header{

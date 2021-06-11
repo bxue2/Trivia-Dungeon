@@ -14,7 +14,6 @@ const SplashPage = () => {
     // }, [user])
     return (
     <div className='splash-container'>
-        Splash Page
         <div className='splash-info'>
             <div className='trivia-header'>Welcome to the Trivia Dungeon</div>
             <div className='trivia-subheader'>Sign up to submit your own questions and create question sets.</div>
