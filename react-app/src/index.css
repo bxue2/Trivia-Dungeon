@@ -1,13 +1,22 @@
 /* TODO Add site wide styles */
-body{
+html{
+    margin: 0;
+    height: 100%;
+    width: 100vw;
+    min-width: 1400px;
+}
+
+html,body{
     margin: 0;
     font-size: 16px;
+    min-height: 100%;
+    width: 100%;
 }
 
 #root{
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    min-width: 100vw;
     height: 100vh;
 }
 

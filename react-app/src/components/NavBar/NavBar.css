@@ -1,6 +1,6 @@
 nav {
     display: grid;
-    width: 100vw;
+    /* width: 100vw; */
     height: 80px;
     background-color: #474747;
     grid-template-columns: 200px 2fr 2fr 400px;

@@ -4,6 +4,7 @@
     font-size: 16px;
     padding: 3px 10px;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 .view-sets_button{
