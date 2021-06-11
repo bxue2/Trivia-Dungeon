@@ -6,3 +6,9 @@
     box-sizing: border-box;
     border-top: 5px solid black;
 }
+
+.profile-pic{
+    border-radius: 1.75em;
+    height: 90px;
+    width: 90px;
+}

@@ -1,8 +1,15 @@
 .trivia-render-container{
     display: flex;
     flex-direction: column;
+    /* max-width: 600px;
+    width: 90%;
+    height: 450px; */
     max-width: 600px;
-    height: 450px;
+    max-height: 450px;
+    width: 90vw;
+    height: 90vh;
+    min-height: 300px;
+    min-width: 400px;
     align-items: center;
     border: 1px solid white;
     background-color: #777777;
