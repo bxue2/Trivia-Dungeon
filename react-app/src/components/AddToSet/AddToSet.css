@@ -22,3 +22,30 @@
 .set-name-label{
     flex: 1;
 }
+
+.add-to-set-button, .remove-from-set-button{
+    font-size: 16px;
+    border: 1px solid black;
+    color: white;
+    padding: 3px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.add-to-set-button{
+    background-color: #2a6449;
+}
+
+.add-to-set-button:hover{
+    background-color: #3c7a5d;
+}
+
+.remove-from-set-button{
+    background-color: #611d1d;
+}
+
+.remove-from-set-button:hover{
+    background-color: #772a2a;
+}
