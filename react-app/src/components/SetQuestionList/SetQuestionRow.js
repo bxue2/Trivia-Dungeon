@@ -1,7 +1,8 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 const SetQuestionRow = ({set, question, setLoaded}) => {
-
+    const user = useSelector(state => state.session.user)
     const history = useHistory();
 
     const viewQuestion = () => {
@@ -20,8 +21,9 @@ const SetQuestionRow = ({set, question, setLoaded}) => {
             <div className='set-question-display'>Question: {question.question}</div>
             <div className='set-question-row_button-container'>
                 <button className='view-button question-row_action-button' onClick={(e) => viewQuestion(e)}>View</button>
-                <button className='delete-button question-row_action-button' onClick={(e) => removeQuestion(e)} >Remove</button>
-
+                {user && user.id === set.userId &&
+                    <button className='delete-button question-row_action-button' onClick={(e) => removeQuestion(e)} >Remove</button>
+                }
             </div>
         </div>
     )
