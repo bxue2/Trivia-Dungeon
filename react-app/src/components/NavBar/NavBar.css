@@ -3,7 +3,7 @@ nav {
     /* width: 100vw; */
     height: 80px;
     background-color: #474747;
-    grid-template-columns: 200px 2fr 2fr 400px;
+    grid-template-columns: 220px 2fr 2fr auto;
     grid-template-rows: 1fr;
     box-sizing: border-box;
     border-bottom: 5px solid black;
@@ -19,7 +19,8 @@ nav {
 .search-div{
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    /* padding-left: 20px; */
+    /* box-sizing: content-box; */
     flex: 1;
 }
 
@@ -83,6 +84,7 @@ nav {
     font-size: 16px;
     width: 100px;
     padding: 10px;
+    margin: 10px;
     border-radius: 10px;
     border: 1px solid white;
     cursor: pointer;

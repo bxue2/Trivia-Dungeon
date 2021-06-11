@@ -3,7 +3,7 @@ html{
     margin: 0;
     height: 100%;
     width: 100vw;
-    min-width: 1400px;
+    /* min-width: 1400px; */
 }
 
 html,body{
@@ -16,7 +16,7 @@ html,body{
 #root{
     display: flex;
     flex-direction: column;
-    min-width: 100vw;
+    /* min-width: 100vw; */
     height: 100vh;
 }
 

@@ -5,10 +5,36 @@
     background-color: #474747;
     box-sizing: border-box;
     border-top: 5px solid black;
+    display: flex;
+    /* display: grid;
+    grid-template-columns: 100px 200px auto 200px;
+    grid-template-rows: 1fr; */
 }
-
+.profile-pic-container{
+    /* padding-left: 10px; */
+}
 .profile-pic{
     border-radius: 1.75em;
     height: 90px;
     width: 90px;
+}
+
+.link-section{
+    display: flex;
+    align-items: center;
+}
+
+.link-image{
+    height: 50px;
+    width: 50px;
+}
+
+.credit-section{
+    align-self: flex-end;
+    color: white;
+}
+
+.credit-section a{
+    color: white;
+    font-style: none;
 }
