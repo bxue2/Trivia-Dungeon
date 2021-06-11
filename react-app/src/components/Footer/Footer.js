@@ -8,14 +8,14 @@ const Footer = () => {
     return (
         <div className='footer-container'>
             <div className='profile-pic-container'>
-                <img className='profile-pic' src={profile}></img>
+                <img alt='Brian Xue headshot' className='profile-pic' src={profile}></img>
             </div>
             <div className='link-section'>
                 <a href='https://www.linkedin.com/in/brian-xue/'>
-                    <img className='link-image' src={linkedin} ></img>
+                    <img alt='LinkedIn logo' className='link-image' src={linkedin} ></img>
                 </a>
                 <a href='https://github.com/bxue2'>
-                    <img className='link-image' src={github}></img>
+                    <img alt='Github logo' className='link-image' src={github}></img>
                 </a>
             </div>
             <div className='profile-desc'>Trivia Dungeon was created by Brian Xue.</div>

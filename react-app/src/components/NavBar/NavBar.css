@@ -9,6 +9,16 @@ nav {
     border-bottom: 5px solid black;
 }
 
+/* @media screen and (max-width: 800px){
+    .search-div, .search-bar, .search-bar_select-category, .search-button, .search-row, .search-type{
+        display: none;
+    }
+    nav{
+        grid-template-columns: 220px 0 0 1fr;
+        z-index: 1;
+    };
+} */
+
 .nav-logo{
     background-image: url('../../pictures/trivia_logo_tp_2.png');
     background-size: 100% 100%;
@@ -21,6 +31,7 @@ nav {
     align-items: center;
     /* padding-left: 20px; */
     /* box-sizing: content-box; */
+    background-color: #474747;
     flex: 1;
 }
 
@@ -77,6 +88,7 @@ nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    background-color: #474747;
 }
 
 .auth_action-button{
