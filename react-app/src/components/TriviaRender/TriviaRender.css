@@ -4,24 +4,26 @@
     /* max-width: 600px;
     width: 90%;
     height: 450px; */
-    max-width: 600px;
-    max-height: 450px;
+    max-width: 1000px;
+    max-height: 750px;
     width: 90vw;
     height: 90vh;
     min-height: 300px;
     min-width: 400px;
     align-items: center;
     border: 1px solid white;
-    background-color: #777777;
+    /* background-color: #777777; */
     position: relative;
     margin: 20px;
+    border-radius: 1em;
+    background-color: #cfcfcf;
+    overflow: hidden;
 }
 
 .question-section{
     height: 60%;
     width: 100%;
     box-sizing: border-box;
-    background-color: #cfcfcf;
     font-size: 30px;
     display: flex;
     justify-content: center;
