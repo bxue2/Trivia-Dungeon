@@ -1,8 +1,49 @@
 .footer-container{
     /* width: 100vw; */
+    color: white;
+    align-items: center;
     height: 100px;
     bottom: 0;
     background-color: #474747;
     box-sizing: border-box;
     border-top: 5px solid black;
+    display: flex;
+    font-size: 1.25rem;
+    /* display: grid;
+    grid-template-columns: 100px 200px auto 200px;
+    grid-template-rows: 1fr; */
+}
+/* .profile-pic-container{ */
+    /* padding-left: 10px; */
+/* } */
+.profile-pic{
+    border-radius: 1.75em;
+    height: 90px;
+    width: 90px;
+    padding: 0 10px;
+}
+
+.link-section{
+    display: flex;
+    align-items: center;
+}
+
+.link-image{
+    height: 50px;
+    width: 50px;
+    padding: 0 5px;
+}
+
+.filler-div{
+    flex: 1;
+}
+
+.credit-section{
+    color: white;
+    padding: 10px;
+}
+
+.credit-section a{
+    color: white;
+    font-style: none;
 }
