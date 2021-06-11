@@ -93,8 +93,29 @@
 .add-set-submit{
     font-size: 16px;
     margin-right: 10px;
+    background-color: #3d3d3d;
+    border: 1px solid black;
+    color: white;
+    padding: 3px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .add-set-cancel{
     font-size: 16px;
+    background-color: #3d3d3d;
+    border: 1px solid black;
+    color: white;
+    padding: 3px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.add-set_button-container{
+    margin-top: 10px;
+    display: flex;
 }

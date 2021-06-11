@@ -80,3 +80,43 @@
     align-items: center;
     color: white;
 }
+
+.comment-action-button{
+    font-size: 16px;
+    background-color: #3d3d3d;
+    border: 1px solid black;
+    color: white;
+    padding: 3px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.comment-edit-button{
+    background-color: #2a6449;
+    margin-right: 10px;
+}
+
+.comment-edit-button:hover{
+    background-color: #3c7a5d;
+}
+
+.comment-delete-button{
+    background-color: #611d1d;
+}
+
+.comment-delete-button:hover{
+    background-color: #772a2a;
+}
+
+
+.comment-action-group{
+    margin-top: 5px;
+    display: flex;
+}
+
+.comment-username{
+    font-size: 20px;
+    font-weight: 600;
+}

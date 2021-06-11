@@ -31,8 +31,8 @@ const CommentDiv = ({setShowForm, setEditComment, comment, getComments}) => {
             </div>
             {user.id === comment.userId && (
                 <div className='comment-action-group'>
-                    <button onClick={openEditForm}>Edit</button>
-                    <button onClick={deleteComment}>Delete</button>
+                    <button className='comment-action-button comment-edit-button' onClick={openEditForm}>Edit</button>
+                    <button className='comment-action-button comment-delete-button' onClick={deleteComment}>Delete</button>
                 </div>
             )}
         </div>
