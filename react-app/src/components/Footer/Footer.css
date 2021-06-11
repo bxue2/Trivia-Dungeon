@@ -1,5 +1,7 @@
 .footer-container{
     /* width: 100vw; */
+    color: white;
+    align-items: center;
     height: 100px;
     bottom: 0;
     background-color: #474747;
@@ -10,9 +12,9 @@
     grid-template-columns: 100px 200px auto 200px;
     grid-template-rows: 1fr; */
 }
-.profile-pic-container{
+/* .profile-pic-container{ */
     /* padding-left: 10px; */
-}
+/* } */
 .profile-pic{
     border-radius: 1.75em;
     height: 90px;
@@ -29,9 +31,13 @@
     width: 50px;
 }
 
+.filler-div{
+    flex: 1;
+}
+
 .credit-section{
-    align-self: flex-end;
     color: white;
+    padding: 10px;
 }
 
 .credit-section a{
