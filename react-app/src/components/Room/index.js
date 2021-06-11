@@ -1,27 +1,36 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef} from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+import './Room.css'
 const Room = () => {
+    const history = useHistory();
     const user = useSelector(state => state.session.user);
     const [players, setPlayer] = useState([])
     const webSocket = useRef(null);
     useEffect(() => {
         const ws = new WebSocket(process.env.REACT_APP_WS_URL);
 
+        const sendMessage = (type, data) => {
+            const message = {
+                type: type,
+                data: data,
+            }
+            ws.send(JSON.stringify(message))
+        }
+
+
         webSocket.current = {
             ws,
+            sendMessage
         };
 
         ws.onopen = () => {
-            const message = {
-                type: 'player-join',
-                data:{
-                    userid: user.id,
-                }
-            }
-            ws.send(JSON.stringify(message));
+            sendMessage('player-join', {userid: user.id})
         };
 
         ws.onmessage = (e) => {
+            setPlayer([])
             console.log(e);
         };
 
@@ -30,14 +39,8 @@ const Room = () => {
         };
 
         ws.onclose = (e) => {
-            console.log(e);
-            const message = {
-                type: 'player-leave',
-                data:{
-                    userid: user.id,
-                }
-            }
-            ws.send(JSON.stringify(message));
+            webSocket.current = null;
+            history.push('/')
         };
 
         return function cleanup() {
