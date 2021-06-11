@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -19,12 +19,6 @@ const Room = () => {
             ws.send(JSON.stringify(message))
         }
 
-
-        webSocket.current = {
-            ws,
-            sendMessage
-        };
-
         ws.onopen = () => {
             sendMessage('player-join', {userid: user.id})
         };
@@ -40,18 +34,26 @@ const Room = () => {
 
         ws.onclose = (e) => {
             webSocket.current = null;
-            history.push('/')
+            // history.push('/')
         };
+
+        webSocket.current = {
+            ws,
+            sendMessage
+        };
+        console.log("Enter here")
+
 
         return function cleanup() {
             if (webSocket.current !== null) {
                 webSocket.current.ws.close();
             }
         };
-    }, [players])
-    return (
-        <div>
+    }, [players, history, user.id])
 
+    return (
+        <div className='room-page'>
+            Test Page
         </div>
     )
 }

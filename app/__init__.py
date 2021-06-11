@@ -21,7 +21,8 @@ from .config import Config
 app = Flask(__name__)
 
 socketio = SocketIO(app)
-socketio.init_app(app)
+if __name__ == "__main__":
+    socketio.run(app, debug=True)
 
 # Setup login manager
 login = LoginManager(app)
