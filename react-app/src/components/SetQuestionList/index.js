@@ -17,8 +17,10 @@ const SetQuestionList = ({set}) => {
     }, [setQuestions, set.id])
 
     useEffect(() => {
-        getQuestions();
-    }, [getQuestions])
+        if(!loaded){
+            getQuestions();
+        }
+    }, [getQuestions, loaded])
 
     useEffect(() => {
         if(questions.length !== 0){
