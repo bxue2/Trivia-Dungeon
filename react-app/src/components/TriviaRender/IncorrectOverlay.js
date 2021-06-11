@@ -1,10 +1,13 @@
 import React from 'react'
 import incorrect from '../../pictures/incorrect_icon_512px.png'
+import { useHistory } from 'react-router';
 import {useDispatch} from 'react-redux';
 import {goToNextQuestion} from '../../store/questions'
 
-const IncorrectOverlay = ({setAnswered, next}) => {
+const IncorrectOverlay = ({setAnswered, next, qid}) => {
     const dispatch = useDispatch();
+    const history = useHistory();
+
     return (
         <div className='result-overlay'>
             <img alt='Incorrect Answer' src={incorrect} className="incorrect-logo"/>
@@ -16,6 +19,7 @@ const IncorrectOverlay = ({setAnswered, next}) => {
                 setAnswered(0)
                 dispatch(goToNextQuestion())
             }}>Skip</button>}
+            <button className='action-button' onClick={() => history.push(`/questions/${qid}`)}>View Question Page</button>
         </div>
     )
 }

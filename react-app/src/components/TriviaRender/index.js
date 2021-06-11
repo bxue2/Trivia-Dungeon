@@ -56,10 +56,10 @@ const TriviaRender = ({setReplay=null, loaded=true, question, next}) => {
             <div className='trivia-render-container'>
                 {user && <button className='open-add-set' onClick={() => setShowModal(true)}>Add to/Remove from Sets</button>}
                 {answered === 1 && (
-                    <CorrectOverlay setAnswered={setAnswered} next={next}/>
+                    <CorrectOverlay setAnswered={setAnswered} next={next} qid={question.id}/>
                 )}
                 {answered === 2 && (
-                    <IncorrectOverlay setAnswered={setAnswered} next={next}/>
+                    <IncorrectOverlay setAnswered={setAnswered} next={next} qid={question.id}/>
                 )}
                 <div className='question-section'>
                     {question && question.question}

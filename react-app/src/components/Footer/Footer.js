@@ -1,6 +1,6 @@
 import React from 'react'
 import profile from '../../pictures/brian-headshot.png'
-import linkedin from '../../pictures/LI-In-Bug.png'
+import linkedin from '../../pictures/LI-In-Bug_fill.png'
 import github from '../../pictures/GitHub-Mark-Light-120px-plus.png'
 import './Footer.css'
 

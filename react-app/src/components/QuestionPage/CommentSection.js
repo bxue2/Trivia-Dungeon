@@ -39,6 +39,9 @@ const CommentSection = ({question}) => {
                 setShowAdd(false)
             }
         }
+        else{
+            setShowAdd(false);
+        }
 
     }, [comments, user, question.userId])
 
