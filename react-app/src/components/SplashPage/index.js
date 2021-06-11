@@ -14,6 +14,7 @@ const SplashPage = () => {
     // }, [user])
     return (
     <div className='splash-container'>
+        <img alt='dungeon door' className='dungeon-door-bg' src={door}/>
         <div className='splash-info'>
             <div className='trivia-header'>Welcome to the Trivia Dungeon</div>
             <div className='trivia-subheader'>Sign up to submit your own questions and create question sets.</div>
@@ -25,7 +26,6 @@ const SplashPage = () => {
                 {!user && <button className='splash-button' onClick={() => {document.querySelector('.signup-button').click()}}>Sign up for an account</button>}
             </div>
         </div>
-        <img alt='dungeon door' className='dungeon-door-bg' src={door}/>
     </div>)
 }
 
