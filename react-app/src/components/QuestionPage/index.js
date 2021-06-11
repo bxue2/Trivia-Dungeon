@@ -20,6 +20,7 @@ const QuestionPage = () => {
         }
         else{
             setQuestion(questionInfo);
+            console.log(questionInfo)
         }
     }, [id, history]);
 
@@ -29,6 +30,12 @@ const QuestionPage = () => {
 
     return (
         <div className='question-page'>
+            {question && (
+                <>
+                    <h1 className='question-page-header'>Question #{question.id}</h1>
+                    <h1 className='question-page-header'>Submitted by: {question.username}</h1>
+                </>
+            )}
             <TriviaRender question={question} next={false}/>
             <CommentSection question={question}/>
         </div>

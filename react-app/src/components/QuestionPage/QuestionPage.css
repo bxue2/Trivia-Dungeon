@@ -6,6 +6,11 @@
     padding-top: 30px;
 }
 
+.question-page-header{
+    color: white;
+    margin: 0;
+}
+
 .comment-list-container{
     display: flex;
     flex-direction: column;
