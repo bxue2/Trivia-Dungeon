@@ -15,7 +15,7 @@ const SearchResults = (props) => {
     const values = queryString.parse(query.search)
 
     const getSearch = useCallback(async (queryStr, queryType) => {
-        const response = await fetch(`/api/${queryType}/search?${queryStr ? `query=${queryStr}` : ''}${(values.category1 && (values.category1 != 0)) ? '&category1=' + values.category1 : ''}`)
+        const response = await fetch(`/api/${queryType}/search?${queryStr ? `query=${queryStr}` : ''}${(values.category1 && (values.category1 !== 0)) ? '&category1=' + values.category1 : ''}`)
         const searchData = await response.json()
         // if(data.errors){
         // } else{
@@ -28,11 +28,11 @@ const SearchResults = (props) => {
         setLoaded(true);
 
         // }
-    }, [setQuestions, query])
+    }, [setQuestions, values.category1])
 
     useEffect(() => {
         getSearch(values.query, values.type);
-    }, [query, getSearch])
+    }, [query, getSearch, values.query, values.type])
     return (
         <div className='search-results-container'>
             <ListComponent title='Search Results'>

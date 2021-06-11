@@ -77,7 +77,7 @@ const AddSet = ({setShowForm, editSet, setEditSet, getSets}) => {
                 {editSet && (
                     <SetQuestionList set={editSet} />
                 )}
-                <div>
+                <div className='add-set_button-container'>
                     <button type='submit' className='add-set-submit'>
                         {editSet ? 'Edit' : 'Create'}
                     </button>

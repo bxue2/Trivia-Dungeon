@@ -1,11 +1,11 @@
 import React from 'react'
-import {useSelector} from 'react-redux';
+// import {useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
 import './SetListRow.css'
 
 const SetListRow = ({set, getSets=null, setEditSet=null}) => {
-    const user = useSelector(state => state.session.user);
+    // const user = useSelector(state => state.session.user);
     const history = useHistory();
 
     const deleteSet = async () => {

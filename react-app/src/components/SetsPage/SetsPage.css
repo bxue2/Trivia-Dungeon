@@ -8,8 +8,43 @@
 
 .sets-page h1{
     margin: 0;
+    color: white;
 }
 
 .sets-page h3{
     margin: 0;
+    color: white;
+}
+
+.question-list-button{
+    background-color: #3d3d3d;
+    border: 2px solid white;
+    color: white;
+    height: 40px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.set-question-list-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close-modal-button{
+    font-size: 20px;
+    background-color: #3d3d3d;
+    border: 1px solid white;
+    color: white;
+    height: 40px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
 }

@@ -14,11 +14,13 @@ const SetQuestionList = ({set}) => {
         console.log(data)
         setQuestions(data.questions);
 
-    }, [setQuestions])
+    }, [setQuestions, set.id])
 
     useEffect(() => {
-        getQuestions();
-    }, [getQuestions])
+        if(!loaded){
+            getQuestions();
+        }
+    }, [getQuestions, loaded])
 
     useEffect(() => {
         if(questions.length !== 0){
@@ -30,7 +32,7 @@ const SetQuestionList = ({set}) => {
         <ListComponent title='Question List'>
             {questions && questions.map((question, idx) => {
                 return (
-                    <SetQuestionRow set={set} question={question} getQuestions={getQuestions} key={idx}/>
+                    <SetQuestionRow set={set} question={question} setLoaded={setLoaded} key={idx}/>
                 )})
             }
             {(questions.length === 0 && loaded) &&

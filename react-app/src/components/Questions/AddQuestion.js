@@ -208,7 +208,7 @@ const AddQuestion = ({editQuestion, setShowForm, setEditQuestion, getQuestions})
                             }
                         </select>
                     </div>
-                    <div>
+                    <div className='add-question_button-container'>
                         <button type='submit' className='add-question-submit'>
                             {editQuestion ? 'Edit' : 'Submit'}
                         </button>
