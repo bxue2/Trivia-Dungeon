@@ -4,6 +4,7 @@
     margin-right: 10px;
     padding: 3px 10px;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 .view-button{
