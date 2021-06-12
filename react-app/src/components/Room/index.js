@@ -20,7 +20,8 @@ const Room = () => {
         }
 
         ws.onopen = () => {
-            sendMessage('player-join', {userid: user.id})
+            // sendMessage('player-join', {userid: user.id})
+            console.log("Hi")
         };
 
         ws.onmessage = (e) => {

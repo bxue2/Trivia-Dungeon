@@ -125,3 +125,13 @@
     font-size: 20px;
     font-weight: 600;
 }
+
+.submit-comment-button{
+    font-size: 1.25em;
+    padding: 8px 0;
+}
+
+.comment-form-field_row textarea{
+    font-size: 1.25em;
+    height: 10em;
+}
