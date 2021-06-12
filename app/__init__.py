@@ -16,10 +16,12 @@ from .api.category_routes import category_routes
 
 from .seeds import seed_commands
 
+from .socket import socketio
 from .config import Config
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+socketio.init_app(app)
 
 # Setup login manager
 login = LoginManager(app)
@@ -83,5 +85,5 @@ def react_root(path):
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
 
-# if __name__ == "__main__":
-socketio.run(app, debug=True)
+if __name__ == "__main__":
+    socketio.run(app)
