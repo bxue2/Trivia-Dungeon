@@ -1,60 +1,63 @@
 import React, {useEffect, useRef, useState} from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { io } from 'socket.io-client';
 
 import './Room.css'
+
+let socket;
 const Room = () => {
     const history = useHistory();
+    // use state for controlled form input
+    const [chatInput, setChatInput] = useState("");
     const user = useSelector(state => state.session.user);
     const [players, setPlayer] = useState([])
-    const webSocket = useRef(null);
+    const [messages, setMessages] = useState([])
     useEffect(() => {
-        const ws = new WebSocket(process.env.REACT_APP_WS_URL);
 
-        const sendMessage = (type, data) => {
-            const message = {
-                type: type,
-                data: data,
-            }
-            ws.send(JSON.stringify(message))
-        }
+        // create websocket/connect
+        socket = io();
 
-        ws.onopen = () => {
-            // sendMessage('player-join', {userid: user.id})
-            console.log("Hi")
-        };
+        // listen for chat events
+        socket.on("chat", (chat) => {
+            // when we recieve a chat, add it into our messages array in state
+            setMessages(messages => [...messages, chat])
+        })
 
-        ws.onmessage = (e) => {
-            setPlayer([])
-            console.log(e);
-        };
+        // when component unmounts, disconnect
+        return (() => {
+            socket.disconnect()
+        })
+    }, [])
 
-        ws.onerror = (e) => {
-            console.error(e);
-        };
-
-        ws.onclose = (e) => {
-            webSocket.current = null;
-            // history.push('/')
-        };
-
-        webSocket.current = {
-            ws,
-            sendMessage
-        };
-        console.log("Enter here")
+    const updateChatInput = (e) => {
+        setChatInput(e.target.value)
+    };
 
 
-        return function cleanup() {
-            if (webSocket.current !== null) {
-                webSocket.current.ws.close();
-            }
-        };
-    }, [players, history, user.id])
+    const sendChat = (e) => {
+        e.preventDefault()
+        // emit a message
+        socket.emit("chat", { user: user.username, msg: chatInput });
+        // clear the input field after the message is sent
+        setChatInput("")
+    }
 
     return (
         <div className='room-page'>
             Test Page
+            <div>
+                {messages.map((message, ind) => (
+                    <div key={ind}>{`${message.user}: ${message.msg}`}</div>
+                ))}
+            </div>
+            <form onSubmit={sendChat}>
+                <input
+                    value={chatInput}
+                    onChange={updateChatInput}
+            />
+    <button type="submit">Send</button>
+</form>
         </div>
     )
 }
