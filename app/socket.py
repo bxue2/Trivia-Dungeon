@@ -1,4 +1,4 @@
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, join_room, leave_room
 import os
 
 if os.environ.get("FLASK_ENV") == "production":
@@ -17,10 +17,21 @@ socketio = SocketIO(cors_allowed_origins=origins)
 def handle_chat(data):
     emit("chat", data, broadcast=True)
 
+# Pass in user, their answer, check for answer and time and assign score
+@socketio.on('answer')
+def handle_answer(json_data):
+    data = json.loads(json_data)
+
+
+#On connection, need to add player to player list
 @socketio.on('connect')
 def test_connect(auth):
-    print('connected')
+    print('Test connected')
     emit('my response', {'data': 'Connected'})
+
+@socketio.on('disconnect')
+def test_disconnect():
+    print('Client disconnected')
 
 def process_message(json_data):
     message = json.loads(json_data)

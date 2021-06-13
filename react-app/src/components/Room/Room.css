@@ -1,3 +1,21 @@
 .room-page{
     color:white;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    width: 100%;
+    height: 100%;
+}
+
+.message-log{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 10em;
+    width: 20em;
+}
+
+.main-container{
+    height: 400px;
+    width: 400px;
 }
