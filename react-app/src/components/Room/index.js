@@ -54,7 +54,7 @@ const Room = () => {
 
     return (
         <div className='room-page'>
-            <div className='main-container'>
+            <div className='room_trivia-container'>
                 <div className='user-list'>
                     {user.username}
                 </div>
@@ -64,7 +64,7 @@ const Room = () => {
                 <div className='message-box'>
                     <div className='message-log'>
                         {messages.map((message, ind) => (
-                            <div key={ind}>{`${message.user}: ${message.msg}`}</div>
+                            <div key={ind} className='message-row'>{`${message.user}: ${message.msg}`}</div>
                         ))}
                     </div>
                     <form onSubmit={sendChat}>
