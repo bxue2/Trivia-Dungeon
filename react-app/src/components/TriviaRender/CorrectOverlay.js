@@ -20,7 +20,7 @@ const CorrectOverlay = ({setAnswered, next, qid}) => {
                     dispatch(goToNextQuestion())
                 }}>Next</button>
             }
-            <button className='action-button' onClick={() => history.push(`/questions/${qid}`)}>View Question Page</button>
+            {next && <button className='action-button' onClick={() => history.push(`/questions/${qid}`)}>View Question Page</button>}
         </div>
     )
 }

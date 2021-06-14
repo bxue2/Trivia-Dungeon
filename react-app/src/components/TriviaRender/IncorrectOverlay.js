@@ -19,7 +19,7 @@ const IncorrectOverlay = ({setAnswered, next, qid}) => {
                 setAnswered(0)
                 dispatch(goToNextQuestion())
             }}>Skip</button>}
-            <button className='action-button' onClick={() => history.push(`/questions/${qid}`)}>View Question Page</button>
+            {next && <button className='action-button' onClick={() => history.push(`/questions/${qid}`)}>View Question Page</button>}
         </div>
     )
 }
