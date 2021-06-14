@@ -56,6 +56,7 @@ const Room = () => {
         <div className='room-page'>
             <div className='room_trivia-container'>
                 <div className='user-list'>
+                    <h2>Users:</h2>
                     {user.username}
                 </div>
                 <div className='trivia-box'>

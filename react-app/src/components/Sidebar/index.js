@@ -43,9 +43,9 @@ const Sidebar = () => {
                     Random
             </NavLink>
             {sidebarLinks}
-            <NavLink className='sidebar-link' to='/room/1'>
+            {/* <NavLink className='sidebar-link' to='/room/1'>
                 Prototype: Room
-            </NavLink>
+            </NavLink> */}
 
         </div>
     )
