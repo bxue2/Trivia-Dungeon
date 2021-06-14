@@ -26,9 +26,9 @@ const CommentDiv = ({setShowForm, setEditComment, comment, getComments}) => {
                 value={comment.rating}
                 readOnly
             />
-            {/* <div className='comment-comment'>
+            <div className='comment-comment'>
                 {comment.comment}
-            </div> */}
+            </div>
             {user && user.id === comment.userId && (
                 <div className='comment-action-group'>
                     <button className='comment-action-button comment-edit-button' onClick={openEditForm}>Edit</button>
