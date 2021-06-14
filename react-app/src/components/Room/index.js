@@ -1,13 +1,13 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
 import './Room.css'
 
 let socket;
 const Room = () => {
-    const history = useHistory();
+    // const history = useHistory();
     // use state for controlled form input
     const [chatInput, setChatInput] = useState("");
     const user = useSelector(state => state.session.user);
@@ -30,6 +30,7 @@ const Room = () => {
         })
 
         socket.on('score', (updatedScore) => {
+            console.log(scores)
             setScores(scores => [...updatedScore])
         })
 
@@ -37,7 +38,7 @@ const Room = () => {
         return (() => {
             socket.disconnect()
         })
-    }, [])
+    }, [players, scores])
 
     const updateChatInput = (e) => {
         setChatInput(e.target.value)
