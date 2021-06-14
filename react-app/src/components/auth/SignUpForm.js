@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 
 import './Forms.css'
 
-const SignUpForm = ({setShowModal}) => {
+const SignUpForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,9 +19,6 @@ const SignUpForm = ({setShowModal}) => {
       const data = await dispatch(signUp(username, email, password));
       if (data.errors) {
         setErrors(data.errors);
-      }
-      else{
-        setShowModal(false);
       }
     }
     else{
