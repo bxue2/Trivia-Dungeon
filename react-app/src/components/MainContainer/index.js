@@ -6,6 +6,7 @@ import QuestionPage from '../QuestionPage';
 import SetsPage from '../SetsPage';
 import SearchResults from '../SearchResults';
 import SplashPage from '../SplashPage';
+import Room from '../Room';
 
 import ProtectedRoute from '../auth/ProtectedRoute'
 import Questions from '../Questions'
@@ -52,8 +53,12 @@ const MainContainer = () => {
                 <Route path="/" exact={true} >
                     <SplashPage />
                 </Route>
+                <Route path="/room/:id">
+                    <Sidebar />
+                    <Room />
+                </Route>
                 <Route>
-                    <h1>404 Page not Found</h1>
+                    <h1 style={{color: 'white'}}>404 Page not Found</h1>
                 </Route>
             </Switch>
         </div>
