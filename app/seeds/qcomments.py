@@ -45,8 +45,8 @@ def seed_qcomments():
         prevUser = -1
         prevnum = -1
         for j in range(2):
-            #0 is no comment
-            num = random.randint(0, 4)
+            #-1, 0 is no comment
+            num = random.randint(-1, 6)
             if num == 1 and prevnum != 1:
                 qcomment = QuestionComment(
                         comment='OK question',
@@ -74,7 +74,7 @@ def seed_qcomments():
                 )
                 db.session.add(qcomment)
                 prevnum = 3
-            if num == 4:
+            if num > 3:
                 #Prevent same user from commenting twice
                 if prevUser == -1:
                     prevUser = random.randint(1,5)
