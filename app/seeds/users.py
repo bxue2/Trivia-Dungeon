@@ -7,7 +7,7 @@ def seed_users():
     admin = User(username='admin', email='admin@trivia.io', password='sd2fds8aW')
 
     demo = User(username='Demo', email='demo@aa.io',
-                password='password')
+                password='s2fsax9aD')
 
     user1 = User(username='CornedApple', email='corn@aa.io',
                 password='d0892nvs')
@@ -17,6 +17,10 @@ def seed_users():
 
     user3 = User(username='HelloWorld', email='world@aa.io',
                 password='v09i2kxff')
+
+    user4 = User(username='JoeSchmo', email='joe@aa.io',
+                password='v09i2kxff')
+
 
     db.session.add(admin)
     db.session.add(demo)

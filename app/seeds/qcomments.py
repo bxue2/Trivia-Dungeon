@@ -1,7 +1,7 @@
 from app.models import db, QuestionComment
 
 def seed_qcomments():
-
+    
     qcomment1 = QuestionComment(
                     comment='Nice question',
                     rating=5,

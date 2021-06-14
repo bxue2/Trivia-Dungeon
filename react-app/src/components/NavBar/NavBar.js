@@ -31,7 +31,7 @@ const NavBar = () => {
   }, [])
 
   const demoLogin = () => {
-    dispatch(login('demo@aa.io', 'password'))
+    dispatch(login('demo@aa.io', 's2fsax9aD'))
   }
 
   const submitSearch = (e) => {
