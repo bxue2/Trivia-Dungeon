@@ -62,7 +62,7 @@ def seed_questions():
                     incorrect_answer_2='100 degrees',
                     incorrect_answer_3='98 degrees',
                     difficulty=1,
-                    user_id=1,
+                    user_id=2,
                     category_id=9
                 )
     question2 = Question(

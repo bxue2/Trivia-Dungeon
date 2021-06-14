@@ -16,17 +16,42 @@ def seed_sets():
     db.session.execute(adds1q1)
     db.session.execute(adds1q2)
     db.session.execute(adds1q3)
-    # set_question_1 = SetQuestion(
-    #     question_id=1,
-    #     set_id=1
-    # )
-    # set_question_2 = SetQuestion(
-    #     question_id=2,
-    #     set_id=1
-    # )
 
-    # db.session.add(set_question_1)
-    # db.session.add(set_question_2)
+    db.session.commit()
+
+    set2 = Set(
+        name='Some Set',
+        user_id=3
+    )
+    db.session.add(set2)
+    db.session.commit()
+
+    adds2q1 = set_questions.insert().values(set_id=1, question_id=58)
+    adds2q2 = set_questions.insert().values(set_id=1, question_id=1002)
+    adds2q3 = set_questions.insert().values(set_id=1, question_id=459)
+    adds2q4 = set_questions.insert().values(set_id=1, question_id=632)
+    db.session.execute(adds2q1)
+    db.session.execute(adds2q2)
+    db.session.execute(adds2q3)
+    db.session.execute(adds2q4)
+
+    db.session.commit()
+
+    set3 = Set(
+        name='Another Set',
+        user_id=5
+    )
+    db.session.add(set3)
+    db.session.commit()
+
+    adds3q1 = set_questions.insert().values(set_id=1, question_id=881)
+    adds3q2 = set_questions.insert().values(set_id=1, question_id=1543)
+    adds3q3 = set_questions.insert().values(set_id=1, question_id=223)
+    adds3q4 = set_questions.insert().values(set_id=1, question_id=457)
+    db.session.execute(adds3q1)
+    db.session.execute(adds3q2)
+    db.session.execute(adds3q3)
+    db.session.execute(adds3q4)
 
     db.session.commit()
 
