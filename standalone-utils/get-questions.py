@@ -16,7 +16,7 @@ token = getsession.json().get('token')
 f = open('question-list.txt', 'w')
 for category in category_order:
     #get 100 questions per category
-    for i in range(2):
+    for i in range(4):
         response = requests.get("https://opentdb.com/api.php?amount=50&token={0}&category={1}".format(token, category))
         data = response.json()
 
