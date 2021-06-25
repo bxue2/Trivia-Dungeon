@@ -22,7 +22,7 @@ const SearchResults = (props) => {
         if(queryType === 'questions'){
             setQuestions(searchData.questions);
         } else{
-            console.log(searchData)
+            // console.log(searchData)
             setSets(searchData.sets);
         }
         setLoaded(true);
