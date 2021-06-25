@@ -30,7 +30,7 @@ const Room = () => {
         })
 
         socket.on('score', (updatedScore) => {
-            console.log(scores)
+            // console.log(scores)
             setScores(scores => [...updatedScore])
         })
 

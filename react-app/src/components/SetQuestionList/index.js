@@ -11,7 +11,7 @@ const SetQuestionList = ({set}) => {
     const getQuestions = useCallback(async () => {
         const response = await fetch(`/api/questions/set/${set.id}`)
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         setQuestions(data.questions);
 
     }, [setQuestions, set.id])

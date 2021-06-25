@@ -20,7 +20,7 @@ const QuestionPage = () => {
         }
         else{
             setQuestion(questionInfo);
-            console.log(questionInfo)
+            // console.log(questionInfo)
         }
     }, [id, history]);
 
