@@ -6,6 +6,16 @@ Trivia Dungeon is a trivia app, where users can submit questions to the site's d
 
 ### Documentation: https://github.com/bxue2/Trivia-Dungeon/wiki
 
+### Screenshots
+
+Home Page:
+
+![Displaying Home page](https://github.com/bxue2/Trivia-Dungeon/blob/main/wiki/trivia-dungeon-home.png?raw=true)
+
+Trivia Rendering:
+
+![Displaying Home page](https://github.com/bxue2/Trivia-Dungeon/blob/main/wiki/trivia-dungeon-demo.png?raw=true)
+
 ### Features:
 - Login/Sign up users or Explore as a demo user
 - Submit trivia questions for yourself/others to use, or edit/delete them
