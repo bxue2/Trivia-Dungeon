@@ -56,9 +56,14 @@ const Room = () => {
     return (
         <div className='room-page'>
             <div className='room_trivia-container'>
-                <div className='user-list'>
+                <div className='user-section'>
                     <h2>Users:</h2>
-                    {user.username}
+                        <div className='user-list'>
+                            {user.username}: Score
+                        </div>
+                </div>
+                <div className='timer-box'>
+                    10 seconds?
                 </div>
                 <div className='trivia-box'>
                     Trivia
