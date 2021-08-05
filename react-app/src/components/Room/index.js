@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
+import TriviaRender from '../TriviaRender';
+
 // import { useHistory } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
@@ -84,7 +86,7 @@ const Room = () => {
                 </div>
             </div>
 
-
+            <TriviaRender question={null} next={false}></TriviaRender>
         </div>
     )
 }
