@@ -30,8 +30,8 @@
 }
 
 .room_trivia-container{
-    height: 400px;
-    width: 600px;
+    height: 800px;
+    width: 1200px;
     background-color: teal;
     display: grid;
     grid-template-columns: 10em auto 10em;

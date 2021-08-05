@@ -58,35 +58,40 @@ const Room = () => {
     return (
         <div className='room-page'>
             <div className='room_trivia-container'>
-                <div className='user-section'>
-                    <h2>Users:</h2>
-                        <div className='user-list'>
-                            {user.username}: Score
-                        </div>
-                </div>
-                <div className='timer-box'>
-                    10 seconds?
-                </div>
-                <div className='trivia-box'>
-                    Trivia
-                </div>
-                <div className='message-box'>
-                    <div className='message-log'>
-                        {messages.map((message, ind) => (
-                            <div key={ind} className='message-row'>{`${message.user}: ${message.msg}`}</div>
-                        ))}
+                <div className='trivia-section-left'>
+                    <div className='user-section'>
+                        <h2>Users:</h2>
+                            <div className='user-list'>
+                                {user.username}: Score
+                            </div>
                     </div>
-                    <form onSubmit={sendChat}>
-                        <input
-                            value={chatInput}
-                            onChange={updateChatInput}
-                    />
-                        <button type="submit">Send</button>
-                    </form>
+                    <div className='timer-box'>
+                        10 seconds?
+                    </div>
+                </div>
+
+                <div className='trivia-box'>
+                    <TriviaRender question={null} next={false}></TriviaRender>
+                </div>
+                <div classname='trivia-section-right'>
+                    <div className='message-box'>
+                        <div className='message-log'>
+                            {messages.map((message, ind) => (
+                                <div key={ind} className='message-row'>{`${message.user}: ${message.msg}`}</div>
+                            ))}
+                        </div>
+                        <form onSubmit={sendChat}>
+                            <input
+                                value={chatInput}
+                                onChange={updateChatInput}
+                        />
+                            <button type="submit">Send</button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
-            <TriviaRender question={null} next={false}></TriviaRender>
+
         </div>
     )
 }
